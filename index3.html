@@ -1,0 +1,1419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BrianShio — Travel &amp; Lifestyle For Couples</title>
+<meta name="description" content="See the world with the one you love. Travel guides, tips and honest reviews by Brian &amp; Shiori.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   BrianShio — storybook meadow edition
+   flat, soft-textured illustration: cream sky, sage forest,
+   sand road, one cabin, deer / bear / a few wolves, leaves
+   ========================================================= */
+:root{
+  --paper:#fbf7ef; --paper-2:#f4ecdd; --paper-3:#eadfca;
+  --ink:#3a3129; --ink-soft:#66594c; --ink-mute:#9a8c7c;
+  --accent:#d2793f; --accent-d:#b25f2b; --glow:#f6c76b; --sun:#e9b453;
+  --sage-1:#c3cfbc; --sage-2:#a9bba3; --sage-3:#9fb39a; --sage-4:#7e9779; --sage-5:#5f7a5c; --sage-6:#4e6a4f;
+  --sand:#e6d9c3; --sand-d:#d8c8ad; --meadow:#dfe3cf; --meadow-2:#ece5d2;
+  --deer:#b98a5a; --deer-d:#8a6440; --deer-l:#dcc09a;
+  --wood:#a3764f; --wood-d:#6e4c33; --cloud:#e6e1d5;
+  --blush:#f3cdb3; --lav:#dcd6e8;
+  --shadow:rgba(58,49,41,.14);
+  --serif:"Cormorant Garamond","Times New Roman",serif; --sans:"Nunito Sans",system-ui,-apple-system,sans-serif; --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.08;margin:0 0 .4em}
+h1{font-size:clamp(2.8rem,6.4vw,5.6rem)} h2{font-size:clamp(2rem,4.2vw,3.4rem)} h3{font-size:clamp(1.4rem,2.4vw,1.9rem)}
+p{margin:0 0 1.1em} a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.eyebrow{font-size:.76rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-d);font-weight:700;margin-bottom:1.1em}
+.btn{display:inline-flex;align-items:center;gap:.6em;font-size:.92rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:1.1em 2em;border-radius:999px;color:#fff;background:var(--accent);box-shadow:0 14px 30px -10px var(--accent-d);transition:transform .35s,background .35s}
+.btn:hover{background:var(--accent-d);transform:translateY(-3px) scale(1.03)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink);box-shadow:none}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.btn .paw{width:15px;height:15px}.btn .paw path,.btn .paw ellipse{fill:currentColor}
+.btn.wiggle{animation:wiggle 3.2s ease-in-out infinite}.btn.wiggle:hover{animation:none}
+@keyframes wiggle{0%,80%,100%{transform:rotate(0) translateY(0)}84%{transform:rotate(-2.5deg) translateY(-2px)}88%{transform:rotate(2.5deg) translateY(-2px)}92%{transform:rotate(-1.5deg) translateY(-1px)}96%{transform:rotate(1.5deg)}}
+.link{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--accent);padding-bottom:.2em}.link:hover{color:var(--accent-d)}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.4;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .55 0 0 0 0 .5 0 0 0 0 .42 0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;padding:18px 0;transition:.4s}
+.nav.scrolled{background:rgba(246,241,230,.92);backdrop-filter:blur(8px);box-shadow:0 8px 30px var(--shadow);padding:10px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:1.85rem;font-weight:600}.logo svg{width:34px;height:34px}
+.logo-mark{width:38px;height:38px;object-fit:contain;flex:none}
+.menu{display:flex;align-items:center;gap:12px;list-style:none;margin:0 40px 0 auto;padding:0}.menu li{position:relative}
+.menu a{font-size:1.11rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:8px 0;display:inline-block}
+.menu > li > a{position:relative;padding-left:28px}
+.menu > li > a::before{content:"";position:absolute;left:0;top:calc(50% - 1px);width:21px;height:21px;transform:translate(0,-50%) rotate(-20deg) scale(.7);opacity:0;transition:opacity .35s ease,transform .35s ease,background-color .3s;
+  background-color:var(--ink);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><g fill='black'><path d='M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z'/><ellipse cx='9' cy='16' rx='3.4' ry='4.6' transform='rotate(-18 9 16)'/><ellipse cx='16' cy='9' rx='3.4' ry='4.8'/><ellipse cx='24' cy='9' rx='3.4' ry='4.8'/><ellipse cx='31' cy='16' rx='3.4' ry='4.6' transform='rotate(18 31 16)'/></g></svg>") center/contain no-repeat;
+  mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><g fill='black'><path d='M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z'/><ellipse cx='9' cy='16' rx='3.4' ry='4.6' transform='rotate(-18 9 16)'/><ellipse cx='16' cy='9' rx='3.4' ry='4.8'/><ellipse cx='24' cy='9' rx='3.4' ry='4.8'/><ellipse cx='31' cy='16' rx='3.4' ry='4.6' transform='rotate(18 31 16)'/></g></svg>") center/contain no-repeat}
+.menu > li > a:hover::before,.menu > li > a.active::before{opacity:1;transform:translate(0,-50%) rotate(-20deg) scale(1)}
+.menu > li > a:hover::before{background-color:var(--accent)}
+.menu > li > a.active{color:var(--accent-d)}
+.menu .sub{position:absolute;left:0;top:100%;background:var(--paper);border:1px solid var(--paper-3);box-shadow:0 12px 30px var(--shadow);padding:12px 24px 12px 14px;list-style:none;margin:0;min-width:0;width:max-content;opacity:0;transform:translateY(8px);pointer-events:none;transition:.3s}
+.menu li:hover .sub{opacity:1;transform:none;pointer-events:auto}.menu .sub a{font-weight:600;letter-spacing:.14em;padding:6px 0;transition:color .25s}
+.menu .sub a:hover{color:var(--accent)}
+.social{display:flex;gap:14px}.social a{width:34px;height:34px;border:1px solid var(--ink-mute);border-radius:50%;display:grid;place-items:center;transition:.3s}
+.social a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}.social svg{width:15px;height:15px;fill:currentColor}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:6px}.burger span{display:block;width:26px;height:2px;background:var(--ink);margin:6px 0}
+@media (max-width:840px){.menu,.social{display:none}.burger{display:block}
+  .nav.open .menu{display:flex;flex-direction:column;align-items:center;position:absolute;top:100%;left:auto;right:0;width:40vw;margin:0;background:var(--paper);padding:24px;gap:18px;box-shadow:0 20px 40px var(--shadow)}
+  .nav.open .menu > li{width:9.5em}
+  .nav.open .menu .sub{position:static;opacity:1;transform:none;pointer-events:auto;box-shadow:none;border:0;border-left:1px solid var(--ink-mute);margin-left:30px;padding:6px 0 0 14px}
+  .nav.open::before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:-1}
+  .nav.open.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;transition:none}}
+
+/* common */
+section{position:relative}
+.reveal{opacity:0;transform:translateY(28px)}
+.print{opacity:0;transform-box:fill-box;transform-origin:center}
+.scene{position:absolute;left:0;right:0;bottom:0;pointer-events:none;overflow:visible}
+.scene svg.layer,.ground svg.layer,.trail svg.layer,.pair svg.layer,.valley svg.layer,.hills svg.layer{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.tree{transform-box:fill-box;transform-origin:50% 100%;animation:treesway 4.2s ease-in-out infinite}.tree:nth-child(even){animation-duration:5s}
+@keyframes treesway{0%,100%{transform:rotate(-3deg) skewX(-3deg)}50%{transform:rotate(3deg) skewX(3deg)}}
+.plant{transform-box:fill-box;transform-origin:50% 100%;animation:plantsway 3.6s ease-in-out infinite}.plant:nth-child(3n){animation-duration:4.4s}
+@keyframes plantsway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.cloud{position:absolute;pointer-events:none;animation:drift linear infinite}
+@keyframes drift{0%{transform:translateX(-12vw)}100%{transform:translateX(112vw)}}
+@keyframes cloudfloat{0%,100%{transform:translateX(-1.5vw)}50%{transform:translateX(2.5vw)}}
+.birds{position:absolute;pointer-events:none;overflow:visible}.bird{transform-box:fill-box;transform-origin:center}
+.bird path{transform-box:fill-box;transform-origin:center}
+.bird .wingL{animation:wingL .8s ease-in-out infinite;transform-box:fill-box;transform-origin:92% 88%}
+.bird .wingR{animation:wingR .8s ease-in-out infinite;transform-box:fill-box;transform-origin:8% 88%}
+@keyframes wingL{0%,100%{transform:rotate(16deg)}50%{transform:rotate(-24deg)}}
+@keyframes wingR{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(24deg)}}
+@keyframes flap{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.25)}}
+.smoke circle{animation:puff 4.5s linear infinite;transform-box:fill-box;transform-origin:center}
+#meadowScene .smoke{fill:#cdc6ba}   /* Why travel? meadow: greyer smoke so it reads against the pale sky */.smoke circle:nth-child(2){animation-delay:-1.5s}.smoke circle:nth-child(3){animation-delay:-3s}
+@keyframes puff{0%{transform:translate(0,0) scale(.5);opacity:0}15%{opacity:.9}60%{opacity:.6}100%{transform:translate(18px,-70px) scale(1.9);opacity:0}}
+.glow{animation:flicker 2.6s ease-in-out infinite}@keyframes flicker{0%,100%{opacity:.85}40%{opacity:1}60%{opacity:.75}}
+.leaf-fall{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+#heroLeaves{bottom:14px;-webkit-mask-image:linear-gradient(180deg,#000 88%,transparent 100%);mask-image:linear-gradient(180deg,#000 88%,transparent 100%)}
+.leaf-fall svg{position:absolute;top:-8vh;width:18px;animation:leaffall linear infinite;opacity:.85}
+@keyframes leaffall{0%{transform:translate(0,0) rotate(0)}100%{transform:translate(var(--dx,40px),110vh) rotate(540deg)}}
+/* animals drawn in SVG */
+.animal{position:absolute;overflow:visible;will-change:transform}
+.animal .legF,.animal .legB,.animal .legF2,.animal .legB2{transform-box:fill-box;transform-origin:50% 4%}
+.animal .legF{animation:swingA .8s ease-in-out infinite}.animal .legB{animation:swingB .8s ease-in-out infinite}
+.animal .legF2{animation:swingB .8s ease-in-out infinite}.animal .legB2{animation:swingA .8s ease-in-out infinite}
+.animal .body{transform-box:fill-box;transform-origin:center;animation:bob .4s ease-in-out infinite}
+.animal .tail{transform-box:fill-box;transform-origin:95% 15%;animation:wag 1.2s ease-in-out infinite}
+.animal .head{transform-box:fill-box;transform-origin:10% 90%;animation:nod .8s ease-in-out infinite}
+.animal *{animation-play-state:var(--walk,paused)}
+.animal.always *{animation-play-state:running}
+.animal.still .legF,.animal.still .legB,.animal.still .legF2,.animal.still .legB2,.animal.still .body,.animal.still .tail{animation:none}
+.animal.still .head{animation-play-state:running}
+.animal .fur{opacity:.55}.animal .wash{filter:url(#wc)}.animal .wash2{filter:url(#wc2)}
+.shadow{opacity:.18}
+@keyframes swingA{0%{transform:rotate(-18deg)}50%{transform:rotate(18deg)}100%{transform:rotate(-18deg)}}
+@keyframes swingB{0%{transform:rotate(18deg)}50%{transform:rotate(-18deg)}100%{transform:rotate(18deg)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes wag{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(6deg)}}
+@keyframes nod{0%,100%{transform:rotate(0)}50%{transform:rotate(2.5deg)}}
+/* river */
+.riverflow path{animation:flowdash 7s linear infinite}
+.riverflow path:nth-child(2){animation-duration:9.5s}
+@keyframes flowdash{to{stroke-dashoffset:-162}}
+/* bunnies & small critters */
+.bunny,.critter{position:absolute;pointer-events:none}
+.bunny svg,.critter svg{width:100%;display:block;overflow:visible}
+.bunny svg{transform-origin:50% 100%;animation:bunnybreathe 3.4s ease-in-out infinite}
+@keyframes bunnybreathe{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.035)}}
+.bunny .ear{transform-box:fill-box;transform-origin:50% 95%;animation:eartwitch 4.6s ease-in-out infinite}
+.bunny .ear2{animation-delay:.18s}
+@keyframes eartwitch{0%,84%,100%{transform:rotate(0)}88%{transform:rotate(-9deg)}93%{transform:rotate(4deg)}}
+.bunny.sniffer svg{animation:bunnysniff 6s ease-in-out infinite}
+@keyframes bunnysniff{0%,42%,100%{transform:rotate(0) translateY(0)}52%{transform:rotate(11deg) translateY(2px)}60%{transform:rotate(8deg) translateY(1px)}70%{transform:rotate(12deg) translateY(2px)}82%{transform:rotate(0) translateY(0)}}
+.squirrel svg{transform-origin:50% 100%;animation:nibble 4.2s ease-in-out infinite}
+@keyframes nibble{0%,68%,100%{transform:scaleY(1)}76%{transform:scaleY(.955)}82%{transform:scaleY(1)}88%{transform:scaleY(.965)}}
+.squirrel .tail{transform-box:fill-box;transform-origin:12% 88%;animation:tailsway 3s ease-in-out infinite}
+@keyframes tailsway{0%,100%{transform:rotate(0)}50%{transform:rotate(-8deg)}}
+.birdie svg{transform-origin:62% 92%;animation:peck 3.8s ease-in-out infinite}
+@keyframes peck{0%,58%,100%{transform:rotate(0)}68%{transform:rotate(16deg)}76%{transform:rotate(3deg)}84%{transform:rotate(14deg)}}
+/* deer */
+.deer .legF,.deer .legB,.deer .legF2,.deer .legB2{animation-duration:.7s}
+.deer .head{transform-origin:40% 95%;animation:graze 5s ease-in-out infinite}
+@keyframes graze{0%,70%,100%{transform:rotate(0)}80%,90%{transform:rotate(14deg)}}
+/* photo wolves (from the painting) */
+.wolf-box{position:absolute;bottom:0;will-change:transform;line-height:0}
+.wolf{display:block;height:var(--h,300px);width:auto;object-fit:contain;filter:drop-shadow(0 18px 14px rgba(58,49,41,.18))}
+.wolf.hop{animation:hop .55s ease-in-out infinite;animation-play-state:var(--walk,paused);transform-origin:50% 100%}
+.wolf.breathe{animation:breathe 3.6s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes hop{0%,100%{transform:scaleX(var(--dir,1)) translateY(0) rotate(0)}50%{transform:scaleX(var(--dir,1)) translateY(-6px) rotate(calc(-1.5deg * var(--dir,1)))}}
+@keyframes breathe{0%,100%{transform:scaleX(var(--dir,1)) scaleY(1)}50%{transform:scaleX(var(--dir,1)) scaleY(1.015)}}
+.walker{position:absolute;left:0;top:0;width:0;height:0;z-index:4;will-change:transform}
+#walker{z-index:5}#walker2{z-index:3}
+.walker>*{position:absolute!important;bottom:0;left:0;transform:translateX(-50%)}
+/* couples: once the pair meets, legs stop and only the necks sway (random rhythm per deer) */
+.pl .head,.pr .head{transform-box:fill-box;transform-origin:80% 85%}
+.pl.met .legF,.pl.met .legB,.pl.met .legF2,.pl.met .legB2,.pr.met .legF,.pr.met .legB,.pr.met .legF2,.pr.met .legB2,.pl.met .body,.pr.met .body,.pl.met .tail,.pr.met .tail{animation:none!important}
+.pl.met .head,.pr.met .head{animation:headSway var(--nodDur,3.2s) ease-in-out var(--nodDelay,0s) infinite;animation-play-state:running!important}
+@keyframes headSway{0%,100%{transform:rotate(0)}25%{transform:rotate(-5deg)}55%{transform:rotate(3deg)}75%{transform:rotate(-2deg)}}
+.photo{position:relative;overflow:hidden;border-radius:14px;box-shadow:0 34px 70px -26px rgba(58,49,41,.38),0 0 0 6px #fff;transform-style:preserve-3d}
+.photo svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:flex-start;overflow:clip;overflow-clip-margin:10px;z-index:1;background:linear-gradient(180deg,#e8f1f5 0%,var(--paper) 62%)}
+.bloom{position:absolute;border-radius:50%;filter:blur(46px);opacity:.7;pointer-events:none}
+.hero .wrap{position:relative;z-index:3;width:100%;display:grid;grid-template-columns:5.2fr 4.8fr;gap:clamp(28px,5vw,70px);align-items:start;padding-top:128px;padding-bottom:calc(36vh + 10px)}
+.hero-copy{max-width:660px;position:relative}.hero-copy>*{position:relative;z-index:1}
+#heroSun{position:absolute;right:0;top:-8%;width:min(150px,15vw);z-index:0!important;overflow:visible}
+.hero h1 .ital{font-style:italic;font-weight:400;color:var(--accent-d)}
+.hero .lead{font-size:1.375rem;max-width:540px}
+.hero .eyebrow{font-size:.885rem}
+.hero .cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:1.6em}
+.hero .photo-col{position:relative;justify-self:end;width:100%;max-width:560px;margin-top:10px}
+.hero .photo-col .photo{aspect-ratio:16/10;width:100%}
+.hero .featured{position:absolute;right:-26px;bottom:-69px;z-index:2;width:155px;height:155px;border-radius:50%;background:rgba(246,241,230,.96);padding:10px 5px 0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;box-shadow:0 20px 40px -18px var(--shadow)}
+.hero .featured .date{font-size:.825rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-d);font-weight:700}
+.hero .featured{cursor:pointer;border:1px solid var(--accent);transition:transform .35s,box-shadow .35s,background .35s}
+.hero .featured:hover{transform:translateY(-4px) scale(1.04);box-shadow:0 26px 46px -16px var(--shadow);background:#fffdf8}
+.hero .featured .read{color:var(--accent);font-weight:700;font-size:.9rem;margin-top:.25em}
+.hero .featured h3{font-size:1.08rem;margin:.25em 0 .3em;line-height:1.2}.hero .featured p{font-size:.9rem;margin:0;line-height:1.35}
+#heroSlides .tiles{position:absolute;inset:0;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(5,1fr);pointer-events:none}
+#heroSlides .tiles div{opacity:0;background-repeat:no-repeat}
+#heroSlides .tiles div.on{animation:tileIn .55s ease forwards}
+@keyframes tileIn{0%{opacity:0;filter:brightness(1.9)}45%{opacity:1;filter:brightness(1.45)}100%{opacity:1;filter:brightness(1)}}
+.hero .sky{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero .ground{position:absolute;left:0;right:0;bottom:0;height:36vh;min-height:260px;z-index:2;pointer-events:none;overflow:clip;overflow-clip-margin:10px}
+.hero .ground .front{z-index:6}
+.hero .cabin{position:absolute;left:4%;bottom:15vh;width:clamp(220px,22vw,340px);z-index:3;pointer-events:none}
+.hero .deer-fg{position:absolute;right:6%;bottom:1vh;width:clamp(120px,12vw,180px);z-index:7;pointer-events:none}
+@media (max-width:840px){.hero .wrap{grid-template-columns:1fr;padding-top:96px;padding-bottom:calc(40vh + 24px);gap:22px}
+  .hero .photo-col{width:100%;margin-top:0}.hero .featured{left:8px;bottom:-52px;max-width:230px;padding:12px 14px}.hero .featured p{display:none}
+  #heroSun{right:0;top:-10px;width:90px}.hero .cabin{left:2%;bottom:16vh;width:170px}.hero .deer-fg{width:130px;right:3%}}
+
+/* why — deer meadow */
+.why{padding:clamp(90px,12vw,160px) 0 0;overflow:hidden}
+.why .clouds{position:absolute;inset:0;pointer-events:none;z-index:0}
+.why .wrap{position:relative;z-index:1}
+.why .eyebrow{font-size:.885rem}
+.why blockquote .br-m{display:none}
+.why .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(30px,6vw,80px);align-items:end}
+.why blockquote{font-family:var(--serif);font-size:clamp(1.7rem,3.1vw,2.5rem);font-style:italic;font-weight:400;line-height:1.3;margin:0 0 1.2em}
+.why .authors{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;position:relative}
+.why .authors .avatar{position:absolute;right:0;top:calc(50% + 20px);transform:translateY(-90%);width:143px;height:143px;border-radius:50%;overflow:hidden;display:block;border:2px solid var(--accent);box-shadow:0 12px 26px -12px var(--shadow)}
+.why .authors .avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 82%;transform:scale(1.12) translateX(7px);transform-origin:50% 82%;display:block}.why .authors small{display:block;font-size:12px;letter-spacing:.06em;color:var(--ink-mute);font-weight:600;margin-top:.3em}
+.why ul{list-style:none;padding:0;margin:1.2em 0 1.6em;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.5em 1.5em}
+.why li{display:flex;align-items:center;gap:.6em;font-weight:600}.why li svg{width:18px;height:18px;flex:none}.why .copy{padding-bottom:clamp(60px,8vw,120px)}
+.meadow-scene{position:relative;top:-145px;height:clamp(380px,46vw,560px)}
+.meadow-scene svg.layer{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+@media (max-width:840px){.why .grid{grid-template-columns:minmax(0,1fr)}.meadow-scene{height:400px}}
+
+/* pillars */
+.pillars{padding:clamp(0px,.9vw,14px) 0 clamp(40px,8vw,80px)}
+.pillars .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,36px);perspective:1200px}
+.card{background:#fff;padding:clamp(28px,3vw,42px);border-radius:16px;position:relative;box-shadow:0 26px 50px -24px var(--shadow);transform-style:preserve-3d;transition:box-shadow .5s;border-top:6px solid var(--c,var(--accent))}
+.card:hover{box-shadow:0 40px 70px -24px rgba(58,49,41,.3)}
+.card .ico{width:66px;height:66px;margin-bottom:1.1em;transform:translateZ(30px)}
+.card h3{transform:translateZ(24px)}.card p{font-size:15px;transform:translateZ(14px);min-height:6.5em}.card .link{transform:translateZ(20px);display:inline-block}
+@media (max-width:840px){.pillars .cards{grid-template-columns:1fr}}
+
+/* plains — hills at golden hour, bison far away */
+.plains{padding:clamp(100px,14vw,200px) 0 0;min-height:calc(100vh + 140px);background:linear-gradient(180deg,var(--paper) 0%,#f6e3cf 55%,#f9e6d2 75%,var(--paper) 100%);overflow:hidden}
+.plains .wrap{position:relative;z-index:2}
+.plains blockquote{font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,2.2rem);font-style:italic;font-weight:400;line-height:1.4;max-width:820px;margin:0 auto 1.2em;text-align:center}
+.plains cite{display:block;text-align:center;font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);font-weight:700}
+.plains .next .eyebrow{font-size:12px;letter-spacing:.1em;margin-bottom:20px}
+.next{margin:calc(clamp(60px,8vw,110px) - 10px) auto 0;text-align:center}
+.next .big{font-family:var(--serif);font-size:clamp(4rem,12vw,10rem);font-weight:500;line-height:.9;margin-top:-40px}
+.next .big .sun{display:inline-block;width:.18em;height:.18em;border-radius:50%;background:#d8452e;vertical-align:.55em;margin-left:.12em}
+.plains .hills{position:absolute;left:0;right:0;bottom:0;height:42vh;z-index:1;pointer-events:none}
+.plains .herd{position:absolute;left:0;right:0;bottom:0;height:30vh;z-index:1;pointer-events:none}
+.plains .bison-walk{position:absolute;left:0;bottom:0;width:100%;height:100%;pointer-events:none}
+.plains .walker1{animation:crossR 90s linear infinite}
+.plains .walker2{animation:crossR 62s linear infinite;animation-delay:-25s}
+@keyframes crossR{from{transform:translateX(-18vw)}to{transform:translateX(112vw)}}
+.plains .b1 .head{animation-duration:3.4s}
+.plains .b2 .head{animation:graze 6.5s ease-in-out infinite}
+.plains .b3 .head{animation-duration:4.6s;animation-delay:-1.6s;transform-origin:50% 85%}
+.plains .baby .head{animation:graze 4.2s ease-in-out infinite;animation-delay:-2s}
+.plains .sun-big{position:absolute;right:10%;top:22%;width:min(220px,24vw);z-index:0}
+
+/* trust — the wolf pack crosses */
+.trust{padding:140px 0 clamp(100px,12vw,160px)}
+.trust .side-wolf{position:absolute;bottom:40px;width:clamp(150px,15vw,230px);height:auto;pointer-events:none;z-index:1}
+.trust .side-wolf.l{left:5%;transform:scaleX(-1)}.trust .side-wolf.r{right:5%}
+@media (max-width:1000px){.trust .side-wolf{display:none}}
+.trust .wrap{position:relative;z-index:2;max-width:760px;text-align:center}.trust p{font-size:17px}
+.trust .eyebrow,.gallery .eyebrow,.couples .eyebrow,.family .eyebrow{font-size:.885rem}
+.gallery header .link{font-size:17px}
+.trust .trail{position:absolute;left:0;right:0;bottom:0;height:150px;z-index:0;pointer-events:none}
+.trust .pack{position:absolute;left:0;right:0;bottom:0;height:100%}
+.trust .pack .wolf{--h:clamp(120px,19vh,220px)}.trust .pack .pup .wolf{--h:clamp(70px,11vh,125px)}
+@media (max-width:840px){.trust .trail{height:200px}}
+
+/* gallery */
+.gallery{padding:calc(clamp(80px,10vw,140px) - 20px) 0 clamp(100px,15vw,200px);background:linear-gradient(180deg,var(--paper),var(--paper-2));overflow:hidden}
+.gallery header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:2.4rem}
+.masonry{display:grid;grid-template-columns:repeat(8,1fr);grid-auto-rows:80px;gap:7px;grid-auto-flow:dense}
+.ph{position:relative;overflow:hidden;border-radius:10px;background:var(--paper-3);box-shadow:0 18px 40px -18px var(--shadow);transform-style:preserve-3d}
+.ph svg,.ph img{position:absolute;inset:0;width:100%;height:100%}.ph img{object-fit:cover}
+.ph span{position:absolute;left:14px;bottom:10px;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:#fff;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,.3)}
+.ph.tall{grid-row:span 2}.ph.wide{grid-column:span 2}.ph.big,.ph.sq{grid-column:span 2;grid-row:span 2}
+.gal-sub{display:grid;grid-template-columns:260fr 180fr 228fr;grid-template-rows:300fr 208fr;gap:7px;min-height:0}
+.gal-sub .ph{min-height:0}
+@media (max-width:540px){.gal-sub{grid-column:span 2;grid-row:span 4}}
+@media (max-width:540px){.masonry{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px}}
+@media (max-width:840px){.gallery header{flex-direction:column;align-items:flex-start}}
+.gallery .trail{position:absolute;left:0;right:0;bottom:60px;height:260px;z-index:2;pointer-events:none}   /* 60px clear of the section edge */
+@media (max-width:840px){.gallery .trail{height:190px}}
+.gallery .foliage{position:absolute;left:0;bottom:0;width:clamp(200px,24vw,360px);pointer-events:none;z-index:2}
+
+/* couples — two deer meet on the hill */
+.couples{padding:clamp(100px,12vw,180px) 0 clamp(200px,26vw,340px)}
+.couples .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center;position:relative;z-index:3}
+.couples .photo{aspect-ratio:4/5;width:90%;justify-self:center}   /* frame fills the column; the photo is shown larger inside it, overflow simply hidden (file untouched) */
+.couples .pair{position:absolute;left:0;right:0;bottom:-20px;height:clamp(240px,32vw,380px);z-index:2;pointer-events:none}
+.couples .heart{position:absolute;left:50%;bottom:calc(100% - 60px);width:36px;transform:translateX(-50%) scale(0);opacity:0}
+@media (max-width:840px){.couples .grid{grid-template-columns:1fr}}
+
+/* family — deer family walks into the hills */
+.family{padding:clamp(80px,10vw,140px) 0 clamp(220px,28vw,360px);overflow:hidden;background:linear-gradient(180deg,var(--paper),#eef2ea 60%,var(--paper))}
+.family .wrap{text-align:center;max-width:760px;position:relative;z-index:2}
+.family .valley{position:absolute;left:0;right:0;bottom:0;height:clamp(260px,34vw,420px);z-index:1;pointer-events:none}
+
+/* story — dusk over the range */
+.story{min-height:120vh;padding:clamp(120px,16vw,220px) 0 clamp(220px,30vw,380px);overflow:hidden;background:linear-gradient(180deg,var(--paper) 0%,var(--lav) 30%,var(--blush) 58%,#f8e3cf 75%,var(--paper) 100%)}
+.story .wrap{position:relative;z-index:3;max-width:880px;text-align:center;margin-top:20px}
+.story h2{margin-bottom:.4em}.story h2 .ital{font-style:italic;font-weight:400;color:var(--accent-d)}   /* same size as the Trust heading */
+.story p{font-size:17px}
+.story .layers{position:absolute;inset:0 0 10px 0;z-index:1;pointer-events:none}   /* whole scene sits 10px higher */
+.story .layers svg.ridge{position:absolute;left:-5%;width:110%;bottom:0}
+.story .layers svg.ridge.l4{bottom:-20px}   /* front snowy divider sits 20px lower */
+.story .layer{will-change:transform}
+.story .ridgepack{position:absolute;left:0;right:0;bottom:118px;height:clamp(150px,20vw,260px)}
+.story .ridgepack .wolf-box{height:100%}.story .ridgepack .wolf{--h:100%;height:100%}
+.story .ridgecabin{position:absolute;left:calc(52% - 60px);bottom:100px;width:clamp(275px,34.3vw,480px)}
+.story .snow-fall{z-index:2}
+.snow-fall{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.snow-fall i{position:absolute;top:-4vh;border-radius:50%;background:#fff;opacity:.8;animation:fall linear infinite}
+@keyframes fall{0%{transform:translate(0,0)}100%{transform:translate(var(--dx,20px),108vh)}}
+.firefly{position:absolute;width:6px;height:6px;border-radius:50%;background:#ffe9a8;box-shadow:0 0 10px 3px rgba(255,225,150,.6);animation:fly-fire 6s ease-in-out infinite}
+@keyframes fly-fire{0%,100%{transform:translate(0,0);opacity:0}20%{opacity:1}50%{transform:translate(var(--fx,20px),var(--fy,-30px));opacity:.9}80%{opacity:1}}
+
+/* footer */
+footer{padding:calc(clamp(60px,8vw,100px) - 20px) 0 20px;position:relative;overflow:hidden;background:var(--paper-2)}
+/* footer layout B: centered stack — logo, tagline, one line of links, socials, copyright */
+footer .grid{display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;position:relative;z-index:2}
+footer .grid>div:first-child{max-width:none;display:flex;flex-direction:column;align-items:center}
+footer .grid>div:first-child .logo{font-size:2.2rem;transform:translateX(-12px)}   /* offset the logo image width so the wordmark reads centered */
+footer .grid>div:first-child p{margin:.4em auto 0!important;font-size:15px!important;max-width:none!important;white-space:nowrap}
+footer h4{font-family:var(--sans);font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-d);margin-bottom:.6em}
+footer ul{list-style:none;margin:0;padding:0;display:flex;justify-content:center;gap:6px 26px;flex-wrap:wrap}
+footer .social{justify-content:center}
+footer .grid>div:nth-child(2){margin-top:-2px}   /* 20px below the tagline (the grid's own 22px gap is absorbed) */
+footer .social-block{margin-top:-2px}   /* 20px below the link row (the grid's own 22px gap is absorbed) */footer li{margin:0;font-weight:600;font-size:16px}
+footer .copy a{border-bottom:1px solid rgba(58,49,41,.28);padding-bottom:1px;transition:color .25s,border-color .25s}
+footer .copy a:hover{color:var(--accent);border-color:var(--accent)}
+footer .copy{margin-top:20px;padding-top:20px;border-top:1px solid rgba(58,49,41,.12);font-size:13px;color:var(--ink-mute);letter-spacing:.06em;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;position:relative;z-index:2}
+footer .trail{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55}
+@media (max-width:840px){footer .grid{gap:18px}}
+@media (prefers-reduced-motion:reduce){.wolf,.animal *,.bird path,.smoke circle,.glow,.tree,.plant,.cloud,.leaf-fall svg,.firefly{animation:none!important}.reveal{opacity:1;transform:none}.print{opacity:1}}
+/* ===== responsive tweaks: 841-950 / 951-1140 (keep at end of stylesheet so they win the cascade) ===== */
+@media (min-width:841px) and (max-width:1140px){.why .authors .avatar{right:-72px}}
+@media (min-width:951px) and (max-width:1140px){.why .authors .avatar{right:-45px}}
+@media (min-width:951px) and (max-width:1140px){.plains .birds{top:calc(10% - 40px)!important}.plains{padding-top:calc(clamp(100px,14vw,200px) + 20px)}}
+@media (min-width:1141px){.plains .birds{top:calc(10% - 40px)!important}}
+@media (min-width:1141px){.plains .baby{left:calc(27% + 40px)!important}}
+@media (min-width:951px) and (max-width:1140px){.plains .baby{left:calc(27% + 40px)!important}}
+@media (min-width:841px) and (max-width:950px){.plains .baby{left:calc(27% + 80px)!important}}
+@media (min-width:541px) and (max-width:840px){.plains .baby{left:calc(27% + 60px)!important}}
+@media (min-width:541px) and (max-width:840px){.couples .photo{width:calc(64.8% + 20px);justify-self:center;aspect-ratio:auto;height:0;padding-top:calc(81% - 60px)}}
+@media (min-width:541px) and (max-width:840px){.couples .grid>div:nth-child(2){text-align:center}.couples .grid>div:nth-child(2) p:first-of-type{max-width:80%;margin-left:auto;margin-right:auto}}
+@media (min-width:1141px){.story .birds{top:calc(12% + 30px)!important}.story{padding-top:calc(clamp(120px,16vw,220px) + 70px)}}
+@media (min-width:841px) and (max-width:950px){.plains .birds{top:calc(10% - 30px)!important}.plains{padding-top:calc(clamp(100px,14vw,200px) + 60px)}}
+@media (min-width:951px) and (max-width:1140px){.story .birds{top:12%!important}.story{padding-top:calc(clamp(120px,16vw,220px) + 40px)}}
+@media (min-width:320px) and (max-width:1140px){.family .valley .grass-br{display:none}}
+@media (min-width:541px) and (max-width:840px){.family{padding-top:calc(clamp(80px,10vw,140px) + 20px);padding-bottom:calc(clamp(220px,28vw,360px) + 40px)}}
+@media (min-width:541px) and (max-width:840px){.story{padding-top:calc(clamp(120px,16vw,220px) + 90px)}}
+@media (min-width:541px) and (max-width:840px){footer .trail{transform:translateY(-10px)}}
+@media (min-width:320px) and (max-width:840px){footer .social{display:flex}}
+/* 320-540px (スマホ) */
+html,body{overflow-x:clip}
+@media (min-width:951px) and (max-width:1140px){.trust .side-wolf{bottom:0;display:block}.trust .side-wolf.l{left:calc(5% + 40px)}.trust .side-wolf.r{right:calc(5% + 40px)}}
+@media (min-width:841px) and (max-width:950px){.trust .side-wolf{bottom:0;display:block}.trust .side-wolf.l{left:calc(5% + 40px)}.trust .side-wolf.r{right:calc(5% + 40px)}}
+@media (min-width:541px) and (max-width:840px){.trust .side-wolf{bottom:0;display:block}.trust .side-wolf.l{left:calc(5% - 20px)}.trust .side-wolf.r{right:calc(5% - 20px)}}@media (min-width:841px) and (max-width:950px){.hero .photo-col{width:110%;margin-top:30px}}
+@media (min-width:841px) and (max-width:950px){.story .birds{top:calc(12% - 20px)!important}.story{padding-top:calc(clamp(120px,16vw,220px) + 40px)}}
+/* 541-840px (iPad縦・大きめスマホ横) */
+@media (min-width:541px) and (max-width:840px){.why .copy p:first-of-type{max-width:85%}.hero .photo-col{justify-self:start;margin-top:20px}.hero .featured{left:auto;right:max(-26px,calc(10px - clamp(20px,4vw,48px)));bottom:-69px;max-width:none;padding:10px 5px 0}.hero .featured p{display:block}}
+@media (min-width:541px) and (max-width:840px){.why .authors .avatar{right:100px;top:calc(50% - 60px);transform:translateY(-55%)}}
+@media (min-width:541px) and (max-width:840px){.meadow-scene{width:90%;margin-left:auto;margin-right:auto}}
+@media (min-width:541px) and (max-width:840px){.meadow-scene .bunny:not(.sniffer){bottom:calc(26% - 60px)!important}}
+@media (min-width:541px) and (max-width:840px){.meadow-scene .bush-br{transform:translate(-10px,10px);clip-path:polygon(0 0,100% 0,100% 94.5%,90% 97%,80% 94.5%,70% 97%,60% 95%,50% 97%,40% 94.5%,30% 97%,20% 95%,10% 97%,0 95%)}}
+@media (min-width:541px) and (max-width:840px){.meadow-scene .birdie{left:calc(44% + 10px)!important}}
+@media (min-width:541px) and (max-width:840px){.card p{font-size:17px}.card .link{font-size:.9rem}.pillars{margin-top:-60px;position:relative;z-index:2}}
+@media (min-width:541px) and (max-width:840px){.plains .birds{top:calc(10% - 20px)!important}.plains{padding-top:calc(clamp(100px,14vw,200px) + 80px)}.plains blockquote{font-size:24.5px}.next .big{font-size:calc(clamp(4rem,12vw,10rem) + 2px)}}
+@media (min-width:841px) and (max-width:950px){.gallery .trail{bottom:40px}}
+@media (min-width:541px) and (max-width:840px){.gallery .trail{bottom:60px}.gallery{padding-bottom:calc(clamp(100px,15vw,200px) + 60px)}}
+@media (min-width:841px) and (max-width:950px){.couples .photo{aspect-ratio:auto;height:0;padding-top:calc(112.5% + 100px)}.couples .photo img{object-position:50% 50%!important}}
+/* 441-540px: 大きめスマホ (initially same as 320-440) */
+@media (min-width:441px) and (max-width:540px){.why .authors .avatar{top:50%}}
+@media (min-width:320px) and (max-width:540px){footer .ft-l1,footer .ft-l2{display:block}footer .grid>div:first-child p{white-space:normal!important}}
+@media (min-width:441px) and (max-width:540px){.gallery .trail .bear{width:250px!important;left:-540px!important}}
+@media (min-width:441px) and (max-width:540px){.hero .featured{max-width:none;padding:10px 5px 0}.hero .featured p{display:block}}
+@media (min-width:441px) and (max-width:540px){.hero .photo-col{margin-top:20px}.hero .wrap{padding-top:136px}}
+@media (min-width:441px) and (max-width:540px){.meadow-scene .bunny:not(.sniffer){bottom:calc(26% - 20px)!important}}
+@media (min-width:441px) and (max-width:540px){.card p{font-size:16px}}
+@media (min-width:441px) and (max-width:540px){.why blockquote{font-size:calc(clamp(1.7rem,3.1vw,2.5rem) + 2px)}}
+@media (min-width:441px) and (max-width:540px){.card h3{font-size:25px}.card .link{font-size:.9rem}}
+@media (min-width:441px) and (max-width:540px){.plains blockquote{font-size:24.5px}}
+@media (min-width:441px) and (max-width:540px){.plains{padding-top:calc(clamp(100px,14vw,200px) + 80px)}.plains .birds{width:min(475px,66vw)!important}.next .big{font-size:calc(clamp(4rem,12vw,10rem) + 10px)}}
+@media (min-width:441px) and (max-width:540px){.plains .baby{bottom:14px!important}}
+@media (min-width:441px) and (max-width:540px){.trust .side-wolf{bottom:10px;display:block;width:124px}.trust .side-wolf.l{left:calc(5% - 20px)}.trust .side-wolf.r{right:calc(5% - 20px)}}
+@media (min-width:441px) and (max-width:540px){.masonry{grid-template-rows:190px 130px 130px 130px 130px 190px 130px 130px 190px}}
+@media (min-width:441px) and (max-width:540px){.gallery .trail{bottom:60px}.gallery{padding-bottom:calc(clamp(100px,15vw,200px) + 60px)}}
+@media (min-width:441px) and (max-width:540px){.couples .photo{aspect-ratio:auto;height:0;padding-top:calc(112.5% - 80px)}.couples .grid{gap:calc(clamp(30px,6vw,90px) + 10px)}}
+@media (min-width:441px) and (max-width:540px){.family{padding-top:120px}}
+@media (min-width:441px) and (max-width:540px){.trust{padding-top:120px}}
+@media (min-width:441px) and (max-width:540px){.story .birds{top:100px!important;left:40px!important;width:min(475px,66vw)!important}.story{padding-top:calc(120px + 15vw)}.story h2{font-size:35px}}
+@media (min-width:441px) and (max-width:540px){.pillars{margin-top:-40px;position:relative;z-index:2}.pillars .cards{gap:calc(clamp(18px,3vw,36px) + 10px)}}
+/* 403-440px: 大きめiPhone (initially same as 320-402) */
+@media (min-width:403px) and (max-width:440px){.hero .featured{max-width:none;padding:10px 5px 0}.hero .featured p{display:block}}
+@media (min-width:403px) and (max-width:440px){.hero .photo-col{margin-top:20px}.hero .wrap{padding-top:136px}}
+@media (min-width:403px) and (max-width:440px){.hero .ground .hero-berry-l,.hero .ground .hero-sprig-l,.hero .ground .hero-grass-c{display:none}.hero .ground .hero-berry-s{transform:translateY(40px)}}
+@media (min-width:403px) and (max-width:440px){.gal-sub{grid-template-rows:calc(59% - 50px) calc(41% - 40px);align-content:start;grid-template-columns:260fr 141fr 267fr}.gal-sub .ph:nth-child(3) img{transform:scale(1.35)}}
+@media (min-width:403px) and (max-width:440px){.why .authors .avatar{top:50%;width:130px;height:130px;right:-20px}}
+@media (min-width:403px) and (max-width:440px){.story .layers{inset:0 0 -30px 0}}
+@media (min-width:403px) and (max-width:440px){.story .ridgecabin{left:calc(52% - 75px);width:229px;bottom:95px}.story .ridgepack{bottom:113px}.story .ridgepack .wolf-box:nth-of-type(1){left:calc(12% - 25px)!important}.story .ridgepack .wolf-box:nth-of-type(2){left:calc(28% - 10px)!important}.story .ridgepack .wolf-box:nth-of-type(3){left:calc(80% - 10px)!important}}
+@media (min-width:403px) and (max-width:440px){.gallery .trail .bear{width:250px!important;left:-540px!important}#bearPrints{transform:scale(.83);transform-origin:50% 100%}}
+@media (min-width:403px) and (max-width:440px){.plains .herd .animal:not(.baby){transform:scale(.83);transform-origin:50% 100%}.plains .herd .walker1 .animal{transform:scale(.69)}.plains .herd .b1{display:none}}
+@media (min-width:403px) and (max-width:440px){.meadow-scene .bunny:not(.sniffer){bottom:calc(26% - 20px)!important}}
+@media (min-width:403px) and (max-width:440px){.card p{font-size:16px}}
+@media (min-width:403px) and (max-width:440px){.why blockquote{font-size:calc(clamp(1.7rem,3.1vw,2.5rem) + 2px)}}
+@media (min-width:403px) and (max-width:440px){.card h3{font-size:25px}.card .link{font-size:.9rem}}
+@media (min-width:403px) and (max-width:440px){.plains blockquote{font-size:24.5px}}
+@media (min-width:403px) and (max-width:440px){.plains{padding-top:calc(clamp(100px,14vw,200px) + 60px)}.plains .birds{width:min(475px,66vw)!important}.next .big{font-size:calc(clamp(4rem,12vw,10rem) + 14px)}}
+@media (min-width:403px) and (max-width:440px){.plains .baby{bottom:14px!important}}
+@media (min-width:403px) and (max-width:440px){.trust .side-wolf{bottom:20px;display:block;width:114px}.trust .side-wolf.l{left:calc(5% - 20px)}.trust .side-wolf.r{right:calc(5% - 24px)}#trustPrints{transform:scale(.83);transform-origin:50% 100%}}
+@media (min-width:403px) and (max-width:440px){.masonry{grid-template-rows:190px 130px 130px 130px 130px 190px 130px 130px 190px}}
+@media (min-width:403px) and (max-width:440px){.gallery .trail{bottom:60px}.gallery{padding-bottom:calc(clamp(100px,15vw,200px) - 20px)}}
+@media (min-width:403px) and (max-width:440px){.couples .photo{aspect-ratio:auto;height:0;padding-top:calc(112.5% - 80px)}.couples .grid{gap:calc(clamp(30px,6vw,90px) + 10px)}}
+@media (min-width:403px) and (max-width:440px){.family{padding-top:120px}}
+@media (min-width:403px) and (max-width:440px){.trust{padding-top:120px}}
+@media (min-width:403px) and (max-width:440px){.story .birds{top:100px!important;left:40px!important;width:min(475px,66vw)!important}.story{padding-top:calc(120px + 15vw)}.story h2{font-size:35px}}
+@media (min-width:403px) and (max-width:440px){.pillars{margin-top:-40px;position:relative;z-index:2}.pillars .cards{gap:calc(clamp(18px,3vw,36px) + 10px)}}
+/* 394-402px: iPhone 16 Pro級 (initially same as 320-393) */
+@media (min-width:394px) and (max-width:402px){.hero .ground .hero-sprig-r{display:none}}
+@media (min-width:394px) and (max-width:402px){.hero .featured{max-width:none;padding:10px 5px 0}.hero .featured p{display:block}}
+@media (min-width:394px) and (max-width:402px){.hero .photo-col{margin-top:20px}.hero .wrap{padding-top:136px}}
+@media (min-width:394px) and (max-width:402px){.hero .ground .hero-berry-l,.hero .ground .hero-sprig-l,.hero .ground .hero-grass-c{display:none}.hero .ground .hero-berry-s{transform:translateY(40px)}}
+@media (min-width:394px) and (max-width:402px){.why .authors .avatar{top:calc(50% - 45px);width:119px;height:119px;right:-10px}}
+@media (min-width:394px) and (max-width:402px){.meadow-scene{transform:scale(1.1);transform-origin:50% 100%}}
+@media (min-width:394px) and (max-width:402px){#whyClouds .cloud:nth-of-type(1){width:min(360px,30.3vw)!important}#whyClouds .cloud:nth-of-type(2){width:min(288px,24.5vw)!important}#whyClouds .cloud:nth-of-type(3){width:min(216px,18.8vw)!important}}
+@media (min-width:394px) and (max-width:402px){.story .layers{inset:0 0 -30px 0}}
+@media (min-width:394px) and (max-width:402px){.story .ridgecabin{left:calc(52% - 75px);width:229px;bottom:95px}.story .ridgepack{bottom:113px}.story .ridgepack .wolf-box:nth-of-type(1){left:calc(12% - 25px)!important}.story .ridgepack .wolf-box:nth-of-type(2){left:calc(28% - 10px)!important}.story .ridgepack .wolf-box:nth-of-type(3){left:calc(80% - 10px)!important}}
+@media (min-width:394px) and (max-width:402px){.gallery .trail .bear{width:250px!important;left:-540px!important}#bearPrints{transform:scale(.83);transform-origin:50% 100%}}
+@media (min-width:394px) and (max-width:402px){.plains .herd .animal:not(.baby){transform:scale(.83);transform-origin:50% 100%}.plains .herd .walker1 .animal{transform:scale(.69)}.plains .herd .b1{display:none}}
+@media (min-width:394px) and (max-width:402px){.meadow-scene .bunny:not(.sniffer){bottom:calc(26% - 20px)!important}}
+@media (min-width:394px) and (max-width:402px){.card p{font-size:16px}}
+@media (min-width:394px) and (max-width:402px){.why blockquote{font-size:calc(clamp(1.7rem,3.1vw,2.5rem) + 2px)}}
+@media (min-width:394px) and (max-width:402px){.card h3{font-size:25px}.card .link{font-size:.9rem}}
+@media (min-width:394px) and (max-width:402px){.plains blockquote{font-size:23.5px}}
+@media (min-width:394px) and (max-width:402px){.plains{padding-top:calc(clamp(100px,14vw,200px) + 70px)}.plains .birds{width:min(570px,79vw)!important}.next .big{font-size:calc(clamp(4rem,12vw,10rem) + 24px)}.plains{min-height:calc(100vh + 200px)}.plains .next{margin-bottom:60px}}
+@media (min-width:394px) and (max-width:402px){.plains .baby{bottom:14px!important}}
+@media (min-width:394px) and (max-width:402px){.trust .side-wolf{bottom:10px;display:block;width:125px}.trust .side-wolf.l{left:calc(5% - 20px)}.trust .side-wolf.r{right:calc(5% - 20px)}#trustPrints{transform:scale(.91);transform-origin:50% 100%}}
+@media (min-width:394px) and (max-width:402px){.masonry{grid-template-rows:190px 130px 130px 130px 130px 190px 130px 130px 190px}}
+@media (min-width:394px) and (max-width:402px){.gallery .trail{bottom:60px}.gallery{padding-bottom:calc(clamp(100px,15vw,200px) - 20px)}}
+@media (min-width:394px) and (max-width:402px){.couples .photo{aspect-ratio:auto;height:0;padding-top:calc(112.5% - 80px)}.couples .grid{gap:calc(clamp(30px,6vw,90px) + 10px)}}
+@media (min-width:394px) and (max-width:402px){.family{padding-top:105px}}
+@media (min-width:394px) and (max-width:402px){.trust{padding-top:100px;padding-bottom:180px}}
+@media (min-width:394px) and (max-width:402px){.couples{padding-top:calc(clamp(100px,12vw,180px) - 20px)}}
+@media (min-width:394px) and (max-width:402px){.hero .featured{bottom:-82px}}
+@media (min-width:394px) and (max-width:402px){.meadow-scene .meadow-flowers{transform:translateY(-5px)}.meadow-scene .mf-r{transform:translateY(-2px)}}
+@media (min-width:394px) and (max-width:402px){.gal-sub{grid-template-rows:calc(59% - 80px) 41%;align-content:start;grid-template-columns:260fr 141fr 267fr}}
+@media (min-width:394px) and (max-width:402px){.story .birds{top:100px!important;left:40px!important;width:min(570px,79vw)!important}.story{padding-top:calc(120px + 15vw)}.story h2{font-size:35px}}
+@media (min-width:394px) and (max-width:402px){.pillars{margin-top:-40px;position:relative;z-index:2}.pillars .cards{gap:calc(clamp(18px,3vw,36px) + 10px)}}
+/* 320-393px: 標準スマホ (394-402と同一デザインから調整開始) */
+@media (min-width:360px) and (max-width:393px){.why blockquote .br-m{display:inline}.why blockquote .br-d{display:none}}
+@media (min-width:360px) and (max-width:393px){.hero .ground .hero-sprig-r{display:none}}
+@media (min-width:360px) and (max-width:393px){.hero .featured{max-width:none;padding:10px 5px 0}.hero .featured p{display:block}}
+@media (min-width:360px) and (max-width:393px){.hero .photo-col{margin-top:20px}.hero .wrap{padding-top:136px}}
+@media (min-width:360px) and (max-width:393px){.hero .ground .hero-berry-l,.hero .ground .hero-sprig-l,.hero .ground .hero-grass-c{display:none}.hero .ground .hero-berry-s{transform:translateY(40px)}}
+@media (min-width:360px) and (max-width:393px){.why .authors .avatar{top:calc(50% - 45px);width:119px;height:119px;right:-10px}}
+@media (min-width:360px) and (max-width:393px){.meadow-scene{transform:scale(1.1);transform-origin:50% 100%}}
+@media (min-width:360px) and (max-width:393px){#whyClouds .cloud:nth-of-type(1){width:min(360px,30.3vw)!important}#whyClouds .cloud:nth-of-type(2){width:min(288px,24.5vw)!important}#whyClouds .cloud:nth-of-type(3){width:min(216px,18.8vw)!important}}
+@media (min-width:360px) and (max-width:393px){.story .layers{inset:0 0 -30px 0}}
+@media (min-width:360px) and (max-width:393px){.story .ridgecabin{left:calc(52% - 75px);width:229px;bottom:95px}.story .ridgepack{bottom:113px}.story .ridgepack .wolf-box:nth-of-type(1){left:calc(12% - 25px)!important}.story .ridgepack .wolf-box:nth-of-type(2){left:calc(28% - 10px)!important}.story .ridgepack .wolf-box:nth-of-type(3){left:calc(80% - 10px)!important}}
+@media (min-width:360px) and (max-width:393px){.gallery .trail .bear{width:250px!important;left:-540px!important}#bearPrints{transform:scale(.83);transform-origin:50% 100%}}
+@media (min-width:360px) and (max-width:393px){.plains .herd .animal:not(.baby){transform:scale(.83);transform-origin:50% 100%}.plains .herd .walker1 .animal{transform:scale(.69)}.plains .herd .b1{display:none}}
+@media (min-width:360px) and (max-width:393px){.meadow-scene .bunny:not(.sniffer){bottom:calc(26% - 20px)!important}}
+@media (min-width:360px) and (max-width:393px){.card p{font-size:16px}}
+@media (min-width:360px) and (max-width:393px){.why blockquote{font-size:calc(clamp(1.7rem,3.1vw,2.5rem) + 2px)}}
+@media (min-width:360px) and (max-width:393px){.card h3{font-size:25px}.card .link{font-size:.9rem}}
+@media (min-width:360px) and (max-width:393px){.plains blockquote{font-size:23.5px}}
+@media (min-width:360px) and (max-width:393px){.plains{padding-top:calc(clamp(100px,14vw,200px) + 70px)}.plains .birds{width:min(570px,79vw)!important;left:-45%!important}.next .big{font-size:calc(clamp(4rem,12vw,10rem) + 24px)}.plains{min-height:calc(100vh + 200px)}.plains .next{margin-bottom:60px}}
+@media (min-width:360px) and (max-width:393px){.plains .baby{bottom:14px!important}}
+@media (min-width:360px) and (max-width:393px){.trust .side-wolf{bottom:10px;display:block;width:125px}.trust .side-wolf.l{left:calc(5% - 20px)}.trust .side-wolf.r{right:calc(5% - 20px)}#trustPrints{transform:scale(.91);transform-origin:50% 100%}}
+@media (min-width:360px) and (max-width:393px){.masonry{grid-template-rows:190px 130px 130px 130px 130px 190px 130px 130px 190px}}
+@media (min-width:360px) and (max-width:393px){.gallery .trail{bottom:60px}.gallery{padding-bottom:calc(clamp(100px,15vw,200px) - 20px)}}
+@media (min-width:360px) and (max-width:393px){.couples .photo{aspect-ratio:auto;height:0;padding-top:calc(112.5% - 80px)}.couples .grid{gap:calc(clamp(30px,6vw,90px) + 10px)}}
+@media (min-width:360px) and (max-width:393px){.family{padding-top:105px}}
+@media (min-width:360px) and (max-width:393px){.trust{padding-top:100px;padding-bottom:180px}}
+@media (min-width:360px) and (max-width:393px){.couples{padding-top:calc(clamp(100px,12vw,180px) - 20px)}}
+@media (min-width:360px) and (max-width:393px){.hero .featured{bottom:-82px}}
+@media (min-width:360px) and (max-width:393px){.meadow-scene .meadow-flowers{transform:translateY(-5px)}.meadow-scene .mf-r{transform:translateY(-2px)}}
+@media (min-width:360px) and (max-width:393px){.gal-sub{grid-template-rows:calc(59% - 80px) 41%;align-content:start;grid-template-columns:260fr 141fr 267fr}}
+@media (min-width:360px) and (max-width:393px){.story .birds{top:100px!important;left:40px!important;width:min(570px,79vw)!important}.story{padding-top:calc(120px + 15vw)}.story h2{font-size:35px}}
+@media (min-width:360px) and (max-width:393px){.pillars{margin-top:-40px;position:relative;z-index:2}.pillars .cards{gap:calc(clamp(18px,3vw,36px) + 10px)}}
+@media (max-width:540px){footer .copy{flex-direction:column;gap:5px;align-items:center}}
+@media (min-width:360px) and (max-width:393px){footer ul{gap:6px 16px}}
+@media (min-width:320px) and (max-width:359px){footer ul{gap:6px 8px}footer li{font-size:15px}}
+@media (max-width:440px){footer .trail{transform:translateY(-20px)}}
+/* 320-359px: 旧型小型スマホ (initially same as 360-393) */
+@media (min-width:320px) and (max-width:359px){.why blockquote .br-m{display:inline}.why blockquote .br-d{display:none}}
+@media (min-width:320px) and (max-width:359px){.hero .ground .hero-sprig-r{display:none}}
+@media (min-width:320px) and (max-width:359px){.hero .featured{max-width:none;padding:10px 5px 0}.hero .featured p{display:block}}
+@media (min-width:320px) and (max-width:359px){.hero .photo-col{margin-top:20px}.hero .wrap{padding-top:136px}}
+@media (min-width:320px) and (max-width:359px){.hero .ground .hero-berry-l,.hero .ground .hero-sprig-l,.hero .ground .hero-grass-c{display:none}.hero .ground .hero-berry-s{transform:translateY(40px)}}
+@media (min-width:320px) and (max-width:359px){.why .authors .avatar{top:calc(50% - 45px);width:119px;height:119px;right:-15px}}
+@media (min-width:320px) and (max-width:359px){.why li{gap:calc(.6em - 8px)}}
+@media (min-width:320px) and (max-width:359px){.meadow-scene .meadow-cabin{transform:translateY(15px)}}
+@media (min-width:320px) and (max-width:359px){.meadow-scene{transform:scale(1.1);transform-origin:50% 100%}}
+@media (min-width:320px) and (max-width:359px){#whyClouds .cloud:nth-of-type(1){width:min(360px,30.3vw)!important}#whyClouds .cloud:nth-of-type(2){width:min(288px,24.5vw)!important}#whyClouds .cloud:nth-of-type(3){width:min(216px,18.8vw)!important}}
+@media (min-width:320px) and (max-width:359px){.story .layers{inset:0 0 -30px 0}}
+@media (min-width:320px) and (max-width:359px){.story .ridgecabin{left:calc(52% - 75px);width:229px;bottom:95px}.story .ridgepack{bottom:113px}.story .ridgepack .wolf-box:nth-of-type(1){left:calc(12% - 25px)!important}.story .ridgepack .wolf-box:nth-of-type(2){left:calc(28% - 10px)!important}.story .ridgepack .wolf-box:nth-of-type(3){left:calc(80% - 10px)!important}}
+@media (min-width:320px) and (max-width:359px){.gallery .trail .bear{width:250px!important;left:-540px!important}#bearPrints{transform:scale(.83);transform-origin:50% 100%}}
+@media (min-width:320px) and (max-width:359px){.plains .herd .animal:not(.baby){transform:scale(.83);transform-origin:50% 100%}.plains .herd .walker1 .animal{transform:scale(.69)}.plains .herd .b1{display:none}}
+@media (min-width:320px) and (max-width:359px){.meadow-scene .bunny:not(.sniffer){bottom:calc(26% - 20px)!important}}
+@media (min-width:320px) and (max-width:359px){.card p{font-size:16px}}
+@media (min-width:320px) and (max-width:359px){.why blockquote{font-size:calc(clamp(1.7rem,3.1vw,2.5rem) + 2px)}}
+@media (min-width:320px) and (max-width:359px){.card h3{font-size:25px}.card .link{font-size:.9rem}}
+@media (min-width:320px) and (max-width:359px){.plains blockquote{font-size:23.5px}}
+@media (min-width:320px) and (max-width:359px){.plains{padding-top:calc(clamp(100px,14vw,200px) + 70px)}.plains .birds{width:min(570px,79vw)!important;left:-45%!important}.next .big{font-size:calc(clamp(4rem,12vw,10rem) + 24px)}.plains{min-height:calc(100vh + 200px)}.plains .next{margin-bottom:60px}}
+@media (min-width:320px) and (max-width:359px){.plains .baby{bottom:14px!important}}
+@media (min-width:320px) and (max-width:359px){.trust .side-wolf{bottom:10px;display:block;width:125px}.trust .side-wolf.l{left:calc(5% - 20px)}.trust .side-wolf.r{right:calc(5% - 20px)}#trustPrints{transform:translateY(-40px) scale(.76);transform-origin:50% 100%}}
+@media (min-width:320px) and (max-width:359px){.masonry{grid-template-rows:190px 130px 130px 130px 130px 190px 130px 130px 190px}}
+@media (min-width:320px) and (max-width:359px){.gallery .trail{bottom:60px}.gallery{padding-bottom:calc(clamp(100px,15vw,200px) - 20px)}}
+@media (min-width:320px) and (max-width:359px){.couples .photo{aspect-ratio:auto;height:0;padding-top:calc(112.5% - 80px)}.couples .grid{gap:calc(clamp(30px,6vw,90px) + 10px)}}
+@media (min-width:320px) and (max-width:359px){.family{padding-top:105px}}
+@media (min-width:320px) and (max-width:359px){.trust{padding-top:100px;padding-bottom:180px}}
+@media (min-width:320px) and (max-width:359px){.couples{padding-top:calc(clamp(100px,12vw,180px) - 20px)}}
+@media (min-width:541px) and (max-width:840px){.couples{padding-bottom:calc(clamp(200px,26vw,340px) + 60px)}}
+@media (min-width:320px) and (max-width:359px){.hero .featured{bottom:-82px}}
+@media (min-width:320px) and (max-width:359px){.meadow-scene .meadow-flowers{transform:translateY(-5px)}.meadow-scene .mf-r{transform:translateY(-2px)}}
+@media (min-width:320px) and (max-width:359px){.gal-sub{grid-template-rows:calc(59% - 80px) 41%;align-content:start;grid-template-columns:260fr 141fr 267fr}}
+@media (min-width:320px) and (max-width:359px){.story .birds{top:100px!important;left:40px!important;width:min(570px,79vw)!important}.story{padding-top:calc(120px + 15vw)}.story h2{font-size:35px}}
+@media (min-width:320px) and (max-width:359px){.pillars{margin-top:-40px;position:relative;z-index:2}.pillars .cards{gap:calc(clamp(18px,3vw,36px) + 10px)}}
+@media (max-width:540px){.nav.open .menu{width:50vw}.nav.open .menu > li{transform:translateX(20px)}}
+@media (min-width:441px) and (max-width:540px){footer .trail{transform:translateY(-20px)}}
+@media (max-width:402px){.hero .featured{width:186px;height:186px;bottom:-92px}}
+@media (max-width:402px){.hero .photo-col .photo{aspect-ratio:auto;height:calc((100vw - 40px)*.625 + 40px)}.hero .photo-col{margin-bottom:-40px}}
+@media (max-width:402px){.hero .wrap{padding-top:121px;padding-bottom:calc(40vh + 39px)}}
+@media (min-width:394px) and (max-width:402px){.why blockquote .br-m{display:inline}.why blockquote .br-d{display:none}}
+@media (max-width:402px){p{font-size:22px}.eyebrow,.hero .eyebrow,.why .eyebrow,.trust .eyebrow,.gallery .eyebrow,.couples .eyebrow,.family .eyebrow,.plains .next .eyebrow{font-size:15px}}
+@media (max-width:402px){.why ul li{font-size:20px}.why .authors{font-size:17px}.why .authors small{font-size:16px}}
+@media (max-width:402px){.card h3{font-size:32px}.card p{font-size:20px}.card .link{font-size:16px}}
+@media (max-width:402px){.why blockquote{font-size:31px}}
+@media (max-width:402px){.why .authors .avatar{top:calc(50% - 105px);width:131px;height:131px}}
+@media (max-width:402px){#whyClouds .cloud:nth-of-type(1){width:min(432px,36.4vw)!important}#whyClouds .cloud:nth-of-type(2){width:min(346px,29.4vw)!important}#whyClouds .cloud:nth-of-type(3){width:min(259px,22.6vw)!important}}
+@media (max-width:402px){.plains blockquote{font-size:28px}}
+@media (max-width:402px){.couples h3{font-size:28px}}
+@media (max-width:402px){.couples p .link{font-size:18px}}
+@media (max-width:402px){.plains cite{font-size:15px}}
+@media (max-width:402px){.trust p,.story p{font-size:22px}}
+@media (max-width:402px){.plains .birds,.story .birds{width:min(627px,86.9vw)!important}}
+@media (max-width:402px){.story{padding-top:calc(140px + 15vw)}}
+@media (max-width:402px){.plains{padding-top:calc(clamp(100px,14vw,200px) + 90px)}}
+@media (max-width:402px){footer .grid>div:first-child p{font-size:18px!important}footer h4{font-size:15px}footer ul{max-width:280px;gap:4px 32px}footer .social{gap:24px}footer .social a{width:41px;height:41px}footer .social svg{width:18px;height:18px}footer li{font-size:20px}footer .copy{font-size:14px}}
+@media (max-width:393px){.why blockquote{font-size:26px}}
+@media (min-width:360px) and (max-width:393px){.why li{gap:calc(.6em - 10px)}.why ul li{font-size:19.5px}}
+@media (max-width:359px){.why .authors .avatar{width:108px;height:108px}.why blockquote{font-size:25px}.why ul{grid-template-columns:minmax(0,1fr)}.plains{min-height:calc(100vh + 320px)}footer .grid>div:first-child p{font-size:16px!important}.why .authors .avatar img{transform:scale(1.16) translateX(7px)}}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<!-- shared filters / gradients / icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="wc" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="3" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="wc2" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="wcsoft" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="3" seed="5" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="18" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation=".6"/></filter>
+    <filter id="wcTex" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="t"/>
+      <feColorMatrix in="t" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 -.15" result="ta"/>
+      <feComposite in="SourceGraphic" in2="ta" operator="in" result="tex"/>
+      <feBlend in="tex" in2="SourceGraphic" mode="multiply" result="m"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="2" seed="8" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .7 0" result="ba"/>
+      <feComposite in="m" in2="ba" operator="arithmetic" k1="0" k2="1" k3="-.18" k4="0"/>
+    </filter>
+    <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfd6e3"/><stop offset="1" stop-color="#e9ebef"/></linearGradient>
+    <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#aab4c4"/><stop offset="1" stop-color="#d6dbe2"/></linearGradient>
+    <linearGradient id="m3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7f8ea0"/><stop offset="1" stop-color="#b9c2cc"/></linearGradient>
+    <linearGradient id="phWarm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9b98a"/><stop offset=".5" stop-color="#c9855a"/><stop offset="1" stop-color="#7a4b30"/></linearGradient>
+    <linearGradient id="phCool" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d7e6ee"/><stop offset="1" stop-color="#7f9aa8"/></linearGradient>
+    <linearGradient id="phPine" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c9d6c2"/><stop offset="1" stop-color="#5a7457"/></linearGradient>
+    <linearGradient id="phDusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c9a6"/><stop offset="1" stop-color="#8d6f88"/></linearGradient>
+    <radialGradient id="moonG" cx=".4" cy=".4" r=".7"><stop offset="0" stop-color="#fffdf5"/><stop offset=".7" stop-color="#f6ecd2"/><stop offset="1" stop-color="#ecd9b3"/></radialGradient>
+    <radialGradient id="sunG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffd9a3"/><stop offset=".6" stop-color="#f7b877"/><stop offset="1" stop-color="#f3a25f" stop-opacity="0"/></radialGradient>
+    <symbol id="logoMark" viewBox="0 0 100 100">
+      <rect x="20" y="20" width="60" height="60" transform="rotate(45 50 50)" fill="none" stroke="currentColor" stroke-width="7"/>
+      <g transform="rotate(45 50 50)" fill="none" stroke="currentColor" stroke-width="7">
+        <path d="M30 56 V30 H62 V47 H46 V38"/>
+      </g>
+      <path d="M63 38 C 55 54, 42 63, 26 65 C 44 71, 59 61, 65 44 Z" fill="currentColor"/>
+      <path d="M66 46 C 64 60, 58 72, 48 81 C 60 76, 68 65, 70 51 Z" fill="currentColor"/>
+      <path d="M71 53 C 72 63, 69 72, 63 79 C 71 74, 76 65, 76 55 Z" fill="currentColor"/>
+      <path d="M69 41 L80 52 L69 60 Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="pawIconOrange" viewBox="0 0 40 40"><g style="fill:var(--accent)"><path d="M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="16" rx="3.4" ry="4.6" transform="rotate(-18 9 16)"/><ellipse cx="16" cy="9" rx="3.4" ry="4.8"/><ellipse cx="24" cy="9" rx="3.4" ry="4.8"/><ellipse cx="31" cy="16" rx="3.4" ry="4.6" transform="rotate(18 31 16)"/></g></symbol>
+    <symbol id="pawIcon" viewBox="0 0 40 40"><g fill="#3a3129"><path d="M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="16" rx="3.4" ry="4.6" transform="rotate(-18 9 16)"/><ellipse cx="16" cy="9" rx="3.4" ry="4.8"/><ellipse cx="24" cy="9" rx="3.4" ry="4.8"/><ellipse cx="31" cy="16" rx="3.4" ry="4.6" transform="rotate(18 31 16)"/></g></symbol>
+  </defs>
+</svg>
+
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#home" aria-label="BrianShio home"><img class="logo-mark" src="logo.png" alt="">BrianShio</a>
+    <ul class="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#blog">Blog</a><ul class="sub"><li><a href="#blog">Guides</a></li><li><a href="#blog">Reviews</a></li><li><a href="#blog">Tips</a></li></ul></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="social" aria-label="social links">
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
+    </div>
+    <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="leaf-fall" id="heroLeaves" aria-hidden="true" style="z-index:1"></div>
+  <div class="sky" aria-hidden="true" id="heroSky"><div class="bloom" style="width:46vw;height:46vw;left:-14vw;top:-18vw;background:#ffffff"></div><div class="bloom" style="width:34vw;height:34vw;right:8vw;top:-8vw;background:#fde7cf"></div></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <svg id="heroSun" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" fill="url(#sunG)"/><circle cx="100" cy="100" r="58" fill="#fbe1b6" filter="url(#wcsoft)"/></svg>
+      <div class="eyebrow reveal">Travel • Tips • Reviews</div>
+      <h1 class="reveal">See the world <span class="ital">with the one</span> you love.</h1>
+      <p class="lead reveal">Cabins, campfires, mountain towns and the restaurants worth the detour. Two travelers, one honest guide.</p>
+      <div class="cta reveal">
+        <a class="btn wiggle" href="#blog"><svg class="paw" viewBox="0 0 40 40"><use href="#pawIcon"/></svg>Read the guides</a>
+        <a class="btn ghost" href="#about">Meet us</a>
+      </div>
+    </div>
+    <div class="photo-col reveal" id="heroPhoto">
+      <div class="photo" id="heroSlides"><img id="heroSlideBase" src="Pics/HD/04.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" draggable="false"><div class="tiles" aria-hidden="true"></div></div>
+      <a class="featured" href="#"><div class="date">Nov 7–11, ’24</div><h3>Red Canyon Ranch,<br>South Dakota</h3><p>Our honeymoon adventure under the Milky Way!</p><span class="read">Read →</span></a>
+    </div>
+  </div>
+  <div class="deer-fg" id="heroDeer" aria-hidden="true"></div>
+  <div class="ground" id="heroGround" aria-hidden="true"></div>
+</section>
+
+<!-- ================= WHY ================= -->
+<section class="why" id="about">
+  <div class="clouds" id="whyClouds" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="copy">
+        <div class="eyebrow reveal">Why travel?</div>
+        <blockquote class="reveal">“ I am not the same,<br class="br-m"> having gone<br class="br-d"> to where<br class="br-m"> I’ve never been. ”</blockquote>
+        <div class="authors reveal"><div>Brian Gorman, Shiori Sakurai<small>Owners and Authors at BrianShio.com</small></div><span class="avatar"><img src="Pics/Prof.jpg" alt="Brian &amp; Shiori" draggable="false"></span></div>
+        <p class="reveal" style="margin-top:1.8em">Hi! We’re Brian and Shiori. We are avid travelers, food enthusiasts (who isn’t), and do our best to make the most out of every adventure.</p>
+        <p class="reveal">We’ll take you along and share our favorite:</p>
+        <ul class="reveal">
+          <li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Destinations</li>
+          <li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Restaurants</li>
+          <li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Accommodations</li>
+          <li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Travel Tips</li>
+        </ul>
+        <p class="reveal">So pack your bags, call in sick, and come along for the ride!</p>
+      </div>
+      <div class="meadow-scene" id="meadowScene"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GUIDE / TIPS / REVIEWS ================= -->
+<section class="pillars" id="blog">
+  <div class="wrap">
+    <div class="cards">
+      <article class="card reveal" style="--c:#6f8a6b">
+        <svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><g filter="url(#wc2)"><path d="M8 52 L24 22 L36 42 L44 32 L58 52Z" fill="#9db29a"/><path d="M24 22 L30 33 L18 33Z" fill="#fff"/><path d="M44 32 L48 39 L40 39Z" fill="#fff"/></g><circle cx="50" cy="16" r="6" fill="#f6c76b"/></svg>
+        <h3>Guide</h3>
+        <p>Learn about our experiences in the US and abroad, with detailed itineraries and sound advice to help make your next trip one for the scrapbook.</p>
+        <a class="link" href="#">Read More</a>
+      </article>
+      <article class="card reveal" style="--c:#cfe1ea">
+        <svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><g filter="url(#wc2)"><rect x="12" y="22" width="40" height="28" rx="5" fill="#a9c7d3"/><rect x="24" y="14" width="16" height="9" rx="2" fill="#6f8a9a"/><rect x="18" y="30" width="28" height="3" fill="#fff"/><rect x="18" y="37" width="20" height="3" fill="#fff"/></g></svg>
+        <h3>Tips</h3>
+        <p>What can you bring on the plane? How do people travel so much? Get answers to all the most common questions about travel in our tips section.</p>
+        <a class="link" href="#">Read More</a>
+      </article>
+      <article class="card reveal" style="--c:var(--accent)">
+        <svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><g filter="url(#wc2)"><path d="M32 8 L38 23 L54 25 L42 36 L45 52 L32 44 L19 52 L22 36 L10 25 L26 23Z" fill="#f2b56e"/><path d="M32 18 L36 27 L45 28 L38 34 L40 43 L32 39Z" fill="#d2793f"/></g></svg>
+        <h3>Reviews</h3>
+        <p>High-rated restaurants, city hotels, and historic, quaint inns. Read fair reviews of all the places we’ve stopped in for a rest or a refill.</p>
+        <a class="link" href="#">Read More</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUOTE + NEXT TRIP ================= -->
+<section class="plains" id="plains">
+  <svg class="sun-big" id="plainsSun" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="98" fill="url(#sunG)"/><circle cx="100" cy="100" r="62" fill="#f8c98e" filter="url(#wcsoft)"/></svg>
+  <svg class="birds" id="plainsBirds" viewBox="0 0 400 120" style="left:-25%;top:calc(10% - 20px);width:min(360px,50vw)" aria-hidden="true"></svg>
+  <div class="wrap">
+    <blockquote class="reveal">In the pursuit of adventure, we wander far and wide, exploring the beauty of the world. Yet, no matter how far we roam, it is the comfort of home that paints our memories with warmth, and the love found within its walls that anchors our spirits.</blockquote>
+    <cite class="reveal">unknown</cite>
+    <div class="next reveal"><div class="eyebrow">Our next trip</div><div class="big">Japan<span class="sun" aria-hidden="true"></span></div></div>
+  </div>
+  <div class="hills" id="plainsHills"></div>
+  <div class="herd" id="herd"></div>
+</section>
+
+<!-- ================= TRUST ================= -->
+<section class="trust" id="trust">
+  <div class="wrap">
+    <div class="eyebrow reveal">Trust</div>
+    <h2 class="reveal">You can take our word for it</h2>
+    <p class="reveal">Why should you trust us to tell you where to go, where to stay, and what to eat? We believe it all begins with trust. We always try before we recommend or review. Visit our About page to learn more about us!</p>
+    <p class="reveal" style="margin-top:2em"><a class="btn wiggle" href="#about"><svg class="paw" viewBox="0 0 40 40"><use href="#pawIcon"/></svg>Learn about us</a></p>
+  </div>
+  <div class="trail" id="trustTrail" aria-hidden="true"></div>
+  <img class="side-wolf l" src="Wolves/01_crop.png" alt="" draggable="false" aria-hidden="true">
+  <img class="side-wolf r" src="Wolves/04_crop.png" alt="" draggable="false" aria-hidden="true">
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <header><div><div class="eyebrow reveal">Gallery</div><h2 class="reveal">Places We’ve Been</h2></div><a class="link reveal" href="#">See the full gallery</a></header>
+    <div class="masonry" id="masonry"></div>
+  </div>
+  <div class="trail" id="bearTrail" aria-hidden="true"></div>
+</section>
+
+<!-- ================= COUPLES ================= -->
+<section class="couples" id="couples">
+  <div class="wrap">
+    <div class="grid">
+      <div class="photo tilt reveal">
+        <img src="Pics/481005246_4031560460499930_8470037849195119642_n.jpg" alt="Brian and Shiori traveling together" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% calc(100% + 90px)" draggable="false">
+      </div>
+      <div>
+        <div class="eyebrow reveal">Travel for couples</div>
+        <h2 class="reveal">Explore fun things to do with your other half</h2>
+        <p class="reveal">While our <a class="link" href="#">reviews</a> and <a class="link" href="#">recommendations</a> are suitable for individual travelers as well as families, we are a couple, after all! Often, our pages offer information that is uniquely valuable to couples. Learn where to find the best cities for dates, most romantic restaurants, and the cutest B&amp;Bs.</p>
+        <h3 class="reveal" style="margin-top:1.6em">Our Experiences</h3>
+        <p class="reveal">Find out more <a class="link" href="#">about our experiences</a></p>
+        <p class="reveal"><a class="btn wiggle" href="#blog"><svg class="paw" viewBox="0 0 40 40"><use href="#pawIcon"/></svg>Visit our blog</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="pair" id="pair"></div>
+</section>
+
+<!-- ================= FAMILY ================= -->
+<section class="family" id="family">
+  <div class="leaf-fall" id="familyLeaves" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="eyebrow reveal">Family travel</div>
+    <h2 class="reveal">Get inspired by our top trips and adventures and start your OWN</h2>
+    <p class="reveal">From ranch stays under the Milky Way to city weekends built around one perfect restaurant, every trip becomes a story worth retelling.</p>
+  </div>
+  <div class="valley" id="valley"></div>
+</section>
+
+<!-- ================= STORY ================= -->
+<section class="story" id="story">
+  <div class="wrap">
+    <h2 class="reveal">See the <span class="ital">world</span> with the one you <span class="ital">love</span></h2>
+    <p class="reveal">We have both traveled on our own and when we met in 2022, we knew it would remain a priority. In fact, we took our first trip together to Nashville, TN just weeks after our first date!</p>
+    <p class="reveal">Traveling together has helped us create lifelong memories and establish a stronger bond, and we look forward to the days when we can travel with our children, as a family.</p>
+  </div>
+  <div class="layers" id="layers"></div>
+  <div class="snow-fall" id="storySnow" aria-hidden="true"></div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact">
+  <div class="trail" id="footTrail" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="grid">
+      <div><a class="logo" href="#home" aria-label="BrianShio home"><img class="logo-mark" src="logo.png" alt="">BrianShio</a><p style="margin-top:1em;max-width:340px;font-size:.95rem"><span class="ft-l1">Travel &amp; lifestyle for couples.</span> <span class="ft-l2">See the world with the one you love.</span></p></div>
+      <div><h4>Useful links</h4><ul><li><a href="#blog">Guides</a></li><li><a href="#blog">Reviews</a></li><li><a href="#blog">Tips</a></li><li><a href="#contact">Contact</a></li><li><a href="#">RSS</a></li></ul></div>
+      <div class="social-block"><div class="social" aria-label="social links">
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
+    </div></div>
+      
+    </div>
+    <div class="copy"><span>© 2026 BrianShio</span><span>Website by <a href="https://designbyshio.com" target="_blank" rel="noopener">Design by Shio</a></span></div>
+  </div>
+</footer>
+
+<!-- extra icons: leaf, sprig, fern, berries -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="leafIcon" viewBox="0 0 40 40"><path d="M6 34 C 8 16, 20 6, 36 6 C 36 22, 26 34, 6 34Z" fill="#7e9779"/><path d="M8 32 C 16 24, 24 16, 32 10" stroke="#e9efe3" stroke-width="2" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="sprig" viewBox="0 0 100 100"><path d="M50 98 C 50 70, 52 40, 60 10" stroke="#7e9779" stroke-width="3" fill="none" stroke-linecap="round"/><g fill="#9fb39a"><path d="M52 78 C 36 78, 26 66, 26 52 C 40 52, 52 62, 52 78Z"/><path d="M53 60 C 68 58, 78 46, 78 32 C 64 34, 53 46, 53 60Z"/><path d="M54 44 C 40 42, 32 32, 32 20 C 44 22, 54 32, 54 44Z"/><path d="M56 28 C 68 26, 76 16, 76 6 C 64 8, 56 16, 56 28Z"/></g></symbol>
+  <symbol id="fern" viewBox="0 0 100 100"><path d="M20 96 C 30 70, 46 46, 82 14" stroke="#5f7a5c" stroke-width="3" fill="none" stroke-linecap="round"/><g stroke="#7e9779" stroke-width="5" stroke-linecap="round" fill="none"><path d="M30 78 l -14 -6 M34 70 l 14 -8 M40 60 l -14 -6 M45 52 l 14 -8 M52 44 l -12 -6 M58 36 l 12 -8 M64 28 l -10 -6 M70 22 l 10 -7"/></g></symbol>
+  <symbol id="berries" viewBox="0 0 100 100"><path d="M50 96 C 48 70, 46 50, 40 30 M50 96 C 54 72, 60 52, 70 36" stroke="#8a6440" stroke-width="3" fill="none" stroke-linecap="round"/><g fill="#c2503c"><circle cx="38" cy="26" r="7"/><circle cx="28" cy="36" r="6"/><circle cx="46" cy="40" r="6"/><circle cx="72" cy="32" r="7"/><circle cx="80" cy="44" r="6"/><circle cx="64" cy="46" r="5"/></g><path d="M54 70 C 40 70, 30 60, 30 48 C 42 48, 54 58, 54 70Z" fill="#9fb39a"/></symbol>
+</svg>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+const WOLF = {
+  1:{src:'wolves2/wolf_01.png',w:269,h:538,note:'grey, standing, howling'},
+  2:{src:'wolves2/wolf_02.png',w:247,h:506,note:'sand, standing, looking up'},
+  3:{src:'wolves2/wolf_03.png',w:273,h:407,note:'grey, sitting, howling'},
+  4:{src:'wolves2/wolf_04.png',w:248,h:481,note:'white, standing, waving (faces left)'},
+  5:{src:'wolves2/wolf_05.png',w:294,h:484,note:'cream, dancing'},
+  6:{src:'wolves2/wolf_06.png',w:275,h:443,note:'grey, sitting, looking'},
+  7:{src:'wolves2/wolf_07.png',w:261,h:520,note:'white, howling, paws up'},
+  8:{src:'wolves2/wolf_08.png',w:278,h:459,note:'grey, sitting, howling'},
+  11:{src:'wolves2/new_01.png',w:324,h:508,note:'grey, sitting, howling'},
+  12:{src:'wolves2/new_02.png',w:317,h:500,note:'white, sitting, howling'},
+  13:{src:'wolves2/new_03.png',w:306,h:466,note:'grey, sitting, looking left'},
+  14:{src:'wolves2/new_04.png',w:332,h:493,note:'white, sitting, happy'},
+  15:{src:'wolves2/new_05.png',w:395,h:359,note:'grey, walking left'},
+  16:{src:'wolves2/new_06.png',w:352,h:374,note:'white, walking left, happy'},
+  17:{src:'wolves2/new_07.png',w:455,h:324,note:'cream, trotting left'},
+  18:{src:'wolves2/new_08.png',w:333,h:354,note:'grey, walking left'},
+  19:{src:'Wolves/08_crop.png',w:370,h:375,note:'grey, walking left (Wolves/08.png, cropped)'},
+  20:{src:'Wolves/03_crop.png',w:320,h:480,note:'grey, sitting, looking left (Wolves/03.png, cropped)'},
+  21:{src:'Wolves/04_crop.png',w:350,h:520,note:'white, sitting, tongue out (Wolves/04.png, cropped)'},
+  22:{src:'Wolves/02_crop.png',w:360,h:500,note:'cream, sitting, howling up-left (Wolves/02.png, cropped)'},
+};
+function wolfImg(n, cls='', style='', anim='hop'){ const w=WOLF[n]; return `<div class="wolf-box ${cls}" style="${style}"><img class="wolf ${anim}" src="${w.src}" alt="" style="aspect-ratio:${w.w}/${w.h}" draggable="false"></div>`; }
+
+/* ---------- small watercolor scenery pieces ---------- */
+function cabinInner(){
+  return `
+    <ellipse cx="150" cy="206" rx="140" ry="14" fill="#e6dcc9" filter="url(#wcsoft)"/>
+    <g filter="url(#wc2)">
+      <path d="M40 200 L60 120 L80 200Z" fill="#8aa386"/><path d="M48 176 L60 130 L72 176Z" fill="#6f8a6b"/>
+      <path d="M232 200 L256 110 L280 200Z" fill="#8aa386"/><path d="M242 172 L256 122 L270 172Z" fill="#6f8a6b"/>
+    </g>
+    <rect x="196" y="70" width="18" height="40" fill="#8d7365" filter="url(#wc2)"/>
+    <g class="smoke" fill="#f4f1ec" opacity=".9"><circle cx="205" cy="64" r="9"/><circle cx="205" cy="64" r="8"/><circle cx="205" cy="64" r="10"/></g>
+    <path d="M60 118 L150 48 L240 118 Z" fill="#6e4c33" filter="url(#wc)"/>
+    <path d="M70 118 L150 58 L230 118 Z" fill="#8d6244" filter="url(#wc2)"/>
+    <path d="M52 120 L150 42 L248 120 L240 126 L150 56 L60 126Z" fill="#5a3d29" filter="url(#wc2)"/>
+    <rect x="78" y="118" width="144" height="82" fill="#b48a62" filter="url(#wc)"/>
+    <g stroke="#8e6a48" stroke-width="2.5" opacity=".6"><path d="M80 132 H220 M80 146 H220 M80 160 H220 M80 174 H220 M80 188 H220"/></g>
+    <rect x="138" y="150" width="26" height="50" rx="3" fill="#5a3d29" filter="url(#wc2)"/>
+    <circle cx="158" cy="177" r="1.8" fill="#f6c76b"/>
+    <rect x="96" y="140" width="28" height="26" rx="2" fill="#f6c76b" class="glow" filter="url(#wc2)"/>
+    <rect x="176" y="140" width="28" height="26" rx="2" fill="#f6c76b" class="glow" filter="url(#wc2)"/>
+    <g stroke="#5a3d29" stroke-width="2"><path d="M110 140 V166 M96 153 H124 M190 140 V166 M176 153 H204"/></g>
+    <path d="M62 116 C 90 96, 120 80, 150 52 C 180 80, 210 96, 238 116 C 210 104, 180 92, 150 66 C 120 92, 90 104, 62 116Z" fill="#fbf7ef" opacity=".85" filter="url(#wc2)"/>
+    <g filter="url(#wc2)"><circle cx="236" cy="192" r="6" fill="#8d6244"/><circle cx="246" cy="194" r="6" fill="#a3764f"/><circle cx="241" cy="184" r="6" fill="#8d6244"/></g>
+    <circle cx="66" cy="180" r="5" fill="#f6c76b" class="glow"/><rect x="63" y="184" width="6" height="14" fill="#5a3d29"/>`;
+}
+function cabinSVG(){ return `<svg viewBox="0 0 300 220" style="width:100%;height:auto;overflow:visible" aria-hidden="true">${cabinInner()}</svg>`; }
+function birdsSVG(n=5,seed=3){
+  let s='',r=seed; const rnd=()=>{ r=(r*9301+49297)%233280; return r/233280; };
+  // V-formation flying right: leader front-right, others trailing back on alternating sides
+  for(let i=0;i<n;i++){
+    const k=Math.ceil(i/2), side=(i%2 ? -1 : 1);
+    const x=280 - k*62 + (rnd()*10-5);
+    const y=55 + side*k*30 + (rnd()*8-4);
+    const sc=((1.05+rnd()*.35)*(1-k*.08)).toFixed(2);
+    const dl=(rnd()*.8).toFixed(2)+'s';
+    s+=`<g class="bird" transform="translate(${x.toFixed(0)} ${y.toFixed(0)}) scale(${sc})">
+      <path class="wingL" d="M16 10 Q7 -6 -5 0 Q5 6 16 10Z" fill="#5f6a73" style="animation-delay:${dl}"/>
+      <path class="wingR" d="M20 10 Q29 -6 41 0 Q31 6 20 10Z" fill="#5f6a73" style="animation-delay:${dl}"/>
+      <path d="M9 12 l-8 2.6 8 1.8Z" fill="#5f6a73"/>
+      <ellipse cx="18" cy="12" rx="10" ry="4.4" fill="#6d7a84"/>
+      <circle cx="27.5" cy="9.6" r="3.4" fill="#6d7a84"/>
+      <path d="M30.5 9.2 l5.5 1.6 -5.5 1.8Z" fill="#d2973f"/>
+    </g>`; }
+  return s;
+}
+
+/* ---------- watercolor animals drawn in SVG (bison, bear) ---------- */
+const PAL={ bison:{base:'#7a634e',dark:'#4f3e30',light:'#9b8368',line:'#3a2c21'}, bear:{base:'#8a6a4a',dark:'#5b4430',light:'#a98b6b',line:'#3f2e1f'} };
+function furStrokes(cx,cy,w,h,color,n=12,seed=1){ let s='',r=seed; const rnd=()=>{ r=(r*9301+49297)%233280; return r/233280; };
+  for(let i=0;i<n;i++){ const x=cx-w/2+rnd()*w,y=cy-h/2+rnd()*h,l=6+rnd()*10,a=(rnd()-.5)*40; s+=`<path d="M${x} ${y} q ${l*.4} ${-l*.3} ${l} ${l*.15}" stroke="${color}" stroke-width="1.1" fill="none" stroke-linecap="round" opacity=".45" transform="rotate(${a} ${x} ${y})"/>`; } return s; }
+function leg(cls,x,y,len,thick,p,far,rear=false,op){ const c=far?p.dark:p.base, hl=far?p.base:p.light, t=thick/2; if(op===undefined) op=far?.85:1;
+  const d= rear ? `M${-t-2} 0 C ${-t-9} ${len*.3}, ${-t-11} ${len*.55}, ${-t-4} ${len*.7} C ${-t-1} ${len*.85}, ${-t} ${len*.95}, ${-t-3} ${len} L ${t+5} ${len} L ${t+2} ${len-5} C ${t-2} ${len*.75}, ${t-4} ${len*.55}, ${t+2} ${len*.35} C ${t+4} ${len*.2}, ${t+3} ${len*.08}, ${t+2} 0 Z`
+                : `M${-t} 0 C ${-t-2} ${len*.35}, ${-t-1} ${len*.7}, ${-t+1} ${len-6} L ${-t-3} ${len} L ${t+4} ${len} L ${t} ${len-6} C ${t+1} ${len*.65}, ${t+1} ${len*.3}, ${t} 0 Z`;
+  return `<g transform="translate(${x} ${y})" opacity="${op}"><g class="${cls}"><path class="wash2" d="${d}" fill="${c}" stroke="${p.dark}" stroke-opacity=".25" stroke-width=".8"/><path d="M${-t+3} ${len*.45} C ${-t+2} ${len*.65}, ${-t+3} ${len*.82}, ${-t+4} ${len-6}" stroke="${hl}" stroke-width="1.4" fill="none" opacity=".55" stroke-linecap="round"/><ellipse cx="1" cy="${len}" rx="${t+3}" ry="2.4" fill="${p.dark}" opacity=".75"/></g></g>`; }
+function bisonSVG({cls='',style=''}={}){ const p=PAL.bison;
+  return `<svg class="animal ${cls}" viewBox="0 0 220 150" style="${style}" aria-hidden="true">
+    <ellipse class="shadow" cx="112" cy="143" rx="70" ry="6" fill="#3a3129"/>
+    ${leg('legB2',70,96,44,16,p,true)}${leg('legF2',150,96,44,15,p,true)}${leg('legB',62,98,44,17,p,false)}${leg('legF',142,98,44,16,p,false)}
+    <g class="tail"><path class="wash2" d="M44 76 C 36 86, 34 100, 38 112 C 42 116, 48 114, 46 108 C 44 98, 46 88, 50 80 Z" fill="${p.dark}"/><circle cx="40" cy="114" r="5" fill="${p.dark}" filter="url(#wc2)"/></g>
+    <g class="body"><path class="wash" d="M42 88 C 36 56, 64 30, 104 32 C 130 32, 148 46, 158 64 L 162 100 C 150 108, 110 110, 74 106 C 54 104, 44 98, 42 88 Z" fill="${p.base}"/><path class="wash2" d="M60 56 C 76 34, 110 30, 140 46 C 150 54, 154 62, 156 72 C 140 52, 100 44, 60 56 Z" fill="${p.dark}" opacity=".75"/><path class="wash2" d="M70 100 C 100 106, 130 106, 156 98 C 130 104, 100 104, 70 100 Z" fill="${p.light}" opacity=".5"/><g class="fur">${furStrokes(100,64,90,46,p.dark,22,11)}</g></g>
+    <g class="head"><path class="wash2" d="M176 62 C 180 44, 194 38, 202 46 C 194 48, 188 56, 186 68 Z" fill="${p.light}" opacity=".95"/><path class="wash" d="M148 70 C 156 54, 176 52, 188 62 C 198 74, 199 96, 190 108 C 184 118, 168 121, 158 112 C 150 104, 145 86, 148 70 Z" fill="${p.dark}" stroke="${p.dark}" stroke-opacity=".3" stroke-width=".8"/><path class="wash2" d="M160 108 C 156 118, 158 132, 168 136 C 176 132, 178 118, 180 110 Z" fill="${p.dark}" opacity=".9"/><path class="wash2" d="M150 68 C 158 58, 172 56, 182 64 C 172 62, 160 64, 152 74 Z" fill="${p.base}" opacity=".8"/><path class="wash2" d="M160 62 C 152 48, 150 38, 160 36 C 158 44, 160 52, 166 60 Z" fill="${p.light}" opacity=".95"/><circle cx="178" cy="80" r="2.4" fill="#1f1712"/><ellipse cx="192" cy="100" rx="5" ry="3.6" fill="#2a1f17" opacity=".9"/><g class="fur">${furStrokes(170,92,30,30,p.dark,12,5)}</g></g>
+  </svg>`; }
+function bisonFrontSVG({cls='',style=''}={}){ const p=PAL.bison;
+  return `<svg class="animal ${cls}" viewBox="0 0 190 150" style="${style}" aria-hidden="true">
+    <ellipse class="shadow" cx="95" cy="143" rx="62" ry="6" fill="#3a3129"/>
+    <rect x="40" y="100" width="14" height="40" rx="6" fill="${p.dark}"/>
+    <rect x="64" y="102" width="13" height="38" rx="6" fill="${p.dark}"/>
+    <rect x="120" y="100" width="15" height="40" rx="6" fill="${p.dark}"/>
+    <rect x="144" y="98" width="14" height="42" rx="6" fill="${p.dark}"/>
+    <g class="body"><path class="wash" d="M30 80 C 30 40, 70 28, 100 32 C 140 36, 168 62, 162 96 C 156 112, 120 118, 85 112 C 55 108, 34 98, 30 80 Z" fill="${p.base}"/><path class="wash2" d="M46 46 C 70 30, 110 30, 140 46 C 112 36, 74 36, 46 46 Z" fill="${p.dark}" opacity=".7"/><g class="fur">${furStrokes(110,70,80,40,p.dark,16,8)}</g></g>
+    <g class="head"><path class="wash2" d="M26 54 C 18 48, 14 38, 20 30 C 26 34, 31 44, 34 52 Z" fill="${p.light}"/><path class="wash2" d="M66 50 C 72 42, 74 32, 68 26 C 62 32, 60 42, 60 50 Z" fill="${p.light}"/><ellipse class="wash" cx="44" cy="78" rx="27" ry="33" fill="${p.dark}" transform="rotate(-7 44 78)"/><ellipse class="wash2" cx="46" cy="52" rx="23" ry="15" fill="${p.dark}"/><ellipse cx="68" cy="60" rx="7" ry="5" fill="${p.dark}" transform="rotate(24 68 60)"/><circle cx="28" cy="76" r="2.5" fill="#1f1712"/><circle cx="54" cy="79" r="2.5" fill="#1f1712"/><ellipse class="wash2" cx="36" cy="104" rx="13" ry="10" fill="#4a382a" transform="rotate(-10 36 104)"/><circle cx="31" cy="103" r="1.7" fill="#1f1712"/><circle cx="41" cy="106" r="1.7" fill="#1f1712"/><g class="fur">${furStrokes(44,80,32,32,p.dark,12,5)}</g></g>
+  </svg>`; }
+function bisonBabySVG({cls='',style=''}={}){ const p={base:'#c9a273',dark:'#a97f52',light:'#e2c49a'};
+  return `<svg class="animal ${cls}" viewBox="0 0 160 120" style="${style}" aria-hidden="true">
+    <ellipse class="shadow" cx="80" cy="114" rx="46" ry="5" fill="#3a3129"/>
+    ${leg('legB2',52,74,34,11,p,true)}${leg('legF2',104,74,34,10,p,true)}${leg('legB',44,76,34,12,p,false)}${leg('legF',98,76,34,11,p,false)}
+    <g class="tail"><path class="wash2" d="M32 58 C 26 66, 25 76, 28 84 C 31 87, 35 85, 34 80 C 33 72, 34 64, 37 60 Z" fill="${p.dark}"/></g>
+    <g class="body"><path class="wash" d="M32 66 C 28 44, 50 30, 80 32 C 100 33, 114 42, 120 54 L 122 76 C 110 84, 70 86, 46 80 C 36 77, 33 72, 32 66 Z" fill="${p.base}"/><path class="wash2" d="M46 44 C 60 32, 88 30, 108 42 C 90 36, 62 38, 46 44 Z" fill="${p.dark}" opacity=".6"/></g>
+    <g class="head"><path class="wash" d="M112 50 C 118 38, 134 36, 142 46 C 148 56, 147 70, 140 78 C 134 85, 122 86, 116 78 C 110 70, 108 60, 112 50 Z" fill="${p.base}"/><ellipse cx="116" cy="42" rx="6" ry="4.5" fill="${p.base}" transform="rotate(-28 116 42)"/><ellipse cx="117" cy="43" rx="3" ry="2.2" fill="${p.light}" transform="rotate(-28 117 43)"/><circle cx="130" cy="58" r="2.2" fill="#1f1712"/><ellipse cx="141" cy="70" rx="4" ry="3" fill="#4a382a"/></g>
+  </svg>`; }
+function bearSVG({cls='',style=''}={}){ const p=PAL.bear;
+  return `<svg class="animal ${cls}" viewBox="0 0 220 150" style="${style}" aria-hidden="true">
+    <ellipse class="shadow" cx="112" cy="143" rx="68" ry="6" fill="#3a3129"/>
+    ${leg('legB2',72,98,42,18,p,true)}${leg('legF2',148,98,42,17,p,true)}${leg('legB',64,100,42,20,p,false)}${leg('legF',140,100,42,18,p,false)}
+    <g class="body"><path class="wash" d="M48 90 C 40 54, 76 34, 116 38 C 148 40, 166 58, 164 86 C 162 106, 136 112, 104 110 C 74 108, 52 104, 48 90 Z" fill="${p.base}"/><path class="wash2" d="M62 60 C 84 40, 122 40, 150 58 C 130 50, 94 50, 62 60 Z" fill="${p.dark}" opacity=".6"/><path class="wash2" d="M70 102 C 100 108, 130 108, 156 100 C 130 106, 96 106, 70 102 Z" fill="${p.light}" opacity=".55"/><g class="fur">${furStrokes(106,74,90,44,p.dark,18,17)}</g></g>
+    <g class="tail"><circle cx="50" cy="92" r="6" fill="${p.dark}" filter="url(#wc2)"/></g>
+    <g class="head"><path class="wash" d="M150 66 C 150 46, 176 42, 190 54 C 200 62, 198 76, 188 82 C 176 88, 154 84, 150 66 Z" fill="${p.base}"/><path class="wash2" d="M178 68 C 186 66, 196 68, 200 74 C 196 80, 186 82, 178 78 Z" fill="${p.light}" opacity=".75"/><circle cx="158" cy="48" r="6" fill="${p.dark}" filter="url(#wc2)"/><circle cx="158" cy="48" r="3" fill="${p.light}" opacity=".5"/><circle cx="180" cy="46" r="6" fill="${p.dark}" filter="url(#wc2)"/><circle cx="180" cy="46" r="3" fill="${p.light}" opacity=".5"/><circle cx="174" cy="62" r="2.3" fill="#1f1712"/><ellipse cx="198" cy="72" rx="4" ry="3" fill="#1f1712" opacity=".9"/></g>
+  </svg>`; }
+
+/* ---------- paw prints ---------- */
+function pawPrint(x,y,size,rot,color,kind='wolf',opacity=.5){ const s=size/40;
+  if(kind==='bear') return `<g class="print" data-x="${x}" transform="translate(${x} ${y}) rotate(${rot}) scale(${s})" fill="${color}" opacity="${opacity}" filter="url(#wc2)"><path d="M20 40c-9 0-16-4-16-10 0-5 6-9 16-9s16 4 16 9c0 6-7 10-16 10z"/><ellipse cx="4" cy="17" rx="3" ry="4.2"/><ellipse cx="11" cy="10" rx="3" ry="4.4"/><ellipse cx="20" cy="7" rx="3" ry="4.6"/><ellipse cx="29" cy="10" rx="3" ry="4.4"/><ellipse cx="36" cy="17" rx="3" ry="4.2"/></g>`;
+  return `<g class="print" data-x="${x}" transform="translate(${x} ${y}) rotate(${rot}) scale(${s})" fill="${color}" opacity="${opacity}" filter="url(#wc2)"><path d="M20 38c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="17" rx="3.2" ry="4.4" transform="rotate(-18 9 17)"/><ellipse cx="16" cy="9" rx="3.2" ry="4.6"/><ellipse cx="24" cy="9" rx="3.2" ry="4.6"/><ellipse cx="31" cy="17" rx="3.2" ry="4.4" transform="rotate(18 31 17)"/></g>`; }
+function trailSVG(w,h,n,opts={}){ const {kind='wolf',color='#9a8c7c',size=22,y0=h*.55,amp=h*.12,xStart=0,xEnd=w,opacity=.5,dir=1}=opts; let out='';
+  for(let i=0;i<n;i++){ const t=i/(n-1), x=xStart+(xEnd-xStart)*t, y=y0+Math.sin(t*Math.PI*2)*amp+(i%2?size*.6:-size*.6), rot=90*dir+Math.cos(t*Math.PI*2)*10+(i%2?6:-6); out+=pawPrint(x,y,size,rot,color,kind,opacity); } return out; }
+
+
+
+/* =========================================================
+   Storybook pieces: trees, plants, bushes, clouds, deer
+   ========================================================= */
+const $=s=>document.querySelector(s);
+const vw=()=>window.innerWidth;
+let seedr=7; const rnd=()=>{ seedr=(seedr*9301+49297)%233280; return seedr/233280; };
+
+const tree=(x,b,h,c1,c2,d=0)=>`<g class="tree" style="animation-delay:${d}s"><path d="M${x-h*.34} ${b} L${x} ${b-h} L${x+h*.34} ${b}Z" fill="${c1}"/><path d="M${x-h*.26} ${b-h*.12} L${x} ${b-h*.72} L${x+h*.26} ${b-h*.12}Z" fill="${c2}" opacity=".95"/><path d="M${x-h*.17} ${b-h*.36} L${x} ${b-h*.86} L${x+h*.17} ${b-h*.36}Z" fill="${c1}" opacity=".9"/><rect x="${x-h*.028}" y="${b-h*.02}" width="${h*.056}" height="${h*.1}" fill="#6e4c33"/></g>`;
+const forestRow=(x0,x1,b,hmin,hmax,c1,c2,n)=>{ let s=''; for(let i=0;i<n;i++){ const x=x0+(x1-x0)*i/(n-1)+rnd()*(x1-x0)/n*.6; s+=tree(x,b+rnd()*hmax*.1,hmin+rnd()*(hmax-hmin),c1,c2,(-rnd()*5).toFixed(1)); } return s; };
+const bush=(x,b,w,h,c)=>`<path d="M${x-w/2} ${b} C ${x-w/2} ${b-h*.6}, ${x-w*.3} ${b-h}, ${x-w*.12} ${b-h*.8} C ${x} ${b-h*1.1}, ${x+w*.2} ${b-h*.95}, ${x+w*.28} ${b-h*.7} C ${x+w*.5} ${b-h*.7}, ${x+w/2} ${b-h*.3}, ${x+w/2} ${b} Z" fill="${c}" filter="url(#wc2)"/>`;
+const grass=(x,b,s=1)=>`<g class="plant"><path d="M${x} ${b} C ${x-1*s} ${b-8*s}, ${x-4*s} ${b-12*s}, ${x-7*s} ${b-15*s} M${x} ${b} C ${x-.5*s} ${b-10*s}, ${x-1*s} ${b-16*s}, ${x-2.5*s} ${b-21*s} M${x} ${b} C ${x+.5*s} ${b-10*s}, ${x+1*s} ${b-17*s}, ${x+3*s} ${b-23*s} M${x} ${b} C ${x+1*s} ${b-8*s}, ${x+3*s} ${b-12*s}, ${x+6.5*s} ${b-15*s} M${x} ${b} C ${x+2*s} ${b-6*s}, ${x+5*s} ${b-8*s}, ${x+9*s} ${b-9*s}" stroke="#8fa38a" stroke-width="${1.6*s}" fill="none" stroke-linecap="round"/></g>`;
+const flowerSVG=(x,b,h,pc='#f6c76b',cc='#c2503c',d=0)=>{
+  const cx=x+h*.08, cy=b-h, pr=h*.14;
+  let petals='';
+  for(let i=0;i<6;i++){ const a=Math.PI/3*i+Math.PI/7; const px=cx+Math.cos(a)*pr, py=cy+Math.sin(a)*pr;
+    petals+=`<ellipse cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" rx="${(h*.10).toFixed(1)}" ry="${(h*.062).toFixed(1)}" transform="rotate(${(a*180/Math.PI).toFixed(0)} ${px.toFixed(1)} ${py.toFixed(1)})" fill="${pc}"/>`; }
+  return `<g class="plant" style="animation-delay:${d}s"><path d="M${x} ${b} C ${x} ${b-h*.4}, ${x+h*.04} ${b-h*.7}, ${cx} ${cy+h*.1}" stroke="#5f7a5c" stroke-width="${Math.max(1.5,h*.03)}" fill="none" stroke-linecap="round"/><path d="M${x} ${b-h*.45} q ${-h*.14} ${-h*.06} ${-h*.16} ${-h*.2} q ${h*.16} ${h*.02} ${h*.16} ${h*.2}Z" fill="#7e9779"/>${petals}<circle cx="${cx}" cy="${cy}" r="${(h*.08).toFixed(1)}" fill="${cc}"/></g>`;
+};
+const sprigPlant=(x,b,h,c='#7e9779',c2='#9fb39a',d=0)=>`<g class="plant" style="animation-delay:${d}s"><path d="M${x} ${b} C ${x} ${b-h*.4}, ${x+h*.05} ${b-h*.7}, ${x+h*.12} ${b-h}" stroke="${c}" stroke-width="${Math.max(1.5,h*.035)}" fill="none" stroke-linecap="round"/>
+  <path d="M${x+h*.02} ${b-h*.28} C ${x-h*.16} ${b-h*.30}, ${x-h*.26} ${b-h*.42}, ${x-h*.24} ${b-h*.56} C ${x-h*.10} ${b-h*.52}, ${x} ${b-h*.42}, ${x+h*.02} ${b-h*.28}Z" fill="${c2}"/>
+  <path d="M${x+h*.05} ${b-h*.48} C ${x+h*.2} ${b-h*.50}, ${x+h*.3} ${b-h*.62}, ${x+h*.28} ${b-h*.76} C ${x+h*.14} ${b-h*.72}, ${x+h*.06} ${b-h*.62}, ${x+h*.05} ${b-h*.48}Z" fill="${c2}"/>
+  <path d="M${x+h*.08} ${b-h*.66} C ${x-h*.06} ${b-h*.68}, ${x-h*.14} ${b-h*.78}, ${x-h*.12} ${b-h*.9} C ${x} ${b-h*.86}, ${x+h*.08} ${b-h*.78}, ${x+h*.08} ${b-h*.66}Z" fill="${c2}"/></g>`;
+const berryPlant=(x,b,h,d=0)=>`<g class="plant" style="animation-delay:${d}s"><path d="M${x} ${b} C ${x-h*.05} ${b-h*.5}, ${x-h*.1} ${b-h*.7}, ${x-h*.18} ${b-h} M${x} ${b} C ${x+h*.06} ${b-h*.5}, ${x+h*.12} ${b-h*.7}, ${x+h*.22} ${b-h*.9}" stroke="#8a6440" stroke-width="${Math.max(1.5,h*.03)}" fill="none" stroke-linecap="round"/><g fill="#b98a5a"><circle cx="${x-h*.18}" cy="${b-h*1.02}" r="${h*.06}"/><circle cx="${x-h*.26}" cy="${b-h*.9}" r="${h*.05}"/><circle cx="${x-h*.1}" cy="${b-h*.86}" r="${h*.05}"/><circle cx="${x+h*.22}" cy="${b-h*.92}" r="${h*.06}"/><circle cx="${x+h*.3}" cy="${b-h*.8}" r="${h*.05}"/><circle cx="${x+h*.14}" cy="${b-h*.76}" r="${h*.045}"/></g></g>`;
+const cloudSVG=(style)=>`<svg class="cloud" viewBox="0 0 220 90" style="${style}"><path d="M20 70 C 0 70, 0 40, 30 40 C 34 18, 70 12, 84 34 C 96 20, 130 22, 136 44 C 170 36, 196 54, 186 70 Z" fill="#e6e1d5" filter="url(#wcsoft)"/></svg>`;
+
+/* deer — flat storybook style, faces LEFT, viewBox 0 -40 220 240, feet at y=190 */
+function deerSVG({cls='',style='',buck=true,fawn=false,spots=null,c='#b98a5a',cd='#8a6440',cl='#dcc09a',flip=false}={}){
+  const p={base:c,dark:'#9c714a',light:cl,line:cd};
+  const showSpots = spots===null ? fawn : spots;
+  const spotsG=showSpots?`<g fill="#f2e6cf" opacity=".9"><circle cx="100" cy="100" r="3"/><circle cx="116" cy="94" r="3"/><circle cx="132" cy="102" r="3"/><circle cx="108" cy="116" r="2.6"/><circle cx="126" cy="120" r="2.6"/><circle cx="144" cy="114" r="2.6"/><circle cx="92" cy="118" r="2.4"/></g>`:'';
+  const antlers=buck&&!fawn?`<g stroke="${cd}" stroke-width="3.4" fill="none" stroke-linecap="round"><path d="M62 16 C 58 2, 64 -10, 78 -18 M66 2 C 72 -4, 80 -6, 88 -4 M63 8 C 56 -2, 58 -14, 64 -22 M72 -8 C 70 -16, 74 -22, 80 -26"/><path d="M72 16 C 78 4, 88 -2, 100 -6 M82 4 C 88 0, 96 0, 102 4 M90 -2 C 92 -10, 98 -14, 106 -16"/></g>`:'';
+  const open=flip?'<g transform="translate(220 0) scale(-1 1)">':'<g>';
+  return `<svg class="animal deer ${cls}" viewBox="0 -40 220 240" style="${style}" aria-hidden="true">${open}
+    <ellipse class="shadow" cx="118" cy="192" rx="62" ry="5" fill="#3a3129"/>
+    ${leg('legB2',153,130,58,8,p,true,true,.95)}${leg('legF2',94,130,58,7,p,true,false,.95)}${leg('legB',143,132,57,9,p,false,true)}${leg('legF',84,132,57,8,p,false,false)}
+    <path d="M78 106 C 66 92, 56 70, 50 48 L 70 40 C 74 62, 80 82, 92 96 Z" fill="${c}" filter="url(#wc2)"/>
+    <path d="M74 102 C 65 88, 57 72, 52 54" stroke="${cl}" stroke-width="3" fill="none" opacity="1" stroke-linecap="round"/>
+    <g class="body">
+      <path d="M72 100 C 70 84, 95 78, 120 80 C 148 82, 168 88, 168 110 C 168 132, 150 144, 118 144 C 90 144, 72 134, 72 100 Z" fill="${c}" filter="url(#wc2)"/>
+      <path d="M84 138 C 100 146, 140 146, 160 134 C 140 142, 100 142, 84 138 Z" fill="${cl}" opacity=".85"/>
+      ${spotsG}
+      <g class="tail"><path d="M166 96 C 176 92, 180 100, 172 106 C 170 102, 168 100, 166 96 Z" fill="${cl}"/></g>
+    </g>
+    <g class="head">
+      ${antlers}
+      <path d="M60 20 L 66 2 L 76 22 Z" fill="${cd}"/><path d="M50 20 L 46 2 L 62 18 Z" fill="${c}"/>
+      <path d="M44 22 C 54 12, 72 18, 72 34 C 72 44, 64 50, 54 50 C 44 50, 30 48, 22 44 C 18 42, 22 36, 30 36 C 36 34, 40 28, 44 22 Z" fill="${c}" filter="url(#wc2)"/>
+      <path d="M30 46 C 36 48, 46 49, 54 48 C 46 46, 36 44, 30 42 Z" fill="${cl}" opacity=".8"/>
+      <circle cx="56" cy="31" r="2.4" fill="#2a1f17"/><circle cx="56.8" cy="30.3" r=".7" fill="#fff"/>
+      <ellipse cx="23" cy="43" rx="3" ry="2.2" fill="#2a1f17"/>
+    </g>
+  </g></svg>`;
+}
+
+/* =========================================================
+   Scenes
+   ========================================================= */
+// ---- sky: clouds + birds (hero)
+
+
+// ---- hero ground: mountains, forest, meadow, winding road, bushes. Cabin (the only one on the site) + a deer in the foreground
+(function(){
+  $('#heroDeer').innerHTML=deerSVG({cls:'still',spots:true,style:'position:relative;width:100%'});
+  const g=$('#heroGround'); const W=g.clientWidth,H=g.clientHeight;
+  const road=`M${W*.30} ${H+10} C ${W*.32} ${H*.86}, ${W*.44} ${H*.82}, ${W*.55} ${H*.78} C ${W*.63} ${H*.75}, ${W*.66} ${H*.71}, ${W*.69} ${H*.67} L ${W*.705} ${H*.665} C ${W*.68} ${H*.72}, ${W*.66} ${H*.78}, ${W*.58} ${H*.84} C ${W*.50} ${H*.90}, ${W*.46} ${H*.94}, ${W*.47} ${H+10} Z`;
+  let tree3='',tree4='';
+  g.innerHTML=`
+    <svg class="layer" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+      <defs><linearGradient id="roadFade" x1="${W*.3}" y1="0" x2="${W*.70}" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff"/><stop offset=".75" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="roadMask"><rect x="0" y="0" width="${W}" height="${H+20}" fill="url(#roadFade)"/></mask></defs>
+      <path d="${window.innerWidth<=440?`M${W*.15} ${H*.72} C ${W*.26} ${H*.56}, ${W*.36} ${H*.28}, ${W*.55} ${H*.27} C ${W*.75} ${H*.40}, ${W*.90} ${H*.50}, ${W*1.04} ${H*.56} L ${W*1.04} ${H*.72} L ${W*.15} ${H*.72} Z`:`M${W*.24} ${H*.70} C ${W*.42} ${H*-.10}, ${W*.56} ${H*.02}, ${W*.64} ${H*.22} C ${W*.76} ${H*.36}, ${W*.90} ${H*.48}, ${W*1.04} ${H*.54} L ${W*1.04} ${H*.72} L ${W*.24} ${H*.72} Z`}" fill="#c3cfbc" filter="url(#wcsoft)"/>
+      <path d="${window.innerWidth<=440?`M-20 ${H*.68} C ${W*.15} ${H*.42}, ${W*.35} ${H*.36}, ${W*.50} ${H*.46} C ${W*.66} ${H*.54}, ${W*.86} ${H*.60}, ${W*1.04} ${H*.64} L ${W*1.04} ${H*.76} L -20 ${H*.76} Z`:`M${W*.12-20} ${H*.76+10} C ${W*.12-12} ${H*.75+6}, ${W*.12-5} ${H*.735+2}, ${W*.12} ${H*.72} C ${W*.30} ${H*.20}, ${W*.46} ${H*.28}, ${W*.56} ${H*.40} C ${W*.70} ${H*.50}, ${W*.86} ${H*.58}, ${W*1.04} ${H*.62} L ${W*1.04} ${H*.76} L ${W*.12-20} ${H*.76+10} Z`}" fill="#a9bba3" filter="url(#wcsoft)"/>      ${forestRow(W*.44,W*1.0,H*.62,H*.16,H*.24,'#9fb39a','#7e9779',window.innerWidth<=440?(window.innerWidth<=402?6:8):14)}
+      <path d="${window.innerWidth<=440?`M-20 ${H*.56+45} C ${W*.15} ${H*.60+30}, ${W*.4} ${H*.74}, ${W*.7} ${H*.68} C ${W*.85} ${H*.64}, ${W*.95} ${H*.68}, ${W+20} ${H*.66} L ${W+20} ${H+60} L -20 ${H+60} Z`:`M-20 ${H*.80+3} C ${W*.2} ${H*.70+2}, ${W*.5} ${H*.74}, ${W*.7} ${H*.68} C ${W*.85} ${H*.64}, ${W*.95} ${H*.68}, ${W+20} ${H*.66} L ${W+20} ${H+60} L -20 ${H+60} Z`}" fill="#dfe3cf" filter="url(#wcsoft)"/>
+      <path d="M-20 ${H*.86} C ${W*.15} ${H*.78}, ${W*.30} ${H*.86}, ${W*.42} ${H*.80} C ${W*.60} ${H*.74}, ${W*.80} ${H*.84}, ${W+20} ${H*.78} L ${W+20} ${H+60} L -20 ${H+60} Z" fill="#ece5d2" filter="url(#wcsoft)"/>
+      ${(()=>{const p=forestRow(W*.50,W*1.0,H*.70,H*.22,H*.32,'#7f9a7b','#5f7a5c',window.innerWidth<=440?(window.innerWidth<=402?4:5):9).split('<g class="tree"');tree3='<g class="tree"'+p.splice(3,1)[0];tree4='<g class="tree"'+p.splice(3,1)[0];if(window.innerWidth<=440){tree4+='<g class="tree"'+p.splice(1,1)[0]+'<g class="tree"'+p.splice(1,1)[0];}return p.join('<g class="tree"')})()}
+      <g mask="url(#roadMask)"><path d="${road}" fill="#e6d9c3" filter="url(#wcsoft)"/></g>
+      ${tree4}
+      ${grass(W*.12,H*.86)}<g class="hero-grass-c">${grass(W*.62,H*.88)}</g>${grass(W*.78,H*.82)}${grass(W*.86,H*.92)}
+      ${tree(W*.40,H*.78,H*.24,'#7f9a7b','#5f7a5c',-1.2)}${window.innerWidth<=402?'':tree(W*.955,H*.90,H*.42,'#6f8a6b','#4e6a4f',-2.6)}${window.innerWidth<=402?'':tree(W*.99,H*.99,H*.36,'#7f9a7b','#5f7a5c',-.8)}
+    </svg>
+    <div class="walker" id="walker">${deerSVG({cls:'always',spots:true,style:'width:'+Math.round(H*.55)+'px',flip:true,buck:true})}</div>
+    <div class="walker" id="walker2">${bearSVG({cls:'always',style:'width:110px'})}</div>
+    <svg class="layer front" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="z-index:6">
+      <g transform="translate(0,10)">${tree3}</g>${window.innerWidth<=402?tree(W*.955,H*.90,H*.42,'#6f8a6b','#4e6a4f',-2.6):''}${window.innerWidth<=402?tree(W*.99,H*.99,H*.36,'#7f9a7b','#5f7a5c',-.8):''}
+      ${bush(W*.14,H*.90,W*.16,H*.18,'#a9bba3')}${bush(W*.16,H+46,W*.22,H*.24,'#9fb39a')}${bush(W*.90,H+46,W*.22,H*.18,'#9fb39a')}
+      ${bush(W*.05,H+46,W*.26,H*.34,'#7f9a7b')}${bush(W*.66,H+46,W*.30,H*.22+10,'#8fa38a')}<ellipse cx="${W*.24}" cy="${H*.88}" rx="${window.innerWidth<=440?W*.05:W*.03}" ry="${window.innerWidth<=440?H*.038:H*.05}" fill="#cfc6b3" filter="url(#wc2)"/>
+      ${sprigPlant(W*.10,H*.86,H*.30,'#5f7a5c','#7e9779',-1)}<g class="hero-berry-s">${berryPlant(W*.045,H*.88,H*.26,-2)}</g><g class="hero-berry-l">${berryPlant(W*.20,H*.84,H*.34,-1.4)}</g><g class="hero-sprig-l">${sprigPlant(W*.26,H*.90,H*.24,'#5f7a5c','#9fb39a',-.8)}</g>${sprigPlant(W*.16,H*.82,H*.20,'#7e9779','#b7c6b1',-2.2)}<g class="hero-sprig-r">${sprigPlant(W*.72,H*.92,H*.22,'#5f7a5c','#9fb39a',-.5)}</g>${sprigPlant(W*.60,H*.96,H*.16,'#7e9779','#9fb39a',-1.6)}
+    </svg>`;
+  if(window.innerWidth<=402){
+    g.insertAdjacentHTML('afterend',`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;left:0;right:0;bottom:0;height:36vh;min-height:260px;width:100%;z-index:8;pointer-events:none;overflow:visible">${sprigPlant(W*.72,H*.92,H*.22,'#5f7a5c','#9fb39a',-.5)}</svg>`);
+  }
+  // torn-paper edge along the bottom (like the meadow scene), no blur
+  (function(){ let r=13; const rnd=()=>{ r=(r*9301+49297)%233280; return r/233280; };
+    const pts=['0 0','100% 0']; const n=Math.round(W/6);
+    // fine jitter everywhere, plus a handful of spots where the tear is a little deeper
+    // the green pushes slightly DOWN in places (never up); half of the spots sit on the right side
+    const spots=[]; for(let k=0;k<8;k++) spots.push({c: k<4 ? .55+rnd()*.43 : rnd()*.55, w:.015+rnd()*.025, a:2+rnd()*2.5});
+    for(let i=n;i>=0;i--){ const t=i/n, x=(t*100).toFixed(2); const wave=Math.sin(t*Math.PI*9)*1.0+Math.sin(t*Math.PI*41)*.5;
+      let bump=0; spots.forEach(sp=>{ const d=Math.abs(t-sp.c); if(d<sp.w) bump+=sp.a*Math.cos(d/sp.w*Math.PI/2); });
+      const rightDrop=3*Math.min(1,Math.max(0,(t-.92)/.04));   // far right: edge sits 3px lower so the last tree's roots show
+      const leftDrop=4*Math.min(1,Math.max(0,(.34-t)/.06));      // far left: edge sits 4px lower under the light-green mound
+      const y=H-2+wave+(rnd()*1.6-.8)+bump+rightDrop+leftDrop; pts.push(`${x}% ${y.toFixed(1)}px`); }
+    g.style.clipPath='polygon('+pts.join(',')+')'; g.style.webkitClipPath=g.style.clipPath; })();
+})();
+
+// ---- why: deer grazing in a meadow full of plants (still scene, plants sway, leaves drift)
+function bunnySVG(style,delay='0s',cls=''){
+  return `<div class="bunny ${cls}" style="${style}"><svg viewBox="0 0 100 90" style="animation-delay:${delay}">
+    <g class="ear"><ellipse cx="66" cy="24" rx="5.5" ry="15" transform="rotate(-14 66 24)" fill="#cbb59a"/><ellipse cx="66" cy="26" rx="2.6" ry="9" transform="rotate(-14 66 26)" fill="#e8d6bd"/></g>
+    <g class="ear ear2"><ellipse cx="80" cy="22" rx="5.5" ry="15" transform="rotate(8 80 22)" fill="#cbb59a"/><ellipse cx="80" cy="24" rx="2.6" ry="9" transform="rotate(8 80 24)" fill="#e8d6bd"/></g>
+    <g fill="#cbb59a"><ellipse cx="48" cy="64" rx="28" ry="20"/><circle cx="74" cy="48" r="14"/></g>
+    <circle cx="24" cy="60" r="7" fill="#efe6d6"/>
+    <circle cx="78" cy="46" r="2.2" fill="#3a3129"/>
+  </svg></div>`;
+}
+function squirrelSVG(style){
+  return `<div class="critter squirrel" style="${style}"><svg viewBox="0 0 120 110">
+    <path class="tail" d="M78 88 C 108 84, 112 48, 92 34 C 112 42, 124 78, 98 97 C 89 103, 80 97, 78 88Z" fill="#8a6440"/>
+    <ellipse cx="52" cy="82" rx="26" ry="22" fill="#b98a5a"/>
+    <ellipse cx="50" cy="88" rx="13" ry="11" fill="#dcc09a"/>
+    <circle cx="34" cy="52" r="16" fill="#b98a5a"/>
+    <ellipse cx="30" cy="37" rx="5" ry="7" fill="#b98a5a"/>
+    <ellipse cx="30" cy="39" rx="2.4" ry="3.6" fill="#dcc09a"/>
+    <circle cx="27" cy="51" r="2.4" fill="#3a3129"/>
+    <circle cx="20" cy="57" r="2.6" fill="#8a6440"/>
+    <path d="M40 72 q -9 4 -5 11" stroke="#8a6440" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </svg></div>`;
+}
+function birdieSVG(style,delay='0s'){
+  return `<div class="critter birdie" style="${style}"><svg viewBox="0 0 80 64" style="animation-delay:${delay}">
+    <path d="M16 36 l -11 -6 2.5 8 -6.5 2 9 4.5Z" fill="#c98f3d"/>
+    <ellipse cx="36" cy="40" rx="19" ry="14" fill="#e9b453"/>
+    <circle cx="55" cy="30" r="10" fill="#e9b453"/>
+    <path d="M64 28 l 9 3.5 -9 3Z" fill="#8a6440"/>
+    <ellipse cx="33" cy="39" rx="10" ry="6.5" fill="#c98f3d"/>
+    <circle cx="57" cy="28" r="2" fill="#3a3129"/>
+    <path d="M31 53 l0 7 M41 53 l0 7" stroke="#8a6440" stroke-width="2.2" stroke-linecap="round"/>
+  </svg></div>`;
+}
+(function(){
+  const el=$('#meadowScene'); const W=el.clientWidth,H=el.clientHeight;
+  const jag=(base,amp)=>{ let d='M-10 '+base(0).toFixed(1); const seg=30;
+    for(let i=1;i<=seg;i++){ const t=i/seg, x=-10+t*(W+20);
+      const y=base(t)+Math.sin(i*2.3)*amp+((i%2)?amp*.6:-amp*.6);
+      d+=' L'+x.toFixed(1)+' '+y.toFixed(1); }
+    return d+` L ${W+10} ${H+10} L -10 ${H+10} Z`; };
+  const meadowEdge=jag(t=>H*(.72-.05*Math.sin(t*Math.PI)-.08*Math.max(0,(t-.55)/.45)),H*.005);
+  const bandEdge=jag(t=>H*(.88-.035*Math.sin((t+.2)*Math.PI)),H*.005);
+  el.innerHTML=`<svg class="layer" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+      <g opacity=".72">${tree(W*.18,H*.585,H*.32,'#b3c2ae','#9cad96',-1)}${tree(W*.55,H*.58,H*.30,'#b3c2ae','#9cad96',-2.5)}${tree(W*.66,H*.582,H*.33,'#b3c2ae','#9cad96',-3.2)}${tree(W*.82,H*.585,H*.34,'#b3c2ae','#9cad96',-4)}</g>
+      ${forestRow(W*.05,W*.95,H*.60,H*.13,H*.19,'#a9bba3','#86a082',8)}
+      ${forestRow(W*.12,W*.88,H*.60,H*.19,H*.24,'#a9bba3','#86a082',4)}
+      <path d="${meadowEdge}" fill="#dfe3cf" filter="url(#wcsoft)"/>
+      <path d="${bandEdge}" fill="#cfd9c3" filter="url(#wcsoft)"/>
+      ${grass(W*.08,H*.80)}${grass(W*.30,H*.86)}${grass(W*.55,H*.78)}${grass(W*.74,H*.84+15)}${grass(W*.35,H*.76)}
+      <g class="meadow-cabin"><g transform="translate(${W*.02} ${H*.30+40-W*.0923}) scale(${(W*.5544/300).toFixed(3)})">${cabinInner()}</g></g>
+      <path d="M ${W*.21} ${H+10} C ${W*.31} ${H*.905}, ${W*.42} ${H*.83}, ${W*.54} ${H*.77} C ${W*.70} ${H*.70}, ${W*.85} ${H*.675}, ${W+10} ${H*.625} L ${W+10} ${H*.72} C ${W*.87} ${H*.77}, ${W*.74} ${H*.80}, ${W*.60} ${H*.87} C ${W*.48} ${H*.93}, ${W*.45} ${H*.965}, ${W*.41} ${H+10} Z" fill="#e6d9c3" filter="url(#wcsoft)"/>
+      <path d="M ${W*.24} ${H+10} C ${W*.34} ${H*.92}, ${W*.44} ${H*.85}, ${W*.56} ${H*.79} C ${W*.72} ${H*.72}, ${W*.86} ${H*.695}, ${W+10} ${H*.645} L ${W+10} ${H*.70} C ${W*.86} ${H*.75}, ${W*.72} ${H*.78}, ${W*.58} ${H*.85} C ${W*.46} ${H*.91}, ${W*.42} ${H*.95}, ${W*.38} ${H+10} Z" fill="#b9d2d6" filter="url(#wcsoft)"/>
+      <g class="riverflow" stroke="#e6f2f3" stroke-width="${Math.max(2,H*.005)}" fill="none" stroke-linecap="round">
+        <path d="M ${W*.30} ${H+6} C ${W*.40} ${H*.90}, ${W*.50} ${H*.84}, ${W*.62} ${H*.775} C ${W*.76} ${H*.71}, ${W*.88} ${H*.685}, ${W+8} ${H*.66}" stroke-dasharray="20 34"/>
+        <path d="M ${W*.35} ${H+6} C ${W*.44} ${H*.92}, ${W*.54} ${H*.85}, ${W*.66} ${H*.79} C ${W*.78} ${H*.73}, ${W*.90} ${H*.70}, ${W+8} ${H*.677}" stroke-dasharray="12 44" opacity=".7"/>
+      </g>
+      <g>
+        <ellipse cx="${W*.485}" cy="${H*.905}" rx="${H*.045}" ry="${H*.030}" fill="#b3ac9c"/>
+        <ellipse cx="${W*.475}" cy="${H*.895}" rx="${H*.028}" ry="${H*.016}" fill="#c2bcac"/>
+        <ellipse cx="${W*.865}" cy="${H*.945}" rx="${H*.055}" ry="${H*.035}" fill="#b3ac9c"/>
+        <ellipse cx="${W*.85}" cy="${H*.932}" rx="${H*.032}" ry="${H*.018}" fill="#c2bcac"/>
+        <ellipse cx="${W*.42}" cy="${H*.945}" rx="${H*.026}" ry="${H*.017}" fill="#a9a294"/>
+        <ellipse cx="${W*.60}" cy="${H*.828}" rx="${H*.024}" ry="${H*.015}" fill="#b3ac9c"/>
+        <ellipse cx="${W*.74}" cy="${H*.748}" rx="${H*.021}" ry="${H*.013}" fill="#c2bcac"/>
+        <ellipse cx="${W*.88}" cy="${H*.688}" rx="${H*.018}" ry="${H*.012}" fill="#a9a294"/>
+        <ellipse cx="${W*.55}" cy="${H*.90}" rx="${H*.020}" ry="${H*.013}" fill="#a9a294"/>
+      </g>
+    </svg>
+    ${bunnySVG('left:24%;bottom:26%;width:'+Math.round(H*.10)+'px;opacity:.9','-1.1s')}
+    ${bunnySVG('left:9%;bottom:7%;width:'+Math.round(H*.16)+'px','-2s','sniffer')}
+    ${squirrelSVG('left:calc(78% - 10px);bottom:9%;width:'+Math.round(H*.17)+'px')}
+    ${birdieSVG('left:44%;bottom:calc(13% - 5px);width:'+Math.round(H*.09)+'px','-1.4s')}
+    <svg class="layer" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="z-index:3">
+      ${bush(W*.02,H+8,W*.24,H*.22,'#7f9a7b')}<g class="bush-br">${bush(W*.98,H+8,W*.30,H*.26,'#8fa38a')}</g>
+      <g class="meadow-flowers">${flowerSVG(W*.06,H*.96+28,H*.24,'#f6c76b','#c2503c',-1)}<g class="mf-r">${flowerSVG(W*.92,H*.94+42,H*.22,'#e28b6a','#f6c76b',-2)}</g>${flowerSVG(W*.62,H*.99+15,H*.15,'#f3ede0','#e9b453',-.4)}${flowerSVG(W*.17,H*.98+20,H*.14,'#dd9cab','#f3ede0',-1.4)}</g>
+    </svg>`;
+})();
+
+// ---- falling leaves (why + family)
+function leaves(el,n,{edges=false}={}){ let s='';
+  for(let i=0;i<n;i++){ const c=['#9fb39a','#b98a5a','#7e9779','#e9b453','#c2503c'][i%5];
+    // edges: mostly the left and right thirds, one in three drifts near the middle
+    // edges: mostly the right side; one leaf far left (outside the text), one near the middle-right
+    // edges: keep leaves off the text — left margin, the gap between copy and photo, and the right margin
+    let left; if(edges){ const slots=[[1,3],[53,3],[96,2],[3,3],[56,2],[97,2],[1,4],[54,3]]; const sl=slots[i%slots.length]; left=sl[0]+rnd()*sl[1]; } else left=rnd()*100;
+    const size = (rnd()<.35 ? 26+rnd()*16 : 12+rnd()*10).toFixed(0);   // a few clearly bigger ones
+    s+=`<svg viewBox="0 0 20 20" style="left:${left.toFixed(1)}%;--dx:${(edges? rnd()*24-8 : rnd()*120-60).toFixed(0)}px;animation-duration:${(12+rnd()*10).toFixed(1)}s;animation-delay:-${(rnd()*20).toFixed(1)}s;width:${size}px"><path d="M2 18 C 3 8, 10 2, 18 2 C 18 10, 12 18, 2 18Z" fill="${c}"/><path d="M3 17 C 8 12, 12 8, 17 3" stroke="#fff" stroke-width="1" fill="none" opacity=".35"/></svg>`; }
+  el.innerHTML=s; }
+leaves($('#heroLeaves'),8,{edges:true}); leaves($('#familyLeaves'),12);
+$('#whyClouds').innerHTML = cloudSVG('left:0;top:8%;width:min(250px,21vw);animation-duration:130s;animation-delay:-60s;opacity:.75')
+  + cloudSVG('left:0;top:3%;width:min(200px,17vw);animation-duration:150s;animation-delay:-20s;opacity:.7')
+  + cloudSVG('left:0;top:22%;width:min(150px,13vw);animation-duration:140s;animation-delay:-100s;opacity:.6');
+
+// ---- plains: soft hills + far bison
+(function(){
+  $('#plainsBirds').innerHTML=birdsSVG(5,7);
+  const el=$('#plainsHills'); const W=el.clientWidth,H=el.clientHeight;
+  // dry-prairie helpers: golden grass tuft + gray-green sagebrush
+  const goldGrass=(x,b,sc=1)=>`<g class="plant"><path d="M${x} ${b} C ${x-1*sc} ${b-8*sc}, ${x-4*sc} ${b-12*sc}, ${x-7*sc} ${b-15*sc} M${x} ${b} C ${x-.5*sc} ${b-10*sc}, ${x-1*sc} ${b-16*sc}, ${x-2.5*sc} ${b-21*sc} M${x} ${b} C ${x+.5*sc} ${b-10*sc}, ${x+1*sc} ${b-17*sc}, ${x+3*sc} ${b-23*sc} M${x} ${b} C ${x+1*sc} ${b-8*sc}, ${x+3*sc} ${b-12*sc}, ${x+6.5*sc} ${b-15*sc}" stroke="#c4ad72" stroke-width="${1.6*sc}" fill="none" stroke-linecap="round"/></g>`;
+  const sage=(x,b,w,h,c='#93a087')=>`<g filter="url(#wc2)"><ellipse cx="${x}" cy="${b-h*.35}" rx="${w*.5}" ry="${h*.4}" fill="${c}"/><ellipse cx="${x-w*.3}" cy="${b-h*.2}" rx="${w*.32}" ry="${h*.3}" fill="${c}"/><ellipse cx="${x+w*.3}" cy="${b-h*.22}" rx="${w*.34}" ry="${h*.32}" fill="${c}"/></g>`;
+  el.innerHTML=`<svg class="layer" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+    <g fill="#f8f4ea" opacity=".9" filter="url(#wcsoft)">
+      <path transform="translate(${W*.05} ${H*.04}) scale(${(W*.00044).toFixed(5)})" d="M20 70 C 0 70, 0 40, 30 40 C 34 18, 70 12, 84 34 C 96 20, 130 22, 136 44 C 170 36, 196 54, 186 70 Z"/>
+      <path transform="translate(${W*.16} ${H*.10}) scale(${(W*.000308).toFixed(5)})" d="M20 70 C 0 70, 0 40, 30 40 C 34 18, 70 12, 84 34 C 96 20, 130 22, 136 44 C 170 36, 196 54, 186 70 Z"/>
+      <path transform="translate(${W*.70} ${H*.04}) scale(${(W*.000396).toFixed(5)})" d="M20 70 C 0 70, 0 40, 30 40 C 34 18, 70 12, 84 34 C 96 20, 130 22, 136 44 C 170 36, 196 54, 186 70 Z"/>
+      <path transform="translate(${W*.83} ${H*.10}) scale(${(W*.000297).toFixed(5)})" d="M20 70 C 0 70, 0 40, 30 40 C 34 18, 70 12, 84 34 C 96 20, 130 22, 136 44 C 170 36, 196 54, 186 70 Z"/>
+      <path transform="translate(${W*.92} ${H*.05}) scale(${(W*.000242).toFixed(5)})" d="M20 70 C 0 70, 0 40, 30 40 C 34 18, 70 12, 84 34 C 96 20, 130 22, 136 44 C 170 36, 196 54, 186 70 Z"/>
+    </g>
+    <path d="M-10 ${H*.44} C ${W*.2} ${H*.40}, ${W*.35} ${H*.34}, ${W*.5} ${H*.38} C ${W*.6} ${H*.30} , ${W*.68} ${H*.28}, ${W*.74} ${H*.34} C ${W*.85} ${H*.38}, ${W*.95} ${H*.36}, ${W+10} ${H*.40} L ${W+10} ${H+10} L -10 ${H+10}Z" fill="#a8abb6" opacity=".45" filter="url(#wcsoft)"/>
+    <path d="M-10 ${H*.52} C ${W*.2} ${H*.46}, ${W*.4} ${H*.52}, ${W*.6} ${H*.46} C ${W*.78} ${H*.42}, ${W*.9} ${H*.48}, ${W+10} ${H*.46} L ${W+10} ${H+10} L -10 ${H+10}Z" fill="#a99a90" opacity=".45" filter="url(#wcsoft)"/>
+    <path d="M-10 ${H*.46} L ${W*.04} ${H*.42} L ${W*.15} ${H*.425} L ${W*.185} ${H*.50} L ${W*.23} ${H*.56} L ${W*.28} ${H*.62} L -10 ${H*.66}Z" fill="#ddbd92" filter="url(#wcsoft)"/>
+    <path d="M-10 ${H*.50} L ${W*.03} ${H*.47} L ${W*.13} ${H*.475} L ${W*.17} ${H*.53} L ${W*.10} ${H*.55} L -10 ${H*.56}Z" fill="#c9a06d" opacity=".5" filter="url(#wcsoft)"/>
+    <path d="M ${W*.58+50} ${H*.462} L ${W*.50+60} ${H*.66} L ${W*.60+60} ${H*.66} Z" fill="#ddbd92" filter="url(#wcsoft)"/>
+    <g transform="translate(${(W*.58+60).toFixed(1)} 0)">
+      <path d="M-10 ${H*.46} L ${W*.04} ${H*.42} L ${W*.15} ${H*.425} L ${W*.185} ${H*.50} L ${W*.23} ${H*.56} L ${W*.28} ${H*.62} L -10 ${H*.66}Z" fill="#ddbd92" filter="url(#wcsoft)"/>
+      <path d="M-10 ${H*.50} L ${W*.03} ${H*.47} L ${W*.13} ${H*.475} L ${W*.17} ${H*.53} L ${W*.10} ${H*.55} L -10 ${H*.56}Z" fill="#c9a06d" opacity=".5" filter="url(#wcsoft)"/>
+    </g>
+    <path d="M-10 ${H*.62} C ${W*.25} ${H*.56}, ${W*.5} ${H*.62}, ${W*.75} ${H*.56} C ${W*.9} ${H*.53}, ${W} ${H*.58}, ${W+10} ${H*.56} L ${W+10} ${H+10} L -10 ${H+10}Z" fill="#d8c39b" opacity=".8" filter="url(#wcsoft)"/>
+    <path d="M-10 ${H*.72} C ${W*.25} ${H*.66}, ${W*.5} ${H*.74}, ${W*.75} ${H*.67} C ${W*.9} ${H*.64}, ${W} ${H*.69}, ${W+10} ${H*.67} L ${W+10} ${H+10} L -10 ${H+10}Z" fill="#e4d49f" filter="url(#wcsoft)"/>
+    <ellipse cx="${W*.13}" cy="${H*.84}" rx="${W*.035}" ry="${H*.045}" fill="#9c8a74"/><ellipse cx="${W*.105}" cy="${H*.86}" rx="${W*.02}" ry="${H*.03}" fill="#8a7a66"/>
+    <ellipse cx="${W*.76}" cy="${H*.86}" rx="${W*.035}" ry="${H*.045}" fill="#9c8a74"/><ellipse cx="${W*.735}" cy="${H*.88}" rx="${W*.02}" ry="${H*.03}" fill="#8a7a66"/>
+    ${window.innerWidth<=440?`${sage(W*.22,H*.80,W*.09,H*.042)}${sage(W*.56,H*.78,W*.095,H*.042,'#8fa383')}${sage(W*.88,H*.80,W*.105,H*.046,'#9aa98c')}`:`${sage(W*.22,H*.80,W*.04,H*.05)}${sage(W*.56,H*.78,W*.045,H*.05,'#8fa383')}${sage(W*.88,H*.80,W*.05,H*.055,'#9aa98c')}`}
+    ${goldGrass(W*.08,H*.80,1.4)}${goldGrass(W*.30,H*.84,1.5)}${goldGrass(W*.48,H*.90,1.3)}${goldGrass(W*.64,H*.82,1.4)}${goldGrass(W*.92,H*.86,1.5)}
+  </svg>`;
+  let s='';
+  s+=`<div class="bison-walk walker1">${bisonSVG({cls:'always',style:'width:170px;left:0;bottom:105px'})}</div>`;
+  s+=bisonSVG({cls:'still b1',style:'width:150px;left:5%;bottom:95px;transform:scaleX(-1)'});
+  s+=bisonSVG({cls:'still b2',style:'width:215px;left:13%;bottom:28px'});
+  s+=bisonBabySVG({cls:'still baby',style:'width:105px;left:27%;bottom:34px'});
+  s+=bisonFrontSVG({cls:'still b3',style:'width:175px;left:calc(47% + 60px);bottom:55px'});
+  s+=`<div class="bison-walk walker2">${bisonSVG({cls:'always',style:'width:225px;left:0;bottom:12px'})}</div>`;
+  $('#herd').innerHTML=s;
+  // torn golden edge spilling into the next section, carrying the foreground sagebrush with it
+  const tr=document.querySelector('.trust'); const wE=tr.clientWidth;
+  let pts=`0,52 `; const segE=110;
+  for(let i=0;i<=segE;i++){ const x=(i/segE)*wE; const y=66+Math.sin(i*.55)*2+Math.sin(i*.21)*1.8+Math.sin(i*1.9)*.7; pts+=`${x.toFixed(0)},${y.toFixed(1)} `; }
+  pts+=`${wE},52`;
+  tr.insertAdjacentHTML('afterbegin',`<svg aria-hidden="true" style="position:absolute;left:0;top:-58px;width:100%;height:84px;z-index:3;pointer-events:none" viewBox="0 0 ${wE} 84" preserveAspectRatio="none"><polygon points="${pts}" fill="#e4d49f"/>
+    ${window.innerWidth<=440?`${sage(wE*.06,66,wE*.11,36,'#7f9474')}${sage(wE*.30,68,wE*.10,30,'#8fa383')}${sage(wE*.52,46,wE*.09,26,'#93a087')}${sage(wE*.94,66,wE*.12,38,'#7f9474')}`:`${sage(wE*.06,66,wE*.07,44,'#7f9474')}${sage(wE*.30,68,wE*.06,36,'#8fa383')}${sage(wE*.52,46,wE*.055,30,'#93a087')}${sage(wE*.94,66,wE*.08,46,'#7f9474')}`}
+    ${goldGrass(wE*.16,58,1.8)}${goldGrass(wE*.42,60,1.6)}${goldGrass(wE*.64,58,1.8)}${goldGrass(wE*.85,60,1.6)}
+    <ellipse cx="${wE*.20}" cy="56" rx="14" ry="8" fill="#9c8a74"/>
+    <ellipse cx="${wE*.81}" cy="58" rx="13" ry="7.5" fill="#9c8a74"/>
+  </svg>`);
+})();
+
+// ---- story → footer: torn-paper edge (same fine jitter as the hero ground), the story's cream spills onto the footer
+(function(){ const ft=document.querySelector('footer'); if(!ft) return; const W=ft.clientWidth; let r=29; const rnd=()=>{ r=(r*9301+49297)%233280; return r/233280; };
+  const pts=['0,0']; const n=Math.round(W/6);
+  for(let i=0;i<=n;i++){ const t=i/n, x=(t*W).toFixed(1); const wave=Math.sin(t*Math.PI*9)*2.2+Math.sin(t*Math.PI*41)*1.2; const y=14+wave+(rnd()*2.4-1.2); pts.push(`${x},${y.toFixed(1)}`); }
+  pts.push(`${W},0`);
+  ft.insertAdjacentHTML('afterbegin',`<svg aria-hidden="true" style="position:absolute;left:0;top:-6px;width:100%;height:24px;z-index:3;pointer-events:none" viewBox="0 0 ${W} 24" preserveAspectRatio="none"><polygon points="${pts.join(' ')}" fill="#f7f3ea"/></svg>`); })();
+
+// ---- trust: soft green strip between the two wolves; paw prints get stamped left→right on scroll
+(function(){ const t=$('#trustTrail'); if(!t) return; const W=t.clientWidth,H=t.clientHeight;
+  const x0=W*.27, x1=W*.73; const n=window.innerWidth<=359?4:Math.max(6,Math.round((x1-x0)/68));
+  t.innerHTML=`<svg id="trustPrints" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">${trailSVG(W,H,n,{kind:'wolf',color:'#a89a88',size:20,y0:H*.62,amp:H*.07,xStart:x0,xEnd:x1,opacity:.5,dir:1})}</svg>`;
+  if(window.innerWidth<=359){const fp=t.querySelector('#trustPrints .print'); if(fp){const tr=fp.getAttribute('transform'); fp.setAttribute('transform',tr.replace(/translate\(([-\d.]+) ([-\d.]+)\)/,(m,a,b)=>`translate(${a} ${(+b)+50})`));}}
+})();
+
+
+// ---- gallery: tiles + fawn peeking + foliage
+(function(){ const m=$('#masonry');
+  // 24 photos from Pics/Gallery/web — landscapes get big 2×2 frames (whole photo visible), portraits tall 1×2 frames, small squares 1×1
+  // FIXED 8-col layout (rows 80px, gap 7px) — do not change. Photos are untouched files; each fills its frame's width
+  // and whatever doesn't fit the frame is simply not visible (object-fit: cover).
+  // [file, col, row, colspan, rowspan]
+  const layout=[
+    ['13',1,1,2,4],['01',3,1,4,4],['23',7,1,2,4],
+    ['11b',1,5,3,3],['t03',4,5,2,3],['07',6,5,3,3],
+    ['10',3,8,4,4],['489102313',1,8,2,4],['11a',7,8,2,4],
+    ['16',1,12,3,6],
+  ];
+  const wide=window.innerWidth>540; let s='';
+  const ZOOM={'489102313':1.25,'486606937_4056675971321712_7113032183215930727_n':1.2};   // show a tighter centre crop (still well below the file's native size — no upscaling)
+  const POS={'08a':'50% 65%'};   // which part of the photo the frame shows (08a: shifted so the wolf's face sits higher)
+  const tile=(p,style='')=>{ const im=[ZOOM[p]?`transform:scale(${ZOOM[p]})`:'',POS[p]?`object-position:${POS[p]}`:''].filter(Boolean).join(';');
+    return `<div class="ph reveal tilt" ${style?`style="${style}"`:''}><img src="Pics/Gallery/${p}.jpg" alt="" loading="lazy" draggable="false"${im?` style="${im}"`:''}></div>`; };
+  layout.forEach(([p,c,r,cs,rs])=>{ s+=tile(p, wide?`grid-column:${c} / span ${cs};grid-row:${r} / span ${rs}`:(p==='13'||p==='23'||p==='t03'||p==='07'||p==='489102313'||p==='11a'?'':'grid-column:span 2;grid-row:span 2')); });
+  // bottom-right block (cols 4-8, rows 12-17): its own proportional grid so 08a can be ~1.1× while the three around it shrink
+  s+=`<div class="gal-sub" ${wide?'style="grid-column:4 / span 5;grid-row:12 / span 6"':''}>
+    ${tile('08a','grid-column:1 / span 2;grid-row:1')}
+    ${tile('486606937_4056675971321712_7113032183215930727_n','grid-column:3;grid-row:1')}
+    ${tile('486053735_4053369024985740_7764730459933485282_n','grid-column:1;grid-row:2')}
+    ${tile('487802537_4062087154113927_4997776289297279978_n','grid-column:2 / span 2;grid-row:2')}
+  </div>`;
+  m.innerHTML=s;
+  // bear walks in from the left along the bottom, leaving prints behind it (ported from index.html trust section)
+  const t=$('#bearTrail'); const tW=t.clientWidth,tH=t.clientHeight; const n=Math.max(8,Math.round(tW/95));
+  t.innerHTML=`<svg id="bearPrints" viewBox="0 0 ${tW} ${tH}" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">${trailSVG(tW,tH,n,{kind:'bear',color:'#8a6a4a',size:30,y0:tH*.78+20,amp:tH*.04,xStart:(window.innerWidth>440&&window.innerWidth<=540)?-140:-40,xEnd:tW*.96,opacity:.4})}</svg>${bearSVG({cls:'bear always',style:'width:300px;left:-440px;bottom:10px'})}`;
+  // gallery bottom: torn-paper edge under the bear (same fine jitter as the hero ground), position unchanged
+  (function(){ const gs=document.querySelector('.gallery'); const GH=gs.clientHeight; let r=29; const rnd2=()=>{ r=(r*9301+49297)%233280; return r/233280; };
+    const pts=['0 0','100% 0']; const n2=Math.round(tW/6);
+    const spots=[]; for(let k=0;k<6;k++) spots.push({c:rnd2(), w:.015+rnd2()*.025, a:2+rnd2()*2});
+    for(let i=n2;i>=0;i--){ const t2=i/n2, x=(t2*100).toFixed(2); const wave=Math.sin(t2*Math.PI*9)*1.0+Math.sin(t2*Math.PI*41)*.5;
+      let bump=0; spots.forEach(sp=>{ const d=Math.abs(t2-sp.c); if(d<sp.w) bump+=sp.a*Math.cos(d/sp.w*Math.PI/2); });
+      const y=GH-3+wave+(rnd2()*1.6-.8)+bump; pts.push(`${x}% ${y.toFixed(1)}px`); }
+    gs.style.clipPath='polygon('+pts.join(',')+')'; gs.style.webkitClipPath=gs.style.clipPath; })(); })();
+
+// ---- couples: buck and doe walk toward each other and meet
+(function(){ const pe=$('#pair'); const W=pe.clientWidth,H=pe.clientHeight;
+  pe.innerHTML=`<svg class="layer" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><path d="M-10 ${H*.86} C ${W*.25} ${H*.70}, ${W*.5} ${H*.90}, ${W*.75} ${H*.76} C ${W*.9} ${H*.70}, ${W} ${H*.80}, ${W+10} ${H*.78} L ${W+10} ${H+10} L -10 ${H+10}Z" fill="#dfe3cf" filter="url(#wcsoft)"/>${forestRow(W*.02,W*.98,H*.80,H*.16,H*.26,'#a9bba3','#86a082',9)}${grass(W*.1+60,H*.92)}${grass(W*.5,H*.95)}${grass(W*.85,H*.92)}</svg>
+    ${deerSVG({cls:'pl',style:'position:absolute;left:calc(50% - 125px - '+Math.round(H*.75*.92)+'px);bottom:4%;width:'+Math.round(H*.75)+'px',flip:true,spots:true})}
+    ${deerSVG({cls:'pr',style:'position:absolute;right:calc(50% - 125px - '+Math.round(H*.68*.92)+'px);bottom:5%;width:'+Math.round(H*.68)+'px',buck:false})}
+    <svg class="heart" viewBox="0 0 40 40"><path d="M20 36 C 4 24, 2 12, 10 7 C 15 4, 19 7, 20 11 C 21 7, 25 4, 30 7 C 38 12, 36 24, 20 36Z" fill="#e0664a" filter="url(#wc2)"/></svg>
+    <svg class="layer" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="z-index:3">${bush(W*.04,H+8,W*.2,H*.18,'#7f9a7b')}${bush(W*.96,H+8,W*.22,H*.2,'#8fa38a')}${sprigPlant(W*.08+10,H*.97,H*.26,'#5f7a5c','#7e9779',-1)}${sprigPlant(W*.93,H*.98,H*.22,'#5f7a5c','#9fb39a',-.3)}</svg>`;
+  // couples bottom: torn-paper edge on the valley itself (7px lower than the section edge, a touch more jagged)
+  (function(){ const PH=pe.clientHeight; let r=41; const rnd2=()=>{ r=(r*9301+49297)%233280; return r/233280; };
+    const pts=['0 0','100% 0']; const n2=Math.round(W/6);
+    const spots=[]; for(let k=0;k<7;k++) spots.push({c:rnd2(), w:.015+rnd2()*.03, a:2.5+rnd2()*2.5});
+    for(let i=n2;i>=0;i--){ const t2=i/n2, x=(t2*100).toFixed(2); const boost=1+.6*Math.max(0,(t2-.55)/.45); const wave=(Math.sin(t2*Math.PI*9)*1.4+Math.sin(t2*Math.PI*41)*.7)*boost;
+      let bump=0; spots.forEach(sp=>{ const d=Math.abs(t2-sp.c); if(d<sp.w) bump+=sp.a*Math.cos(d/sp.w*Math.PI/2); });
+      const y=PH-9+wave+(rnd2()*2-1)*boost+bump; pts.push(`${x}% ${y.toFixed(1)}px`); }
+    pe.style.clipPath='polygon('+pts.join(',')+')'; pe.style.webkitClipPath=pe.style.clipPath; })(); })();
+
+// ---- family: valley with a road; a deer family walks from the foreground into the hills
+(function(){
+  const v=$('#valley'); const W=v.clientWidth,H=v.clientHeight;
+  const road=`M${W*.42} ${H+10} C ${W*.44} ${H*.80}, ${W*.52} ${H*.72}, ${W*.60} ${H*.62} C ${W*.66} ${H*.55}, ${W*.70} ${H*.50}, ${W*.74} ${H*.46} L ${W*.75} ${H*.455} C ${W*.72} ${H*.53}, ${W*.69} ${H*.60}, ${W*.63} ${H*.68} C ${W*.56} ${H*.78}, ${W*.54} ${H*.90}, ${W*.56} ${H+10} Z`;
+  v.innerHTML=`<svg class="layer" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+      <defs><linearGradient id="roadFade2" x1="${W*.45}" y1="0" x2="${W*.75}" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient><mask id="roadMask2"><rect x="0" y="0" width="${W}" height="${H+20}" fill="url(#roadFade2)"/></mask></defs>
+      <path d="M-10 ${H*.55} C ${W*.15} ${H*.28}, ${W*.35} ${H*.40}, ${W*.5} ${H*.34} C ${W*.7} ${H*.14}, ${W*.85} ${H*.20}, ${W+10} ${H*.36} L ${W+10} ${H*.6} L -10 ${H*.6}Z" fill="#c3cfbc" filter="url(#wcsoft)"/>
+      <path d="M-10 ${H*.57} C ${W*.2} ${H*.52}, ${W*.5} ${H*.60}, ${W*.8} ${H*.50} C ${W*.9} ${H*.48}, ${W} ${H*.52}, ${W+10} ${H*.50} L ${W+10} ${H+10} L -10 ${H+10}Z" fill="#dfe3cf" filter="url(#wcsoft)"/>
+      <g mask="url(#roadMask2)"><path d="${road}" fill="#e6d9c3" filter="url(#wcsoft)"/></g>
+      ${forestRow(W*.0,W*1.0,H*.50,H*.10,H*.18,'#a9bba3','#86a082',16)}
+      ${forestRow(W*.74,W*1.0,H*.56,H*.145,H*.236,'#7f9a7b','#5f7a5c',5)}
+      ${grass(W*.25,H*.9)}${grass(W*.8,H*.78)}<g class="grass-br">${grass(W*.9,H*.9)}</g>
+      ${tree(W*.12,H*.78,H*.30,'#7f9a7b','#5f7a5c',-1)}${tree(W*.30,H*.66,H*.20,'#8fa38a','#6f8a6b',-2)}${tree(W*.61,H*.575,H*.22,'#7f9a7b','#5f7a5c',-3)}
+    </svg>
+    <div class="walker" id="fam0">${deerSVG({cls:'always',style:'width:'+Math.round(H*.6)+'px',flip:true,spots:true})}</div>
+    <div class="walker" id="fam1">${deerSVG({cls:'always',style:'width:'+Math.round(H*.52)+'px',flip:true,buck:false})}</div>
+    <div class="walker" id="fam2">${deerSVG({cls:'always',style:'width:'+Math.round(H*.30)+'px',flip:true,buck:false,fawn:true})}</div>
+    <svg class="layer" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="z-index:5">${tree(W*.70,H*.58,H*.25,'#7f9a7b','#5f7a5c',-4)}${bush(W*.05,H+8,W*.22,H*.20,'#7f9a7b')}${bush(W*.95,H+8,W*.26,H*.22,'#8fa38a')}${sprigPlant(W*.05,H*.97,H*.20,'#9fb39a','#b7c6b1',-1.2)}${berryPlant(W*.10,H*.96,H*.28,-1)}${berryPlant(W*.92,H*.94,H*.24,-2)}</svg>`;
+  // family bottom: torn-paper edge (same fine jitter as the gallery/couples)
+  (function(){ const fs=document.querySelector('.family'); const FH=fs.clientHeight; let r=53; const rnd2=()=>{ r=(r*9301+49297)%233280; return r/233280; };
+    const pts=['0 0','100% 0']; const n2=Math.round(W/6);
+    const spots=[]; for(let k=0;k<6;k++) spots.push({c:rnd2(), w:.015+rnd2()*.025, a:2+rnd2()*2});
+    for(let i=n2;i>=0;i--){ const t2=i/n2, x=(t2*100).toFixed(2); const wave=Math.sin(t2*Math.PI*9)*1.0+Math.sin(t2*Math.PI*41)*.5;
+      let bump=0; spots.forEach(sp=>{ const d=Math.abs(t2-sp.c); if(d<sp.w) bump+=sp.a*Math.cos(d/sp.w*Math.PI/2); });
+      const y=FH-3+wave+(rnd2()*1.6-.8)+bump; pts.push(`${x}% ${y.toFixed(1)}px`); }
+    fs.style.clipPath='polygon('+pts.join(',')+')'; fs.style.webkitClipPath=fs.style.clipPath; })(); })();
+
+// ---- story: dusk ridge with cabin & howling wolves (scene ported from index2.html; text and birds are index3's own)
+(function(){ const l=$('#layers');
+  const ridge=(id,d,fill,h)=>`<svg class="layer ridge ${id}" viewBox="0 0 1600 ${h}" preserveAspectRatio="none" style="height:${h}px"><path d="${d}" fill="${fill}" filter="url(#wcsoft)"/></svg>`;
+  l.innerHTML=`
+    <svg class="stars" viewBox="0 0 1600 500" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:60%"></svg>
+    <svg viewBox="0 0 200 200" style="position:absolute;left:12%;top:8%;width:min(200px,20vw)" class="layer moon2"><defs><radialGradient id="moonG2" cx=".4" cy=".4" r=".7"><stop offset="0" stop-color="#fffce8"/><stop offset=".7" stop-color="#f4e4c0"/><stop offset="1" stop-color="#e6cf9c"/></radialGradient></defs><circle cx="100" cy="100" r="80" fill="url(#moonG2)" filter="url(#wcsoft)"/></svg>
+    <svg viewBox="0 0 200 200" style="position:absolute;right:10%;top:30%;width:min(167px,16.7vw)" class="layer moon3"><circle cx="100" cy="100" r="80" fill="url(#moonG)" filter="url(#wcsoft)"/></svg>
+    <svg class="birds" id="storyBirds" viewBox="0 0 400 120" style="left:200px;top:12%;width:min(360px,50vw)">${birdsSVG(5,9)}</svg>
+    ${ridge('l1','M0 420 L0 250 C 200 180, 340 300, 520 210 C 700 120, 820 260, 1000 190 C 1180 120, 1320 240, 1600 170 L1600 420Z','url(#m1)',420)}
+    ${ridge('l2','M0 380 L0 290 C 160 240, 300 320, 460 260 C 640 200, 760 300, 940 250 C 1120 200, 1300 300, 1600 240 L1600 380Z','url(#m2)',380)}
+    ${ridge('l3','M0 320 L0 260 C 180 230, 360 290, 540 250 C 720 210, 900 280, 1080 245 C 1260 210, 1440 270, 1600 235 L1600 320Z','url(#m3)',320)}
+    <div class="layer ridgecabin">${cabinSVG()}</div>
+    <div class="layer ridgepack">
+      ${wolfImg(19,'','left:12%;bottom:-10px;height:86%','breathe')}
+      ${wolfImg(20,'','left:calc(28% + 15px);bottom:-13px;height:95%','breathe')}
+      ${wolfImg(22,'','left:calc(80% + 20px);bottom:0;height:91%','breathe')}
+    </div>
+    ${ridge('l4','M0 200 L0 111 C 260 62, 560 106, 900 100 C 1200 60, 1400 120, 1600 90 L1600 200Z','#f7f3ea',200)}`;
+  const st=l.querySelector('.stars'); let s='',r=7; const rnd=()=>{ r=(r*9301+49297)%233280; return r/233280; };
+  for(let i=0;i<70;i++) s+=`<circle cx="${rnd()*1600}" cy="${rnd()*400}" r="${.6+rnd()*1.6}" fill="#fff" opacity="${(.3+rnd()*.6).toFixed(2)}"/>`; st.innerHTML=s; })();
+// snow for the story scene
+function snow(el,n,scale=1,append=false){ let s='',r=append?11:5; const rnd=()=>{ r=(r*9301+49297)%233280; return r/233280; }; for(let i=0;i<n;i++){ const sz=((3+rnd()*6)*scale).toFixed(1); s+=`<i style="left:${(rnd()*100).toFixed(1)}%;width:${sz}px;height:${sz}px;opacity:${(.35+rnd()*.5).toFixed(2)};--dx:${(rnd()*80-40).toFixed(0)}px;animation-duration:${(9+rnd()*10).toFixed(1)}s;animation-delay:-${(rnd()*18).toFixed(1)}s"></i>`; } if(append) el.innerHTML+=s; else el.innerHTML=s; }
+snow($('#storySnow'),36);
+snow($('#storySnow'),4,1.6,true);   // 4 extra flakes at 1.6× the size, appended — the original 36 are untouched
+
+// ---- footer: wolf paw-print trail (from index2.html)
+(function(){ const ft=$('#footTrail'); const W=ft.clientWidth,H=ft.clientHeight; const n=Math.max(8,Math.round(W/85));
+  ft.innerHTML=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" style="width:100%;height:100%;overflow:visible">${trailSVG(W,H,n,{kind:'wolf',color:'#d2b48c',size:18,y0:H*.5,amp:H*.2,xStart:-20,xEnd:W+20,opacity:.5})}</svg>`; })();
+
+/* =========================================================
+   Motion
+   ========================================================= */
+gsap.registerPlugin(ScrollTrigger);
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const nav=$('#nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+// paw print marks the section you are in
+(function(){ const links=[...document.querySelectorAll('.menu > li > a')]; const map={home:'#home',blog:'#blog',about:'#about',contact:'#contact'};
+  const setActive=id=>links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id));
+  Object.keys(map).forEach(id=>{ const el=document.querySelector(map[id]); if(!el) return; ScrollTrigger.create({trigger:el,start:'top 55%',end:'bottom 55%',onEnter:()=>setActive(id),onEnterBack:()=>setActive(id)}); });
+  setActive('home'); })();
+$('#burger').addEventListener('click',()=>nav.classList.toggle('open'));
+let walkTimer; const setWalking=on=>document.documentElement.style.setProperty('--walk',on?'running':'paused');
+window.addEventListener('scroll',()=>{ setWalking(true); clearTimeout(walkTimer); walkTimer=setTimeout(()=>setWalking(false),180); },{passive:true});
+gsap.utils.toArray('.reveal').forEach(el=>gsap.to(el,{opacity:1,y:0,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}}));
+
+function stampBehind(tl,prints,rearX,travel,dir=1){ prints.forEach(p=>{ const x=+p.dataset.x; const t= dir>0 ? (x-rearX)/travel : (rearX-x)/travel; if(t<=0){ gsap.set(p,{opacity:1,scale:1}); return; } if(t>1) return; tl.to(p,{opacity:1,scale:1,duration:.02,ease:'back.out(2)'},t); }); }
+const rearOf=(el,c)=>el.getBoundingClientRect().left-c.getBoundingClientRect().left;
+const frontOf=(el,c)=>el.getBoundingClientRect().right-c.getBoundingClientRect().left;
+const bez=(p0,p1,p2,p3,t)=>{ const u=1-t; return [u*u*u*p0[0]+3*u*u*t*p1[0]+3*u*t*t*p2[0]+t*t*t*p3[0], u*u*u*p0[1]+3*u*u*t*p1[1]+3*u*t*t*p2[1]+t*t*t*p3[1]]; };
+/* walk a 0x0 anchor along a bezier: foreground -> distance (shrinks, fades at the end) */
+function walkInto(el,P,{dur=18,delay=0,repeatDelay=3,s0=1,s1=.2,fadeIn=.06,fadeOut=.14}={}){
+  const o={t:0}; gsap.set(el,{x:P[0][0],y:P[0][1],scale:s0,opacity:0,transformOrigin:'0 0'});
+  gsap.to(o,{t:1,duration:dur,ease:'none',repeat:-1,repeatDelay,delay,onUpdate(){ const [x,y]=bez(P[0],P[1],P[2],P[3],o.t); const sc=s0+(s1-s0)*o.t; const op= o.t<fadeIn? o.t/fadeIn : (o.t>1-fadeOut? Math.max(0,(1-o.t)/fadeOut):1); gsap.set(el,{x,y,scale:sc,opacity:op,transformOrigin:'0 0'}); }});
+}
+
+gsap.from('#heroDeer',{opacity:0,duration:1.4,ease:'power3.out',delay:.5});
+
+if(!reduce){
+  /* hero: doe walks the road into the woods; bear roams in from the right */
+  (function(){ const g=$('#heroGround'); const W=g.clientWidth,H=g.clientHeight;
+    walkInto($('#walker'),[[W*.36,H*1.02],[W*.40,H*.90],[W*.52,H*.84],[W*.69,H*.68]],{dur:20,s1:.22});
+    walkInto($('#walker2'),[[W*-.06,H*.90],[W*.16,H*.88],[W*.42,H*.82],[W*.60,H*.70]],{dur:30,delay:9,repeatDelay:8,s0:.9,s1:.35,fadeIn:.01});
+  })();
+  gsap.to('#heroSun',{y:-40,ease:'none',scrollTrigger:{trigger:'#home',start:'top top',end:'bottom top',scrub:1}});
+
+  /* cards / photos tilt */
+  document.querySelectorAll('.card, .tilt').forEach(card=>{
+    card.addEventListener('mousemove',e=>{ const r=card.getBoundingClientRect(); const px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5; gsap.to(card,{rotateY:px*12,rotateX:-py*12,transformPerspective:900,duration:.5,ease:'power2.out'}); });
+    card.addEventListener('mouseleave',()=>gsap.to(card,{rotateY:0,rotateX:0,duration:.8,ease:'elastic.out(1,.5)'}));
+  });
+
+  /* trust: paw prints appear one by one, left → right, as the section scrolls into view */
+  (function(){ const prints=document.querySelectorAll('#trustPrints .print'); if(!prints.length) return;
+    gsap.set(prints,{opacity:0,scale:.4,transformOrigin:'50% 50%'});
+    const ptl=gsap.timeline({scrollTrigger:{trigger:'#trust',start:'top 70%',end:'bottom 45%',scrub:1}});
+    prints.forEach((p,i)=>ptl.to(p,{opacity:1,scale:1,duration:.06,ease:'back.out(2)'},i/prints.length)); })();
+
+  /* plains: bison drift far away, sun rises, birds cross */
+  const pst={trigger:'#plains',start:'top bottom',end:'bottom top'};
+  gsap.fromTo('#plainsSun',{y:210},{y:-130,ease:'none',scrollTrigger:{...pst,scrub:1}});
+  gsap.to('#plainsBirds',{x:vw()*1.2,y:-60,ease:'none',scrollTrigger:{...pst,scrub:1}});
+
+
+  /* gallery: bear walks left -> right; prints appear behind it */
+  (function(){ const trail=$('#bearTrail'), bear=$('#bearTrail .bear'); if(!trail||!bear) return; gsap.set('#bearPrints .print',{scale:.3});
+    const bTravel=vw()+420; const bRear=rearOf(bear,trail)+40;
+    const bearTL=gsap.timeline({scrollTrigger:{trigger:'#gallery',start:'top bottom',end:'bottom top',scrub:1}});
+    bearTL.to(bear,{x:bTravel,ease:'none',duration:1},0);
+    stampBehind(bearTL,document.querySelectorAll('#bearPrints .print'),bRear,bTravel,1); })();
+
+  /* couples: buck and doe walk toward each other, heart when they meet */
+  (function(){ const pair=$('#pair'), pl=$('.pl'), pr=$('.pr'); const plW=pl.getBoundingClientRect().width, prW=pr.getBoundingClientRect().width, PW=pair.clientWidth;
+    const lTravel=(PW/2-plW*.98)-rearOf(pl,pair); const rTravel=frontOf(pr,pair)-(PW/2+prW*.98);
+    const cTL=gsap.timeline({scrollTrigger:{trigger:'#pair',start:'top bottom',end:'bottom 88%',scrub:.6}});
+    cTL.to(pl,{x:lTravel,ease:'none',duration:1},0).to(pr,{x:-rTravel,ease:'none',duration:1},0).to('.couples .heart',{scale:1,opacity:1,duration:.12,ease:'back.out(3)'},.85);
+    // each deer gets its own random neck-sway rhythm for when they stop
+    [pl,pr].forEach(el=>{ const h=el.querySelector('.head'); h.style.setProperty('--nodDur',(2.4+Math.random()*2).toFixed(2)+'s'); h.style.setProperty('--nodDelay',(Math.random()*1.5).toFixed(2)+'s'); });
+    // legs move while they travel; once they meet, legs stop and only the necks move
+    // stop naturally: wait for the walk cycle to hit its neutral pose before freezing the legs
+    let metState=false;
+    const applyMet=on=>{ pl.classList.toggle('met',on); pr.classList.toggle('met',on); if(on){ pl.style.setProperty('--walk','paused'); pr.style.setProperty('--walk','paused'); } };
+    const setMet=()=>{ const met=cTL.progress()>=.995;
+      if(met&&!metState){ metState=true; const legEl=pl.querySelector('.legF'); const fin=()=>{ if(metState) applyMet(true); };
+        legEl.addEventListener('animationiteration',fin,{once:true}); setTimeout(fin,800); }
+      else if(!met&&metState){ metState=false; applyMet(false); }
+      return metState; };
+    // legs run whenever the deer are actually moving (timeline progressing), stop only when met or fully idle
+    let lastP=-1,stopT;
+    cTL.eventCallback('onUpdate',()=>{ const met=setMet(); const p=cTL.progress(); const moving=Math.abs(p-lastP)>.0004; lastP=p;
+      if(!met&&moving){ pl.style.setProperty('--walk','running'); pr.style.setProperty('--walk','running'); clearTimeout(stopT); stopT=setTimeout(()=>{ if(!setMet()){ pl.style.setProperty('--walk','paused'); pr.style.setProperty('--walk','paused'); } },150); } }); })();
+
+  /* family: three deer walk the valley road into the hills, staggered */
+  (function(){ const v=$('#valley'); const W=v.clientWidth,H=v.clientHeight; const P=[[W*.48,H*1.04],[W*.50,H*.86],[W*.58,H*.70],[W*.745,H*.47]];
+    walkInto($('#fam0'),P,{dur:22,delay:0,repeatDelay:4,s1:.18});
+    walkInto($('#fam1'),P,{dur:22,delay:2.2,repeatDelay:4,s1:.18});
+    walkInto($('#fam2'),P,{dur:22,delay:3.6,repeatDelay:4,s1:.18}); })();
+
+  /* story: parallax range */
+  const st={trigger:'#story',start:'top bottom',end:'bottom top',scrub:1};
+  gsap.fromTo('.layer.l1',{y:120},{y:-40,ease:'none',scrollTrigger:st});
+  gsap.fromTo('.layer.l2',{y:160},{y:-20,ease:'none',scrollTrigger:st});
+  gsap.fromTo('.layer.l3',{y:200},{y:0,ease:'none',scrollTrigger:st});
+  gsap.fromTo('.layer.ridgecabin',{y:220},{y:0,ease:'none',scrollTrigger:st});
+  gsap.fromTo('.layer.ridgepack',{y:260},{y:0,ease:'none',scrollTrigger:st});
+  gsap.fromTo('.layer.l4',{y:120},{y:-10,ease:'none',scrollTrigger:st});
+  gsap.fromTo('.layer.moon2',{y:200,opacity:0},{y:-60,opacity:1,ease:'none',scrollTrigger:st});
+  gsap.fromTo('.layer.moon3',{y:160,opacity:0},{y:-40,opacity:1,ease:'none',scrollTrigger:st});
+  gsap.to('#storyBirds',{x:vw()*1.1,y:-50,ease:'none',scrollTrigger:st});
+  /* ---- FOOTER: prints appear along the trail ---- */
+  gsap.set('#footTrail .print',{scale:.3});
+  gsap.to('#footTrail .print',{opacity:1,scale:1,stagger:.05,ease:'back.out(2)',scrollTrigger:{trigger:'footer',start:'top 90%',end:'bottom bottom',scrub:1}});
+}else{ gsap.set('.print',{opacity:1}); }
+
+let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window.innerWidth===lastW) return; clearTimeout(rt); rt=setTimeout(()=>location.reload(),400); });
+
+/* hero mosaic slideshow (4s, sparkle-tile transition) */
+(function(){
+  const srcs=['Pics/HD/04.jpg','Pics/HD/05.jpg','Pics/HD/06.jpg','Pics/HD/15.jpg'];
+  const NAT_W=4032, NAT_H=3024;
+  srcs.forEach(s=>{const i=new Image(); i.src=s;});
+  const box=document.getElementById('heroSlides');
+  if(!box) return;
+  const base=document.getElementById('heroSlideBase'), wrap=box.querySelector('.tiles');
+  const COLS=8, ROWS=5;
+  for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++){const d=document.createElement('div'); d.dataset.c=c; d.dataset.r=r; wrap.appendChild(d);}
+  const tiles=[...wrap.children];
+  function layout(){
+    const w=box.clientWidth, h=box.clientHeight;
+    const scale=Math.max(w/NAT_W, h/NAT_H), bw=NAT_W*scale, bh=NAT_H*scale;
+    const ox=(w-bw)/2, oy=(h-bh)/2, tw=w/COLS, th=h/ROWS;
+    tiles.forEach(t=>{
+      t.style.backgroundSize=bw+'px '+bh+'px';
+      t.style.backgroundPosition=(ox - t.dataset.c*tw)+'px '+(oy - t.dataset.r*th)+'px';
+    });
+  }
+  let idx=0, busy=false;
+  setInterval(()=>{
+    if(busy || document.hidden) return; busy=true;
+    idx=(idx+1)%srcs.length; const next=srcs[idx];
+    layout();
+    tiles.forEach(t=>{
+      t.style.backgroundImage='url("'+next+'")';
+      t.style.animationDelay=(Math.random()*0.9).toFixed(2)+'s';
+      t.classList.add('on');
+    });
+    setTimeout(()=>{
+      base.src=next;
+      tiles.forEach(t=>{t.classList.remove('on'); t.style.animationDelay=''; t.style.backgroundImage='';});
+      busy=false;
+    },1700);
+  },4000);
+})();
+</script>
+</body>
+</html>

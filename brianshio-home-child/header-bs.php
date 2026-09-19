@@ -1,6 +1,6 @@
-
+<?php /* Shared header for blog pages — nav/CSS はhomeテンプレートから自動抽出 */ ?>
 <!doctype html>
-<html >
+<html <?php language_attributes(); ?>>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -592,9 +592,9 @@ footer{margin-top:0;padding-top:calc(clamp(60px,8vw,100px) - 60px)}
 @media(max-width:540px){footer{padding-top:40px}.bl-pager{margin-bottom:calc(clamp(20px,6.5vw,90px) + 20px)}}
 .bl-none{padding:40px 0 80px;color:var(--ink-soft)}
 </style>
-
+<?php wp_head(); ?>
 </head>
-<body >
+<body <?php body_class(); ?>>
 <div class="grain" aria-hidden="true"></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -635,11 +635,11 @@ footer{margin-top:0;padding-top:calc(clamp(60px,8vw,100px) - 60px)}
 </svg>
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a class="logo" href="" aria-label="BrianShio home"><img class="logo-mark" src="brianshio-home-child/assets/logo.png" alt="">BrianShio</a>
+    <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="BrianShio home"><img class="logo-mark" src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/assets/logo.png" alt="">BrianShio</a>
     <ul class="menu">
-      <li><a href="">Home</a></li>
-      <li><a class="active" href="">Blog</a><ul class="sub"><li><a href="">Guides</a></li><li><a href="">Reviews</a></li><li><a href="">Tips</a></li></ul></li>
-      <li><a href="">About</a></li>
+      <li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a></li>
+      <li><a class="active" href="<?php echo esc_url( bs_blog_url() ); ?>">Blog</a><ul class="sub"><li><a href="<?php echo esc_url( bs_cat_url( 'guides' ) ); ?>">Guides</a></li><li><a href="<?php echo esc_url( bs_cat_url( 'reviews' ) ); ?>">Reviews</a></li><li><a href="<?php echo esc_url( bs_cat_url( 'tips' ) ); ?>">Tips</a></li></ul></li>
+      <li><a href="<?php echo esc_url( home_url( '/#about' ) ); ?>">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="social" aria-label="social links">
@@ -650,80 +650,3 @@ footer{margin-top:0;padding-top:calc(clamp(60px,8vw,100px) - 60px)}
     <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
-<header class="bl-head"><div class="wrap">
-  <svg class="bl-sun" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" fill="url(#sunG)"/><circle cx="100" cy="100" r="58" fill="#fbe1b6" filter="url(#wcsoft)"/></svg>
-  <div class="bl-wolves" aria-hidden="true"><img src="brianshio-home-child/assets/Wolves/03_crop.png" alt=""><img src="brianshio-home-child/assets/Wolves/04_crop.png" alt=""></div>
-  <div class="eyebrow">Our travel journal</div>
-  <h1>Stories from <span class="ital">the road</span></h1>
-  <p class="bl-sub">Guides, tips and honest reviews from two travelers — cabins, campfires, mountain towns and the restaurants worth the detour.</p>
-</div></header>
-<div class="wrap">
-  <div class="bl-cats">
-    <a class="bl-cat on" href="#">All posts</a>
-    <a class="bl-cat g" href="#"><svg viewBox="0 0 40 40"><path d="M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="16" rx="3.4" ry="4.6"/><ellipse cx="16" cy="9" rx="3.4" ry="4.8"/><ellipse cx="24" cy="9" rx="3.4" ry="4.8"/><ellipse cx="31" cy="16" rx="3.4" ry="4.6"/></svg>Guides</a>
-    <a class="bl-cat t" href="#"><svg viewBox="0 0 40 40"><path d="M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="16" rx="3.4" ry="4.6"/><ellipse cx="16" cy="9" rx="3.4" ry="4.8"/><ellipse cx="24" cy="9" rx="3.4" ry="4.8"/><ellipse cx="31" cy="16" rx="3.4" ry="4.6"/></svg>Tips</a>
-    <a class="bl-cat r" href="#"><svg viewBox="0 0 40 40"><path d="M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="16" rx="3.4" ry="4.6"/><ellipse cx="16" cy="9" rx="3.4" ry="4.8"/><ellipse cx="24" cy="9" rx="3.4" ry="4.8"/><ellipse cx="31" cy="16" rx="3.4" ry="4.6"/></svg>Reviews</a>
-  </div>
-  <a class="bl-feat" href="#">
-    <div class="im"><img src="brianshio-home-child/assets/Pics/Gallery/01.jpg" alt=""><span class="bl-latest">Latest post</span></div>
-    <div class="tx">
-      <div class="bl-meta"><span class="bl-badge" style="background:#d2793f">Reviews</span><span>May 13, 2026</span></div>
-      <h2>The Best Hotel Near Takasaki Station: A Review of Hotel Coco Grand</h2>
-      <p>The best hotel near Takasaki Station is the Hotel Coco Grand Takasaki. It's just a couple of minutes' walk from the station itself…</p>
-      <span class="bl-readmore">Read the story →</span>
-    </div>
-  </a>
-  <div class="bl-grid">
-    <a class="bl-post" href="#" style="--c:#6f8a6b">
-      <div class="im"><img src="brianshio-home-child/assets/Pics/Gallery/10.jpg" alt=""></div>
-      <div class="tx"><div class="bl-meta"><span class="bl-badge" style="background:#6f8a6b">Guides</span><span>Jan 10, 2025</span></div>
-      <h3>Things To Do In Yellowstone National Park</h3><p>Planning is everything in a park this vast — here's how we spent our days.</p></div></a>
-    <a class="bl-post" href="#" style="--c:#d2793f">
-      <div class="im"><img src="brianshio-home-child/assets/Pics/Gallery/23.jpg" alt=""></div>
-      <div class="tx"><div class="bl-meta"><span class="bl-badge" style="background:#d2793f">Reviews</span><span>Nov 19, 2024</span></div>
-      <h3>Red Canyon Ranch in South Dakota</h3><p>Our honeymoon under the Milky Way — and why we'd go straight back.</p></div></a>
-    <a class="bl-post" href="#" style="--c:#d2793f">
-      <div class="im"><img src="brianshio-home-child/assets/Pics/Gallery/13.jpg" alt=""></div>
-      <div class="tx"><div class="bl-meta"><span class="bl-badge" style="background:#d2793f">Reviews</span><span>Mar 23, 2024</span></div>
-      <h3>The Coffee Exchange in Providence, RI</h3><p>A Saturday visit to one of the most-loved coffee shops in Rhode Island.</p></div></a>
-    <a class="bl-post" href="#" style="--c:#6f8a6b">
-      <div class="im"><img src="brianshio-home-child/assets/Pics/Gallery/07.jpg" alt=""></div>
-      <div class="tx"><div class="bl-meta"><span class="bl-badge" style="background:#6f8a6b">Guides</span><span>Mar 13, 2024</span></div>
-      <h3>Fun Things For Couples To Do In Seattle</h3><p>Grunge history, waterfront nights and the best spots to share.</p></div></a>
-    <a class="bl-post" href="#" style="--c:#6f8a6b">
-      <div class="im"><img src="brianshio-home-child/assets/Pics/Gallery/16.jpg" alt=""></div>
-      <div class="tx"><div class="bl-meta"><span class="bl-badge" style="background:#6f8a6b">Guides</span><span>Mar 5, 2024</span></div>
-      <h3>Guide To Parc Omega in Canada</h3><p>A Quebec wildlife park so good we're already planning the next visit.</p></div></a>
-    <a class="bl-post" href="#" style="--c:#7d9aa8">
-      <div class="im"><img src="brianshio-home-child/assets/Pics/Gallery/11b.jpg" alt=""></div>
-      <div class="tx"><div class="bl-meta"><span class="bl-badge" style="background:#7d9aa8">Tips</span><span>Feb 8, 2024</span></div>
-      <h3>17 Things To Know Before Traveling To Japan</h3><p>Everything we wish we'd known — from two people who go every year.</p></div></a>
-  </div>
-  <div class="bl-pawline" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="16" rx="3.4" ry="4.6"/><ellipse cx="16" cy="9" rx="3.4" ry="4.8"/><ellipse cx="24" cy="9" rx="3.4" ry="4.8"/><ellipse cx="31" cy="16" rx="3.4" ry="4.6"/></svg><svg viewBox="0 0 40 40"><path d="M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="16" rx="3.4" ry="4.6"/><ellipse cx="16" cy="9" rx="3.4" ry="4.8"/><ellipse cx="24" cy="9" rx="3.4" ry="4.8"/><ellipse cx="31" cy="16" rx="3.4" ry="4.6"/></svg><svg viewBox="0 0 40 40"><path d="M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="16" rx="3.4" ry="4.6"/><ellipse cx="16" cy="9" rx="3.4" ry="4.8"/><ellipse cx="24" cy="9" rx="3.4" ry="4.8"/><ellipse cx="31" cy="16" rx="3.4" ry="4.6"/></svg></div>
-  <div class="bl-pager"><a href="#">Older stories →</a></div>
-</div>
-<footer id="contact">
-  <div class="trail" id="footTrail" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="grid">
-      <div><a class="logo" href="" aria-label="BrianShio home"><img class="logo-mark" src="brianshio-home-child/assets/logo.png" alt="">BrianShio</a><p style="margin-top:1em;max-width:340px;font-size:.95rem"><span class="ft-l1">Travel &amp; lifestyle for couples.</span> <span class="ft-l2">See the world with the one you love.</span></p></div>
-      <div><h4>Useful links</h4><ul><li><a href="">Guides</a></li><li><a href="">Reviews</a></li><li><a href="">Tips</a></li><li><a href="#contact">Contact</a></li><li><a href="#">RSS</a></li></ul></div>
-      <div class="social-block"><div class="social" aria-label="social links">
-      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
-      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
-      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
-    </div></div>
-      
-    </div>
-    <div class="copy"><span>© 2026 BrianShio</span><span>Website by <a href="https://designbyshio.com" target="_blank" rel="noopener">Design by Shio</a></span></div>
-  </div>
-</footer>
-<script>
-(function(){var n=document.getElementById('nav');if(!n)return;
-var on=function(){n.classList.toggle('scrolled',window.scrollY>40)};on();window.addEventListener('scroll',on,{passive:true});
-var b=document.getElementById('burger');if(b)b.addEventListener('click',function(){n.classList.toggle('open')});})();
-</script>
-
-</body>
-</html>
