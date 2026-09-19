@@ -579,7 +579,7 @@ html,body{overflow-x:clip}
 .bl-post .bl-meta{font-size:.68rem}
 @media (min-width:541px) and (max-width:840px){.bl-feat p,.bl-post p{font-size:17px}.bl-feat h2,.bl-post h3{font-size:18px}}
 @media (min-width:403px) and (max-width:540px){.bl-feat p,.bl-post p{font-size:16px}.bl-feat h2,.bl-post h3{font-size:17px}}
-@media (max-width:402px){.bl-feat p,.bl-post p{font-size:22px}.bl-feat h2,.bl-post h3{font-size:25px}.bl-readmore{font-size:14px}.bl-feat .bl-meta{font-size:15px}.bl-post .bl-meta{font-size:14px}}
+@media (max-width:402px){.bl-feat p,.bl-post p{font-size:21px}.bl-feat h2,.bl-post h3{font-size:25px}.bl-readmore{font-size:14px}.bl-feat .bl-meta{font-size:14px}.bl-post .bl-meta{font-size:13px}.bl-badge{font-size:12px}}
 .bl-pawline{display:flex;justify-content:center;gap:26px;margin:clamp(40px,6vw,64px) 0 clamp(28px,4vw,40px);opacity:.35}
 .bl-pawline svg{width:20px;height:20px;fill:var(--ink-soft)}
 .bl-pawline svg:nth-child(even){transform:rotate(18deg) translateY(-6px)}
