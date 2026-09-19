@@ -544,7 +544,7 @@ html,body{overflow-x:clip}
 @media(min-width:841px) and (max-width:950px){.bl-wolves{right:calc(clamp(24px,6vw,90px) + 20px)}}
 @media(max-width:540px){.bl-wolves{margin-top:20px}}
 @media(min-width:403px) and (max-width:440px){.bl-wolves{margin-left:20px}}
-@media(max-width:402px){.bl-head{padding-top:130px}.bl-wolves{margin-top:-10px;z-index:3}.bl-sun{top:90px;z-index:0}.bl-cats{margin-top:-24px}}
+@media(max-width:402px){.bl-head{padding-top:130px}.bl-wolves{margin-top:-10px;z-index:3}.bl-sun{top:90px;z-index:0}.bl-cats{margin-top:-31px;margin-bottom:30px}}
 @media(max-width:840px){.bl-wolves{right:auto;left:min(62vw,470px);gap:6px;bottom:auto;top:calc(clamp(120px,15vw,170px) - 14px)}.bl-wolves img{height:clamp(70px,13vw,127px)}}
 .bl-cats{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 40px}
 .bl-cat{display:inline-flex;align-items:center;gap:.55em;font-size:.92rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:.7em 1.4em;border-radius:999px;border:1px solid var(--ink-mute);transition:.3s}
