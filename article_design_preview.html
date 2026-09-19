@@ -633,13 +633,18 @@ footer{margin-top:0;padding-top:calc(clamp(60px,8vw,100px) - 60px)}
 .ar-body .ar-k{font-weight:700;color:var(--ink)}
 /* media: same sizing rules on every post */
 .ar-body figure.ar-solo{width:100%!important;max-width:none!important;margin:2em 0!important;float:none!important}
-.ar-body figure.ar-solo img,.ar-body figure.ar-solo video,.ar-body video.ar-solo{display:block;width:100%!important;height:auto!important;max-width:none!important;aspect-ratio:4/3;object-fit:cover;border-radius:12px;box-shadow:0 22px 44px -22px rgba(58,49,41,.35);background:#1b1612}
+.ar-body figure.ar-solo img,.ar-body figure.ar-solo video,.ar-body video.ar-solo{display:block;width:100%!important;height:auto!important;max-width:none!important;aspect-ratio:4/3!important;object-fit:cover;border-radius:12px;box-shadow:0 22px 44px -22px rgba(58,49,41,.35);background:#1b1612}
 .ar-body .ar-media{display:flex;flex-direction:column;gap:10px;margin:2em 0}
 .ar-body .ar-row{display:grid;grid-template-columns:repeat(var(--n,1),1fr);gap:10px}
 .ar-body .ar-cell{margin:0!important;padding:0!important;width:auto!important;max-width:none!important;list-style:none;position:relative}
-.ar-body .ar-cell img,.ar-body .ar-cell video{display:block;width:100%!important;height:auto!important;max-width:none!important;object-fit:cover;border-radius:10px;box-shadow:none;background:#1b1612;aspect-ratio:4/3}
-.ar-body .ar-row.ar-tall .ar-cell img,.ar-body .ar-row.ar-tall .ar-cell video{aspect-ratio:3/4}
-.ar-body .ar-row.ar-one .ar-cell img,.ar-body .ar-row.ar-one .ar-cell video{aspect-ratio:4/3;border-radius:12px}
+.ar-body .ar-cell img,.ar-body .ar-cell video{display:block;width:100%!important;height:auto!important;max-width:none!important;object-fit:cover;border-radius:10px;box-shadow:none;background:#1b1612;aspect-ratio:4/3!important}
+.ar-body .ar-row.ar-tall .ar-cell img,.ar-body .ar-row.ar-tall .ar-cell video{aspect-ratio:3/4!important}
+.ar-body .ar-row.ar-one .ar-cell img,.ar-body .ar-row.ar-one .ar-cell video{aspect-ratio:4/3!important;border-radius:12px}
+.ar-body .ar-row.ar-one.ar-tall{justify-items:center}
+.ar-body .ar-row.ar-one.ar-tall .ar-cell{width:calc(50% - 5px)!important}
+.ar-body .ar-row.ar-one.ar-tall .ar-cell img,.ar-body .ar-row.ar-one.ar-tall .ar-cell video{aspect-ratio:3/4!important;border-radius:10px}
+.ar-body figure.ar-solo.ar-solo-tall{width:calc(50% - 5px)!important;margin-left:auto!important;margin-right:auto!important}
+.ar-body figure.ar-solo.ar-solo-tall img{aspect-ratio:3/4!important;border-radius:10px}
 .ar-body .ar-cell figcaption{position:static}
 .ar-body .ar-cell .kb-gal-image-radius,.ar-body .ar-cell .kb-gallery-image-contain{padding:0!important;height:auto!important;max-width:none!important;position:static!important}
 .ar-body .ar-cell .kb-gallery-image-contain img{position:static!important}
@@ -801,7 +806,7 @@ footer{margin-top:0;padding-top:calc(clamp(60px,8vw,100px) - 60px)}
     var box=document.createElement('div'); box.className='ar-media';
     rows(items).forEach(function(r){
       var row=document.createElement('div');
-      row.className='ar-row'+(r.length===1?' ar-one':(r.some(portrait)?' ar-tall':''));
+      row.className='ar-row'+(r.length===1?' ar-one':'')+(r.some(portrait)?' ar-tall':'');
       row.style.setProperty('--n', r.length);
       r.forEach(function(c){ c.classList.add('ar-cell'); row.appendChild(c); });
       box.appendChild(row);
@@ -819,13 +824,13 @@ footer{margin-top:0;padding-top:calc(clamp(60px,8vw,100px) - 60px)}
     if(txt) return;
     var items=[].slice.call(c.querySelectorAll('figure, video')).filter(function(f){ return !(f.tagName==='VIDEO' && f.closest('figure')); }).filter(function(f){return media(f)||f.tagName==='VIDEO';});
     if(!items.length) return;
-    if(items.length===1){ var one=items[0]; c.parentNode.insertBefore(one,c); one.classList.add('ar-solo'); }
+    if(items.length===1){ var one=items[0]; c.parentNode.insertBefore(one,c); one.classList.add('ar-solo'); if(one.tagName==='FIGURE'&&one.classList.contains('wp-block-image')&&portrait(one)) one.classList.add('ar-solo-tall'); }
     else build(items, c);
     c.classList.add('ar-gone');
   });
   // any remaining single photo / video
   body.querySelectorAll('figure.wp-block-image, figure.wp-block-video').forEach(function(f){
-    if(f.closest('.ar-media')||f.closest('.ar-gone')) return; f.classList.add('ar-solo');
+    if(f.closest('.ar-media')||f.closest('.ar-gone')) return; f.classList.add('ar-solo'); if(f.classList.contains('wp-block-image')&&portrait(f)) f.classList.add('ar-solo-tall');
   });
   body.querySelectorAll('video').forEach(function(v){ if(!v.closest('figure')&&!v.closest('.ar-media')) v.classList.add('ar-solo'); });
   body.querySelectorAll('video').forEach(function(v){ v.preload='metadata'; var ds=v.getAttribute('data-src'); if(ds&&ds.indexOf('#t=')<0) v.setAttribute('data-src',ds+'#t=0.1'); else if(v.src&&v.src.indexOf('#t=')<0) v.src=v.src+'#t=0.1'; });
