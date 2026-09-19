@@ -752,8 +752,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   });
   body.querySelectorAll('video').forEach(function(v){ if(!v.closest('figure')&&!v.closest('.ar-media')) v.classList.add('ar-solo'); });
   function vOrient(v){ var box=v.closest('figure.ar-solo')||(v.classList.contains('ar-solo')?v:null); if(!box) return;
-    var w=v.videoWidth||+v.getAttribute('width')||0, h=v.videoHeight||+v.getAttribute('height')||0; box.classList.toggle('ar-vtall', h>w); }
-  body.querySelectorAll('video').forEach(function(v){ vOrient(v); v.addEventListener('loadedmetadata',function(){vOrient(v);}); });
+    var w=v.videoWidth||+v.getAttribute('width')||0, h=v.videoHeight||+v.getAttribute('height')||0; if(w&&h) v.style.setProperty('aspect-ratio', w+' / '+h, 'important'); box.classList.toggle('ar-vtall', h>w); }
+  function vAll(v){ var w=v.videoWidth||+v.getAttribute('width')||0, h=v.videoHeight||+v.getAttribute('height')||0; if(w&&h) v.style.setProperty('aspect-ratio', w+' / '+h, 'important'); vOrient(v); }
+  body.querySelectorAll('video').forEach(function(v){ vAll(v); v.addEventListener('loadedmetadata',function(){vAll(v);}); });
   body.querySelectorAll('video').forEach(function(v){ v.preload='metadata'; var ds=v.getAttribute('data-src'); if(ds&&ds.indexOf('#t=')<0) v.setAttribute('data-src',ds+'#t=0.1'); else if(v.src&&v.src.indexOf('#t=')<0) v.src=v.src+'#t=0.1'; });
 })();
 document.querySelectorAll('.ar-head h1, .ar-body h2, .ar-body h3').forEach(function(h){
