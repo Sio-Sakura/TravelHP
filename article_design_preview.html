@@ -652,11 +652,11 @@ footer{margin-top:0;padding-top:calc(clamp(60px,8vw,100px) - 60px)}
 .ar-body hr{border:0;height:1px;background:var(--paper-3);margin:2.4em 0}
 
 .ar-end{max-width:720px;margin:0 auto;padding:0 clamp(20px,4vw,0px)}
-.ar-end .bl-pawline svg{width:24px;height:24px;animation:arPawSway 2.6s ease-in-out infinite}
+.ar-end .bl-pawline svg{width:24px;height:24px;transform-origin:50% 100%;animation:arPawSway 2.6s ease-in-out infinite}
 .ar-end .bl-pawline svg:nth-child(1){--r:-14deg;--y:0px;animation-delay:0s;animation-duration:2.4s}
 .ar-end .bl-pawline svg:nth-child(2){--r:18deg;--y:-6px;animation-delay:-.9s;animation-duration:2.9s}
 .ar-end .bl-pawline svg:nth-child(3){--r:-14deg;--y:0px;animation-delay:-1.7s;animation-duration:2.2s}
-@keyframes arPawSway{0%,100%{transform:translate(-4px,var(--y)) rotate(calc(var(--r) - 8deg))}50%{transform:translate(4px,var(--y)) rotate(calc(var(--r) + 8deg))}}
+@keyframes arPawSway{0%,100%{transform:translateY(var(--y)) rotate(calc(var(--r) - 12deg))}50%{transform:translateY(var(--y)) rotate(calc(var(--r) + 12deg))}}
 @media (prefers-reduced-motion:reduce){.ar-end .bl-pawline svg{animation:none;transform:translateY(var(--y)) rotate(var(--r))}}
 .ar-author{display:flex;gap:22px;align-items:center;background:#fff;border-radius:16px;padding:24px 26px;box-shadow:0 22px 44px -22px var(--shadow);border-top:6px solid var(--c,var(--accent))}
 .ar-author img{width:92px;height:92px;border-radius:50%;object-fit:cover;object-position:50% 82%;border:2px solid var(--accent);flex:none}
