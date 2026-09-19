@@ -543,7 +543,7 @@ html,body{overflow-x:clip}
 .bl-wolves img{height:clamp(150px,21vw,290px);width:auto;filter:drop-shadow(0 14px 12px rgba(58,49,41,.18))}
 @media(min-width:841px) and (max-width:950px){.bl-wolves{right:calc(clamp(24px,6vw,90px) + 20px)}}
 @media(max-width:540px){.bl-wolves{margin-top:20px}}
-@media(max-width:402px){.bl-head{padding-top:110px}.bl-wolves{margin-top:-30px;z-index:3}.bl-sun{top:70px;z-index:0}.bl-cats{margin-top:16px}}
+@media(max-width:402px){.bl-head{padding-top:120px}.bl-wolves{margin-top:-20px;z-index:3}.bl-sun{top:80px;z-index:0}.bl-cats{margin-top:6px}}
 @media(max-width:840px){.bl-wolves{right:auto;left:min(62vw,470px);gap:6px;bottom:auto;top:calc(clamp(120px,15vw,170px) - 14px)}.bl-wolves img{height:clamp(70px,13vw,127px)}}
 .bl-cats{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 40px}
 .bl-cat{display:inline-flex;align-items:center;gap:.55em;font-size:.92rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:.7em 1.4em;border-radius:999px;border:1px solid var(--ink-mute);transition:.3s}
