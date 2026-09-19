@@ -780,9 +780,9 @@ document.querySelectorAll('.ar-body ul, .ar-body ol').forEach(function(l){
   if(avg>100) l.classList.add('ar-long');
 });
 document.querySelectorAll('.ar-body h2').forEach(function(h){
-  var cls=/quick facts|why we loved it/i.test(h.textContent)?'ar-card':(/everything in it|important things to know/i.test(h.textContent)?'ar-frame':''); if(!cls) return;
+  var cls=/quick\s+facts|why\s+we\s+loved\s+it/i.test(h.textContent)?'ar-card':(/everything\s+in\s+it|important\s+things\s+to\s+know/i.test(h.textContent)?'ar-frame':''); if(!cls) return;
   for(var el=h.nextElementSibling; el && el.tagName!=='H2'; el=el.nextElementSibling){
-    if(el.tagName==='UL'||el.tagName==='OL'){ el.classList.add(cls); if(/why we loved it/i.test(h.textContent)) el.classList.add('ar-why'); break; }
+    if(el.tagName==='UL'||el.tagName==='OL'){ el.classList.add(cls); if(/why\s+we\s+loved\s+it/i.test(h.textContent)) el.classList.add('ar-why'); break; }
   }
 });
 document.querySelectorAll('.ar-body li').forEach(function(li){
