@@ -848,12 +848,13 @@ footer{margin-top:0;padding-top:calc(clamp(60px,8vw,100px) - 60px)}
 (function(){
   var h=document.querySelector('.ar-head h1'); if(!h) return;
   function fit(){
-    h.style.fontSize=''; if(window.innerWidth<=840) return;
+    h.style.fontSize=''; h.querySelectorAll('br.ar-br').forEach(function(b){ var n=b.nextSibling; b.previousSibling.nodeValue+=' '+(n?n.nodeValue:''); if(n) n.remove(); b.remove(); }); if(window.innerWidth<=840) return;
     var n=h.parentElement, pad=parseFloat(getComputedStyle(n).paddingLeft)+parseFloat(getComputedStyle(n).paddingRight);
     var box=Math.min(parseFloat(getComputedStyle(n).maxWidth)||1060, n.parentElement.getBoundingClientRect().width) - pad;
-    h.style.whiteSpace='nowrap'; var size=parseFloat(getComputedStyle(h).fontSize);
+    h.style.whiteSpace='nowrap'; var base=parseFloat(getComputedStyle(h).fontSize), size=base;
     while(h.scrollWidth>box && size>30){ size-=1; h.style.fontSize=size+'px'; }
     h.style.whiteSpace='';
+    if(size<base*0.8){ h.style.fontSize=''; if(!h.querySelector('br.ar-br')){ var t=h.firstChild; if(t&&t.nodeType===3){ var m=t.nodeValue.match(/^(.*?[:–—])\s+(.*)$/); if(m){ t.nodeValue=m[1]; var br=document.createElement('br'); br.className='ar-br'; h.appendChild(br); h.appendChild(document.createTextNode(m[2])); } } } }
   }
   fit(); window.addEventListener('resize', fit);
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
