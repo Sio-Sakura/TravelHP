@@ -579,6 +579,7 @@ html,body{overflow-x:clip}
 .bl-post h3{font-size:1.32rem;margin:0;line-height:1.2}
 .bl-post p{font-size:14.5px;color:var(--ink-soft);margin:0;flex:1}
 .bl-post .bl-meta{font-size:.68rem}
+@media (min-width:951px){.bl-post h3{font-size:23px}.bl-post p{font-size:15.5px}}
 @media (min-width:541px) and (max-width:840px){.bl-feat p,.bl-post p{font-size:17px}.bl-feat h2,.bl-post h3{font-size:18px}}
 @media (min-width:403px) and (max-width:540px){.bl-feat p,.bl-post p{font-size:16px}.bl-feat h2,.bl-post h3{font-size:17px}}
 @media (max-width:402px){.bl-feat p,.bl-post p{font-size:21px}.bl-feat h2,.bl-post h3{font-size:25px}.bl-readmore{font-size:14px}.bl-feat .bl-meta{font-size:14px}.bl-post .bl-meta{font-size:13px}.bl-badge{font-size:12px}.bl-cat{font-size:13.4px}}
