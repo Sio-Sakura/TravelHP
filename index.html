@@ -580,9 +580,9 @@ html,body{overflow-x:clip}
 .bl-post p{font-size:14.5px;color:var(--ink-soft);margin:0;flex:1}
 .bl-post .bl-meta{font-size:.68rem}
 @media (min-width:951px){.bl-post h3{font-size:23px}.bl-post p{font-size:15.5px}}
-@media (min-width:541px) and (max-width:840px){.bl-feat p,.bl-post p{font-size:17px}.bl-feat h2{font-size:18px}.bl-post h3{font-size:20px}}
+@media (min-width:541px) and (max-width:840px){.bl-feat p,.bl-post p{font-size:17px}.bl-feat h2{font-size:21px}.bl-post h3{font-size:20px}}
 @media (min-width:841px) and (max-width:950px){.bl-post h3{font-size:23px}}
-@media (min-width:403px) and (max-width:540px){.bl-feat p,.bl-post p{font-size:16px}.bl-feat h2{font-size:17px}.bl-post h3{font-size:19px}}
+@media (min-width:403px) and (max-width:540px){.bl-feat p,.bl-post p{font-size:16px}.bl-feat h2{font-size:20px}.bl-post h3{font-size:19px}}
 @media (max-width:402px){.bl-feat p,.bl-post p{font-size:21px}.bl-feat h2,.bl-post h3{font-size:25px}.bl-readmore{font-size:14px}.bl-feat .bl-meta{font-size:14px}.bl-post .bl-meta{font-size:13px}.bl-badge{font-size:12px}.bl-cat{font-size:13.4px}}
 .bl-pawline{display:flex;justify-content:center;gap:26px;margin:clamp(40px,6vw,64px) 0 clamp(28px,4vw,40px);opacity:.35}
 .bl-pawline svg{width:20px;height:20px;fill:var(--ink-soft)}
