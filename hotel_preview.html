@@ -664,7 +664,7 @@ footer{margin-top:0;padding-top:calc(clamp(60px,8vw,100px) - 60px)}
 .ar-body .wp-block-gallery figure{margin:0}
 .ar-body iframe,.ar-body .wp-block-embed__wrapper,.ar-body .kb-google-maps-container{border-radius:12px;overflow:hidden;max-width:100%}
 .ar-body .wp-block-embed{margin:2em 0}
-.ar-body .kb-google-maps-container{min-height:340px;margin:2em 0}.ar-body .kb-google-maps-container iframe{display:block;width:100%;height:340px;border:0}
+.ar-body .kb-google-maps-container{min-height:340px;margin:2em 0}.ar-body .kb-google-maps-container iframe{display:block;width:100%!important;height:100%!important;min-height:340px;border:0}
 .ar-body .wp-block-table{border:1px solid var(--c,var(--accent));border-radius:14px;overflow:hidden;background:#fff}
 .ar-body table{width:100%;border-collapse:collapse;border:0!important;font-size:16px;background:transparent}
 .ar-body th,.ar-body td{padding:.85em 1.1em;text-align:left;border:0!important;border-bottom:1px solid rgba(210,121,63,.22)!important;vertical-align:top}
@@ -769,7 +769,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   if(MOB.addEventListener) MOB.addEventListener('change', onMob); else MOB.addListener(onMob);
   // galleries (core + Kadence)
   body.querySelectorAll('.wp-block-gallery, .wp-block-kadence-advancedgallery').forEach(function(g){
-    var items=[].slice.call(g.querySelectorAll('figure.wp-block-image, .kb-gallery-figure')).filter(function(f){return media(f);});
+    var items=[].slice.call(g.querySelectorAll('figure.wp-block-image, .wp-block-image > figure, .kb-gallery-figure')).filter(function(f){return media(f);});
     if(!items.length) return; build(items, g); g.classList.add('ar-gone');
   });
   // column blocks that only hold photos / videos
@@ -786,8 +786,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   body.querySelectorAll('figure.wp-block-table, table').forEach(function(t){ var tb=t.tagName==='TABLE'?t:t.querySelector('table'); if(!tb) return;
     if(tb.querySelectorAll('tr').length===1 && tb.querySelectorAll('td,th').length===1){ (t.tagName==='FIGURE'?t:tb).classList.add('ar-callout'); } });
   // any remaining single photo / video
-  body.querySelectorAll('figure.wp-block-image, figure.wp-block-video').forEach(function(f){
-    if(f.closest('.ar-media')||f.closest('.ar-gone')) return; f.classList.add('ar-solo'); if(f.classList.contains('wp-block-image')&&portrait(f)) f.classList.add('ar-solo-tall');
+  body.querySelectorAll('figure.wp-block-image, figure.wp-block-video, .wp-block-image > figure, .wp-block-video > figure').forEach(function(f){
+    if(f.closest('.ar-media')||f.closest('.ar-gone')) return; f.classList.add('ar-solo'); if((f.classList.contains('wp-block-image')||(f.parentElement&&f.parentElement.classList.contains('wp-block-image')))&&portrait(f)) f.classList.add('ar-solo-tall');
   });
   body.querySelectorAll('video').forEach(function(v){ if(!v.closest('figure')&&!v.closest('.ar-media')) v.classList.add('ar-solo'); });
   function vOrient(v){ var box=v.closest('figure.ar-solo')||(v.classList.contains('ar-solo')?v:null); if(!box) return;
