@@ -627,7 +627,7 @@ footer{margin-top:0;padding-top:calc(clamp(60px,8vw,100px) - 60px)}
 .ar-body p[class*="-font-size"]:not(.has-custom-font-size){font-size:1em!important}
 /* media: same sizing rules on every post */
 .ar-body figure.ar-solo{width:100%!important;max-width:none!important;margin:2em 0!important;float:none!important}
-.ar-body figure.ar-solo img,.ar-body figure.ar-solo video,.ar-body video.ar-solo{display:block;width:100%!important;height:auto!important;max-width:none!important;aspect-ratio:4/3!important;object-fit:cover;border-radius:12px;box-shadow:0 22px 44px -22px rgba(58,49,41,.35);background:#1b1612}
+.ar-body img.ar-solo,.ar-body figure.ar-solo img,.ar-body figure.ar-solo video,.ar-body video.ar-solo{display:block;width:100%!important;height:auto!important;max-width:none!important;aspect-ratio:4/3!important;object-fit:cover;border-radius:12px;box-shadow:0 22px 44px -22px rgba(58,49,41,.35);background:#1b1612}
 .ar-body .ar-media{display:flex;flex-direction:column;gap:10px;margin:2em 0;container-type:inline-size}
 .ar-body .ar-row{display:grid;grid-template-columns:repeat(var(--n,1),1fr);gap:10px}
 .ar-body .ar-cell{margin:0!important;padding:0!important;width:auto!important;max-width:none!important;list-style:none;position:relative}
@@ -637,8 +637,8 @@ footer{margin-top:0;padding-top:calc(clamp(60px,8vw,100px) - 60px)}
 .ar-body .ar-row.ar-one.ar-tall{justify-items:center}
 .ar-body .ar-row.ar-one.ar-tall .ar-cell{width:calc(50% - 5px)!important}
 .ar-body .ar-row.ar-one.ar-tall .ar-cell img,.ar-body .ar-row.ar-one.ar-tall .ar-cell video{aspect-ratio:3/4!important;border-radius:10px}
-.ar-body figure.ar-solo.ar-solo-tall{width:calc(50% - 5px)!important;margin-left:auto!important;margin-right:auto!important}
-.ar-body figure.ar-solo.ar-solo-tall img{aspect-ratio:3/4!important;border-radius:10px}
+.ar-body figure.ar-solo.ar-solo-tall,.ar-body img.ar-solo.ar-solo-tall{width:calc(50% - 5px)!important;margin-left:auto!important;margin-right:auto!important;display:block}
+.ar-body figure.ar-solo.ar-solo-tall img,.ar-body img.ar-solo.ar-solo-tall{aspect-ratio:3/4!important;border-radius:10px}
 .ar-body figure.ar-solo video,.ar-body video.ar-solo,.ar-body .ar-cell video{aspect-ratio:auto!important;height:auto!important;object-fit:contain!important}
 .ar-body figure.ar-solo.ar-vtall{width:calc(50% - 5px)!important;margin-left:auto!important;margin-right:auto!important}
 .ar-body figure.ar-solo.ar-vtall video,.ar-body video.ar-solo.ar-vtall{width:100%!important;height:auto!important;aspect-ratio:3/4!important;object-fit:cover!important;border-radius:10px}
@@ -788,6 +788,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     if(f.closest('.ar-media')||f.closest('.ar-gone')) return; f.classList.add('ar-solo'); if((f.classList.contains('wp-block-image')||(f.parentElement&&f.parentElement.classList.contains('wp-block-image')))&&portrait(f)) f.classList.add('ar-solo-tall');
   });
   body.querySelectorAll('video').forEach(function(v){ if(!v.closest('figure')&&!v.closest('.ar-media')) v.classList.add('ar-solo'); });
+  // safety net: anything the rules above missed still follows the same sizing
+  body.querySelectorAll('img, video').forEach(function(m){
+    if(m.closest('.ar-media, .ar-solo, .ar-cell, .ar-callout, table, .ar-author, .kb-google-maps-container')) return;
+    var w=+(m.getAttribute('width')||m.naturalWidth||m.videoWidth||0); if(m.tagName==='IMG' && w && w<160) return;
+    var host=m.closest('figure')||m; host.classList.add('ar-solo');
+    if(portrait(host)) host.classList.add(host.tagName==='VIDEO'||host.querySelector('video')?'ar-vtall':'ar-solo-tall');
+  });
   function vOrient(v){ var box=v.closest('figure.ar-solo')||(v.classList.contains('ar-solo')?v:null); if(!box) return;
     var w=v.videoWidth||+v.getAttribute('width')||0, h=v.videoHeight||+v.getAttribute('height')||0; box.classList.toggle('ar-vtall', h>w); }
   function vAll(v){ var w=v.videoWidth||+v.getAttribute('width')||0, h=v.videoHeight||+v.getAttribute('height')||0; if(w&&h&&w>=h) v.style.setProperty('aspect-ratio', w+' / '+h, 'important'); else v.style.removeProperty('aspect-ratio'); vOrient(v); }
