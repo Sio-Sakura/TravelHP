@@ -697,6 +697,9 @@ footer{margin-top:0;padding-top:calc(clamp(60px,8vw,100px) - 60px)}
 .ar-body th,.ar-body td{padding:.85em 1.1em;text-align:left;border:0!important;border-bottom:1px solid rgba(210,121,63,.22)!important;vertical-align:top}
 .ar-body th,.ar-body thead td{background:var(--c,var(--accent));color:#fff;font-weight:700;font-size:15px;letter-spacing:.06em;border-bottom:0!important}
 .ar-body tbody tr:nth-child(even) td{background:rgba(210,121,63,.06)}
+.ar-body thead,.ar-body tfoot,.ar-body tbody{border:0!important}
+.ar-body td + td,.ar-body th + th{border-left:1px solid rgba(210,121,63,.22)!important}
+.ar-body th + th{border-left-color:rgba(255,255,255,.35)!important}
 .ar-body tr:last-child td{border-bottom:0!important}
 /* one-cell tables are used as call-out boxes */
 .ar-body .ar-callout{border:0!important}.ar-body .ar-callout table{background:#fff;box-shadow:0 18px 36px -24px var(--shadow);border-radius:14px;border:1px solid var(--c,var(--accent))!important;overflow:hidden}
