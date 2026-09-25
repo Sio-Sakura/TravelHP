@@ -552,7 +552,9 @@ html,body{overflow-x:clip}
 @media (max-width:540px){.hero .photo-col{margin-top:30px}}
 @media (min-width:403px) and (max-width:540px){.hero .wrap{padding-bottom:calc(40vh + 39px)}}
 @media (max-width:402px){.hero .wrap{padding-bottom:calc(40vh + 54px)}}
-@media (min-width:374px) and (max-width:402px){.hero .wrap{padding-bottom:calc(40vh + 74px)}}
+@media (min-width:394px) and (max-width:402px){.hero .wrap{padding-bottom:calc(40vh + 74px)}}
+@media (min-width:403px) and (max-width:440px){.hero .wrap{padding-bottom:calc(40vh - 1px)}}
+@media (min-width:441px) and (max-width:540px){.hero .wrap{padding-bottom:calc(40vh + 9px)}}
 @media (min-width:360px) and (max-width:393px){.hero .wrap{padding-bottom:calc(40vh + 99px)}}
 @media (min-width:320px) and (max-width:359px){.hero .wrap{padding-bottom:calc(40vh + 94px)}}
 @media (min-width:360px) and (max-width:393px){.why .authors .avatar{translate:0 25px}}
@@ -1469,7 +1471,7 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40)
 $('#burger').addEventListener('click',()=>nav.classList.toggle('open'));
 let walkTimer; const setWalking=on=>document.documentElement.style.setProperty('--walk',on?'running':'paused');
 window.addEventListener('scroll',()=>{ setWalking(true); clearTimeout(walkTimer); walkTimer=setTimeout(()=>setWalking(false),180); },{passive:true});
-gsap.utils.toArray('.reveal').forEach(el=>gsap.to(el,{opacity:1,y:0,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}}));
+gsap.utils.toArray('.reveal').forEach(el=>gsap.to(el,{opacity:1,y:0,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:el.matches('.why .authors')?(document.querySelector('.why blockquote')||el):el,start:'top 88%',once:true}}));
 
 function stampBehind(tl,prints,rearX,travel,dir=1){ prints.forEach(p=>{ const x=+p.dataset.x; const t= dir>0 ? (x-rearX)/travel : (rearX-x)/travel; if(t<=0){ gsap.set(p,{opacity:1,scale:1}); return; } if(t>1) return; tl.to(p,{opacity:1,scale:1,duration:.02,ease:'back.out(2)'},t); }); }
 const rearOf=(el,c)=>el.getBoundingClientRect().left-c.getBoundingClientRect().left;
