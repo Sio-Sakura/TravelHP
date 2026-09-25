@@ -212,7 +212,7 @@ section{position:relative}
 
 /* pillars */
 .pillars{padding:clamp(0px,.9vw,14px) 0 clamp(40px,8vw,80px)}
-.pillars .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,36px);perspective:1200px}
+.pillars .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,36px)}
 .card{background:#fff;padding:clamp(28px,3vw,42px);border-radius:16px;position:relative;box-shadow:0 26px 50px -24px var(--shadow);transform-style:preserve-3d;transition:box-shadow .5s;border-top:6px solid var(--c,var(--accent))}
 .card:hover{box-shadow:0 40px 70px -24px rgba(58,49,41,.3)}
 .card .ico{width:66px;height:66px;margin-bottom:1.1em;transform:translateZ(30px)}
@@ -348,13 +348,14 @@ html,body{overflow-x:clip}
 @media (min-width:841px) and (max-width:950px){.story .birds{top:calc(12% - 20px)!important}.story{padding-top:calc(clamp(120px,16vw,220px) + 40px)}}
 /* 541-840px (iPad縦・大きめスマホ横) */
 @media (min-width:541px) and (max-width:840px){.why .copy p:first-of-type{max-width:85%}.hero .photo-col{justify-self:start;margin-top:20px}.hero .featured{left:auto;right:max(-26px,calc(10px - clamp(20px,4vw,48px)));bottom:-69px;max-width:none;padding:10px 5px 0}.hero .featured p{display:block}}
-@media (min-width:541px) and (max-width:840px){.why .authors .avatar{right:100px;top:calc(50% - 60px);transform:translateY(-55%)}}
+@media (min-width:541px) and (max-width:840px){.why .authors .avatar{right:100px;top:calc(50% - 35px);transform:translateY(-55%)}}
 @media (min-width:541px) and (max-width:840px){.meadow-scene{width:90%;margin-left:auto;margin-right:auto}}
 @media (min-width:541px) and (max-width:840px){.meadow-scene .bunny:not(.sniffer){bottom:calc(26% - 60px)!important}}
 @media (min-width:541px) and (max-width:840px){.meadow-scene .bush-br{transform:translate(-10px,10px);clip-path:polygon(0 0,100% 0,100% 94.5%,90% 97%,80% 94.5%,70% 97%,60% 95%,50% 97%,40% 94.5%,30% 97%,20% 95%,10% 97%,0 95%)}}
 @media (min-width:541px) and (max-width:840px){.meadow-scene .birdie{left:calc(44% + 10px)!important}}
+@media (min-width:541px) and (max-width:840px){.card h3{font-size:24.4px}}
 @media (min-width:541px) and (max-width:840px){.card p{font-size:17px}.card .link{font-size:.9rem}.pillars{margin-top:-60px;position:relative;z-index:2}}
-@media (min-width:541px) and (max-width:840px){.plains .birds{top:calc(10% - 20px)!important}.plains{padding-top:calc(clamp(100px,14vw,200px) + 80px)}.plains blockquote{font-size:24.5px}.next .big{font-size:calc(clamp(4rem,12vw,10rem) + 2px)}}
+@media (min-width:541px) and (max-width:840px){.plains .birds{top:calc(10% - 20px)!important}.plains{padding-top:calc(clamp(100px,14vw,200px) + 80px)}.plains blockquote{font-size:24.5px}.next .big{font-size:calc(clamp(4rem,12vw,10rem) + 5px)}}
 @media (min-width:841px) and (max-width:950px){.gallery .trail{bottom:40px}}
 @media (min-width:541px) and (max-width:840px){.gallery .trail{bottom:60px}.gallery{padding-bottom:calc(clamp(100px,15vw,200px) + 60px)}}
 @media (min-width:841px) and (max-width:950px){.couples .photo{aspect-ratio:auto;height:0;padding-top:calc(112.5% + 100px)}.couples .photo img{object-position:50% 50%!important}}
@@ -362,6 +363,7 @@ html,body{overflow-x:clip}
 @media (min-width:441px) and (max-width:540px){.why .authors .avatar{top:50%}}
 @media (min-width:320px) and (max-width:540px){footer .ft-l1,footer .ft-l2{display:block}footer .grid>div:first-child p{white-space:normal!important}}
 @media (min-width:441px) and (max-width:540px){.gallery .trail .bear{width:250px!important;left:-540px!important}}
+@media (min-width:541px) and (max-width:840px){.hero .wrap{padding-bottom:calc(40vh + 64px)}}
 @media (min-width:441px) and (max-width:540px){.hero .featured{max-width:none;padding:10px 5px 0}.hero .featured p{display:block}}
 @media (min-width:441px) and (max-width:540px){.hero .photo-col{margin-top:20px}.hero .wrap{padding-top:136px}}
 @media (min-width:441px) and (max-width:540px){.meadow-scene .bunny:not(.sniffer){bottom:calc(26% - 20px)!important}}
@@ -535,6 +537,9 @@ html,body{overflow-x:clip}
    keeping the meadow scene as visible as on a standard screen */
 .h1br{display:none}
 @media (min-width:901px){.h1br{display:inline}}
+
+.mclose{display:none}.mclose button{background:none;border:0;cursor:pointer;padding:8px;color:var(--ink);line-height:0}.mclose svg{width:22px;height:22px;display:block}.mclose button:hover{color:var(--accent)}
+@media (max-width:840px){.nav.open .menu{padding-top:52px}.nav.open .menu > li.mclose{display:block;position:absolute;top:8px;right:8px;width:auto;transform:none}}
 </style>
 </head>
 <body>
@@ -584,6 +589,7 @@ html,body{overflow-x:clip}
   <div class="wrap">
     <a class="logo" href="#home" aria-label="BrianShio home"><img class="logo-mark" src="logo.png" alt="">BrianShio</a>
     <ul class="menu">
+      <li class="mclose"><button type="button" aria-label="Close menu" onclick="this.closest('.nav').classList.remove('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg></button></li>
       <li><a href="#home">Home</a></li>
       <li><a href="#blog">Blog</a><ul class="sub"><li><a href="#blog">Guides</a></li><li><a href="#blog">Reviews</a></li><li><a href="#blog">Tips</a></li></ul></li>
       <li><a href="#about">About</a></li>
@@ -862,7 +868,7 @@ html,body{overflow-x:clip}
     wrap.style.zoom=''; h.style.fontSize='';
     var list=[document.querySelector('.hero .lead'), document.querySelector('.hero .eyebrow')];
     [].forEach.call(document.querySelectorAll('.hero .cta .btn, .hero .cta .btn .paw'),function(e){list.push(e);});
-    list.forEach(function(e){ if(e) e.removeAttribute('style'); });
+    list.forEach(function(e){ if(!e) return; var o=e.style.opacity, t=e.style.transform, v=e.style.visibility; e.removeAttribute('style'); if(o) e.style.opacity=o; if(t) e.style.transform=t; if(v) e.style.visibility=v; });
     if(fcEl){ fcEl.removeAttribute('style'); if(fcEl.innerHTML!==fcOrig) fcEl.innerHTML=fcOrig; }
     var col=document.querySelector('.hero .photo-col'); if(col) col.style.maxWidth='';
   }
@@ -1467,8 +1473,8 @@ if(!reduce){
 
   /* cards / photos tilt */
   document.querySelectorAll('.card, .tilt').forEach(card=>{
-    card.addEventListener('mousemove',e=>{ const r=card.getBoundingClientRect(); const px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5; gsap.to(card,{rotateY:px*12,rotateX:-py*12,transformPerspective:900,duration:.5,ease:'power2.out'}); });
-    card.addEventListener('mouseleave',()=>gsap.to(card,{rotateY:0,rotateX:0,duration:.8,ease:'elastic.out(1,.5)'}));
+    card.addEventListener('mousemove',e=>{ const r=card.getBoundingClientRect(); const px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5; gsap.set(card,{transformPerspective:900}); gsap.to(card,{rotateY:px*12,rotateX:-py*12,duration:.5,ease:'power2.out',overwrite:'auto'}); });
+    card.addEventListener('mouseleave',()=>gsap.to(card,{rotateY:0,rotateX:0,duration:.8,ease:'elastic.out(1,.5)',overwrite:'auto',onComplete:()=>{ if(!card.matches(':hover')) gsap.set(card,{transformPerspective:0}); }}));
   });
 
   /* trust: paw prints appear one by one, left → right, as the section scrolls into view */
