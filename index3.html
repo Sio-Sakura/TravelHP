@@ -373,6 +373,11 @@ html,body{overflow-x:clip}
 @media (min-width:441px) and (max-width:540px){.plains blockquote{font-size:24.5px}}
 @media (min-width:441px) and (max-width:540px){.plains{padding-top:calc(clamp(100px,14vw,200px) + 80px)}.plains .birds{width:min(475px,66vw)!important}.next .big{font-size:calc(clamp(4rem,12vw,10rem) + 13px)}}
 @media (min-width:441px) and (max-width:540px){.plains .baby{bottom:14px!important}}
+@media (min-width:441px) and (max-width:540px){.hero .featured{translate:0 30px}}
+@media (min-width:403px) and (max-width:440px){.hero .featured{translate:0 20px}}
+@media (min-width:403px) and (max-width:440px){.plains{min-height:calc(100vh + 155px)}.plains .next{margin-bottom:15px}}
+@media (min-width:403px) and (max-width:440px){#whyClouds .cloud:nth-of-type(1){width:min(300px,25.2vw)!important}#whyClouds .cloud:nth-of-type(2){width:min(240px,20.4vw)!important}#whyClouds .cloud:nth-of-type(3){width:min(180px,15.6vw)!important}}
+@media (min-width:441px) and (max-width:540px){.plains{min-height:calc(100vh + 160px)}.plains .next{margin-bottom:20px}}
 @media (min-width:441px) and (max-width:540px){.trust .side-wolf{bottom:10px;display:block;width:124px}.trust .side-wolf.l{left:calc(5% - 20px)}.trust .side-wolf.r{right:calc(5% - 20px)}}
 @media (min-width:441px) and (max-width:540px){.masonry{grid-template-rows:190px 130px 130px 130px 130px 190px 130px 130px 190px}}
 @media (min-width:441px) and (max-width:540px){.gallery .trail{bottom:60px}.gallery{padding-bottom:calc(clamp(100px,15vw,200px) + 60px)}}
@@ -387,7 +392,7 @@ html,body{overflow-x:clip}
 @media (min-width:403px) and (max-width:440px){.hero .ground .hero-berry-l,.hero .ground .hero-sprig-l,.hero .ground .hero-grass-c{display:none}.hero .ground .hero-berry-s{transform:translateY(40px)}}
 @media (min-width:441px) and (max-width:540px){.hero .ground .hero-berry-l,.hero .ground .hero-sprig-l,.hero .ground .hero-grass-c{display:none}.hero .ground .hero-berry-s{transform:translateY(40px)}}
 @media (min-width:403px) and (max-width:440px){.gal-sub{grid-template-rows:calc(59% - 50px) calc(41% - 40px);align-content:start;grid-template-columns:260fr 141fr 267fr}.gal-sub .ph:nth-child(3) img{transform:scale(1.35)}}
-@media (min-width:403px) and (max-width:440px){.why .authors .avatar{top:50%;width:130px;height:130px;right:-20px}}
+@media (min-width:403px) and (max-width:440px){.why .authors .avatar{top:50%;width:125px;height:125px;right:-20px}}
 @media (min-width:403px) and (max-width:440px){.story .layers{inset:0 0 -30px 0}}
 @media (min-width:403px) and (max-width:440px){.story .ridgecabin{left:calc(52% - 75px);width:229px;bottom:95px}.story .ridgepack{bottom:113px}.story .ridgepack .wolf-box:nth-of-type(1){left:calc(12% - 25px)!important}.story .ridgepack .wolf-box:nth-of-type(2){left:calc(28% - 10px)!important}.story .ridgepack .wolf-box:nth-of-type(3){left:calc(80% - 10px)!important}}
 @media (min-width:403px) and (max-width:440px){.gallery .trail .bear{width:250px!important;left:-540px!important}#bearPrints{transform:scale(.83);transform-origin:50% 100%}}
@@ -404,7 +409,7 @@ html,body{overflow-x:clip}
 @media (min-width:403px) and (max-width:440px){.gallery .trail{bottom:60px}.gallery{padding-bottom:calc(clamp(100px,15vw,200px) - 20px)}}
 @media (min-width:403px) and (max-width:440px){.couples .photo{aspect-ratio:auto;height:0;padding-top:calc(112.5% - 80px)}.couples .grid{gap:calc(clamp(30px,6vw,90px) + 10px)}}
 @media (min-width:403px) and (max-width:440px){.family{padding-top:120px}}
-@media (min-width:403px) and (max-width:440px){.trust{padding-top:120px}}
+@media (min-width:403px) and (max-width:440px){.trust{padding-top:100px}}
 @media (min-width:403px) and (max-width:440px){.story .birds{top:100px!important;left:40px!important;width:min(475px,66vw)!important}.story{padding-top:calc(120px + 15vw)}.story h2{font-size:35px}}
 @media (min-width:403px) and (max-width:440px){.pillars{margin-top:-40px;position:relative;z-index:2}.pillars .cards{gap:calc(clamp(18px,3vw,36px) + 10px)}}
 /* 394-402px: iPhone 16 Pro級 (initially same as 320-393) */
@@ -1667,7 +1672,7 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
       var r=w.getBoundingClientRect();
       var horiz = r.left < b.right && r.right > b.left;
       var vert  = r.top < b.bottom-1 && r.bottom > b.top+1;   /* only a real overlap triggers the move */
-      if(horiz && vert){ need=Math.max(need, (b.bottom+12)-r.top); }
+      if(horiz && vert){ need=Math.max(need, (b.bottom+((innerWidth>=403&&innerWidth<=440)?2:12))-r.top); }
     });
     if(need>0) sec.style.paddingBottom=(base+Math.ceil(need))+'px';
     /* keep both wolves inside the screen edges */
