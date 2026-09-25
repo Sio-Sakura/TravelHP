@@ -556,7 +556,8 @@ html,body{overflow-x:clip}
 @media (min-width:403px) and (max-width:440px){.hero .wrap{padding-bottom:calc(40vh - 1px)}}
 @media (min-width:441px) and (max-width:540px){.hero .wrap{padding-bottom:calc(40vh + 9px)}}
 @media (max-width:440px){.couples .photo{padding-top:calc(112.5% - 50px)}.couples .grid{gap:calc(clamp(30px,6vw,90px) + 20px)}}
-@media (min-width:394px) and (max-width:402px){.why ul li{font-size:21px;gap:9px}.why li svg{width:19px;height:19px}}
+@media (min-width:394px) and (max-width:402px){.why ul li{font-size:21px;gap:6px}.why li svg{width:19px;height:19px}}
+.couples > .wrap{margin-bottom:20px}
 @media (min-width:360px) and (max-width:393px){.hero .wrap{padding-bottom:calc(40vh + 99px)}}
 @media (min-width:320px) and (max-width:359px){.hero .wrap{padding-bottom:calc(40vh + 94px)}}
 @media (min-width:360px) and (max-width:393px){.why .authors .avatar{translate:0 25px}}
@@ -1623,6 +1624,22 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
   fit();
   window.addEventListener('resize',fit);
   window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+/* phones up to 440px: keep exactly 30px between the bottom of "Japan" and the highest hill (clouds ignored), whatever the screen height */
+(function(){
+  var GAP=30, sec=document.querySelector('.plains'), big=document.querySelector('.next .big'), nx=document.querySelector('.plains .next'), hills=document.getElementById('plainsHills');
+  if(!sec||!big||!nx||!hills) return;
+  function glyphBottom(){ var r=document.createRange(); r.selectNodeContents(big.firstChild); return r.getBoundingClientRect().bottom; }
+  function peak(){ var hr=hills.getBoundingClientRect(), t=1e9; [].forEach.call(hills.querySelectorAll('path,polygon,ellipse,circle,rect'),function(s){ if(s.closest('[fill="#f8f4ea"]')) return; var q=s.getBoundingClientRect(); if(q.width>30&&q.height>5&&q.top>=hr.top-1) t=Math.min(t,q.top); }); return t===1e9?hr.top:t; }
+  function fit(){
+    if(window.innerWidth>440){ sec.style.minHeight=''; nx.style.marginBottom=''; return; }
+    nx.style.marginBottom='0px';
+    for(var i=0;i<6;i++){ var d=peak()-glyphBottom(); if(Math.abs(d-GAP)<0.5) break; sec.style.minHeight=Math.round(sec.getBoundingClientRect().height+(GAP-d))+'px'; }
+  }
+  fit(); window.addEventListener('resize',fit); window.addEventListener('load',fit);
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
 })();
 </script>
