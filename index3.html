@@ -386,7 +386,7 @@ html,body{overflow-x:clip}
 @media (min-width:441px) and (max-width:540px){.couples .photo{aspect-ratio:auto;height:0;padding-top:calc(112.5% - 80px)}.couples .grid{gap:calc(clamp(30px,6vw,90px) + 10px)}}
 @media (min-width:441px) and (max-width:540px){.family{padding-top:120px}}
 @media (min-width:441px) and (max-width:540px){.trust{padding-top:120px}}
-@media (min-width:541px) and (max-width:840px){.trust{padding-top:115px}}
+@media (min-width:541px) and (max-width:840px){.trust{padding-top:115px;padding-bottom:calc(clamp(100px,12vw,160px) + 20px)}}
 @media (min-width:441px) and (max-width:540px){.story .birds{top:100px!important;left:40px!important;width:min(475px,66vw)!important}.story{padding-top:calc(120px + 15vw)}.story h2{font-size:35px}}
 @media (min-width:441px) and (max-width:540px){.pillars{margin-top:-40px;position:relative;z-index:2}.pillars .cards{gap:calc(clamp(18px,3vw,36px) + 10px)}}
 /* 403-440px: 大きめiPhone (initially same as 320-402) */
@@ -1724,7 +1724,7 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
       var r=w.getBoundingClientRect();
       var horiz = r.left < b.right && r.right > b.left;
       var vert  = r.top < b.bottom-1 && r.bottom > b.top+1;   /* only a real overlap triggers the move */
-      if(horiz && vert){ need=Math.max(need, (b.bottom+((innerWidth>=403&&innerWidth<=440)?2:12))-r.top); }
+      if(horiz && vert){ need=Math.max(need, (b.bottom+((innerWidth>=403&&innerWidth<=440)?2:((innerWidth>=541&&innerWidth<=840)?32:12)))-r.top); }
     });
     if(need>0) sec.style.paddingBottom=(base+Math.ceil(need))+'px';
     /* keep both wolves inside the screen edges */
