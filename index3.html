@@ -354,7 +354,8 @@ html,body{overflow-x:clip}
 @media (min-width:541px) and (max-width:840px){.meadow-scene .bush-br{transform:translate(-10px,10px);clip-path:polygon(0 0,100% 0,100% 94.5%,90% 97%,80% 94.5%,70% 97%,60% 95%,50% 97%,40% 94.5%,30% 97%,20% 95%,10% 97%,0 95%)}}
 @media (min-width:541px) and (max-width:840px){.meadow-scene .birdie{left:calc(44% + 10px)!important}}
 @media (min-width:541px) and (max-width:840px){.card h3{font-size:24.4px}}
-@media (min-width:541px) and (max-width:840px){.card p{font-size:17px}.card .link{font-size:.9rem}.pillars{margin-top:-60px;position:relative;z-index:2}}
+@media (min-width:541px) and (max-width:840px){.card p{font-size:17px}.card .link{font-size:calc(.9rem + 2px)}.pillars{margin-top:-60px;position:relative;z-index:2}}
+@media (min-width:841px){.pillars .card .link{font-size:calc(.8rem + 2px)}}
 @media (min-width:541px) and (max-width:840px){.plains .birds{top:calc(10% - 20px)!important}.plains{padding-top:calc(clamp(100px,14vw,200px) + 80px)}.plains blockquote{font-size:24.5px}.next .big{font-size:calc(clamp(4rem,12vw,10rem) + 5px)}}
 @media (min-width:841px) and (max-width:950px){.gallery .trail{bottom:40px}}
 @media (min-width:541px) and (max-width:840px){.gallery .trail{bottom:60px}.gallery{padding-bottom:calc(clamp(100px,15vw,200px) + 60px)}}
@@ -385,6 +386,7 @@ html,body{overflow-x:clip}
 @media (min-width:441px) and (max-width:540px){.couples .photo{aspect-ratio:auto;height:0;padding-top:calc(112.5% - 80px)}.couples .grid{gap:calc(clamp(30px,6vw,90px) + 10px)}}
 @media (min-width:441px) and (max-width:540px){.family{padding-top:120px}}
 @media (min-width:441px) and (max-width:540px){.trust{padding-top:120px}}
+@media (min-width:541px) and (max-width:840px){.trust{padding-top:115px}}
 @media (min-width:441px) and (max-width:540px){.story .birds{top:100px!important;left:40px!important;width:min(475px,66vw)!important}.story{padding-top:calc(120px + 15vw)}.story h2{font-size:35px}}
 @media (min-width:441px) and (max-width:540px){.pillars{margin-top:-40px;position:relative;z-index:2}.pillars .cards{gap:calc(clamp(18px,3vw,36px) + 10px)}}
 /* 403-440px: 大きめiPhone (initially same as 320-402) */
@@ -558,6 +560,7 @@ html,body{overflow-x:clip}
 @media (max-width:440px){.couples .photo{padding-top:calc(112.5% - 50px)}.couples .grid{gap:calc(clamp(30px,6vw,90px) + 20px)}}
 @media (min-width:394px) and (max-width:402px){.why ul li{font-size:21px;gap:6px}.why li svg{width:19px;height:19px}}
 .couples > .wrap{margin-bottom:20px}
+@media (min-width:541px) and (max-width:840px){.couples > .wrap{margin-bottom:10px}}
 @media (min-width:360px) and (max-width:393px){.hero .wrap{padding-bottom:calc(40vh + 99px)}}
 @media (min-width:320px) and (max-width:359px){.hero .wrap{padding-bottom:calc(40vh + 94px)}}
 @media (min-width:360px) and (max-width:393px){.why .authors .avatar{translate:0 25px}}
@@ -1628,11 +1631,30 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
 })();
 </script>
 <script>
+/* all widths: exactly 60px between the lowest of photo / "Visit our blog" and the top of the heart above the deer */
+(function(){
+  var sec=document.querySelector('.couples'), wrap=sec&&sec.querySelector(':scope > .wrap'), pair=document.getElementById('pair');
+  var link=sec?[].slice.call(sec.querySelectorAll('a')).filter(function(a){return /visit our blog/i.test(a.textContent);})[0]:null;
+  if(!sec||!wrap||!pair||!link) return;
+  var heart=pair.querySelector('.heart'), photo=sec.querySelector('.photo');
+  /* layout position via the offsetParent chain: immune to reveal/wiggle transforms */
+  function docY(el){ var y=0,e=el; while(e){ y+=e.offsetTop; e=e.offsetParent; } return y; }
+  function restBottom(el){ return docY(el)+el.offsetHeight-window.scrollY; }
+  function fit(){
+    wrap.style.marginBottom='';
+    var m=parseFloat(getComputedStyle(wrap).marginBottom)||0;
+    for(var i=0;i<6;i++){ var pr=pair.getBoundingClientRect(), hs=heart?getComputedStyle(heart):null, top=hs?pr.top+pr.height-parseFloat(hs.bottom)-parseFloat(hs.height):pr.top; var low=Math.max(restBottom(link), photo?restBottom(photo):-1e9); var d=top-low; if(Math.abs(d-60)<0.5) break; m+=60-d; wrap.style.marginBottom=m+'px'; }
+  }
+  fit(); window.addEventListener('resize',fit); window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
+<script>
 /* phones up to 440px: keep exactly 30px between the bottom of "Japan" and the highest hill (clouds ignored), whatever the screen height */
 (function(){
   var GAP=30, sec=document.querySelector('.plains'), big=document.querySelector('.next .big'), nx=document.querySelector('.plains .next'), hills=document.getElementById('plainsHills');
   if(!sec||!big||!nx||!hills) return;
-  function glyphBottom(){ var r=document.createRange(); r.selectNodeContents(big.firstChild); return r.getBoundingClientRect().bottom; }
+  function glyphBottom(){ var r=document.createRange(); r.selectNodeContents(big.firstChild); var rv=big.closest('.reveal'), dy=rv?(new DOMMatrixReadOnly(getComputedStyle(rv).transform==='none'?undefined:getComputedStyle(rv).transform)).m42:0; return r.getBoundingClientRect().bottom-dy; }
   function peak(){ var hr=hills.getBoundingClientRect(), t=1e9; [].forEach.call(hills.querySelectorAll('path,polygon,ellipse,circle,rect'),function(s){ if(s.closest('[fill="#f8f4ea"]')) return; var q=s.getBoundingClientRect(); if(q.width>30&&q.height>5&&q.top>=hr.top-1) t=Math.min(t,q.top); }); return t===1e9?hr.top:t; }
   function fit(){
     if(window.innerWidth>440){ sec.style.minHeight=''; nx.style.marginBottom=''; return; }
