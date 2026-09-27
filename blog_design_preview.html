@@ -622,6 +622,7 @@ html,body{overflow-x:clip}
 .bl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,30px)}
 @media(max-width:960px){.bl-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.bl-grid{grid-template-columns:1fr}}
+@media(min-width:394px) and (max-width:402px){.bl-grid{gap:36px}}
 .bl-post{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 22px 44px -22px var(--shadow);display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s;border-top:6px solid var(--c,var(--accent))}
 .bl-post:hover{transform:translateY(-6px);box-shadow:0 34px 60px -22px rgba(58,49,41,.3)}
 .bl-post .im{position:relative;aspect-ratio:16/10;overflow:hidden}
