@@ -546,6 +546,8 @@ html,body{overflow-x:clip}
 /* short laptops: shrink the headline a little so the buttons stay in view,
    keeping the meadow scene as visible as on a standard screen */
 .h1br{display:none}
+.h1br2{display:none}
+@media (min-width:541px) and (max-width:840px){.h1br2{display:inline}}
 @media (min-width:901px){.h1br{display:inline}}
 
 .mclose{display:none}.mclose button{background:none;border:0;cursor:pointer;padding:8px;color:var(--ink);line-height:0}.mclose svg{width:22px;height:22px;display:block}.mclose button:hover{color:var(--accent)}
@@ -676,7 +678,7 @@ html,body{overflow-x:clip}
     <div class="hero-copy">
       <svg id="heroSun" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" fill="url(#sunG)"/><circle cx="100" cy="100" r="58" fill="#fbe1b6" filter="url(#wcsoft)"/></svg>
       <div class="eyebrow reveal">Travel • Tips • Reviews</div>
-      <h1 class="reveal">See the world <span class="ital">with <br class="h1br">the one</span> you love.</h1>
+      <h1 class="reveal">See the world <span class="ital">with <br class="h1br">the one</span><br class="h1br2"> you love.</h1>
       <p class="lead reveal">Cabins, campfires, mountain towns and the restaurants worth the detour. Two travelers, one honest guide.</p>
       <div class="cta reveal">
         <a class="btn wiggle" href="#blog"><svg class="paw" viewBox="0 0 40 40"><use href="#pawIcon"/></svg>Read the guides</a>
@@ -1673,7 +1675,7 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
     var vw=window.innerWidth, tab=vw>=541&&vw<=950;
     if(vw>440&&!tab){ sec.style.minHeight=''; nx.style.marginBottom=''; return; }
     nx.style.marginBottom='0px';
-    var g=tab?60:(vw>=403?GAP+30:GAP); /* 403-440: 30px more; 541-950: fixed 60px */
+    var g=tab?80:(vw>=403?GAP+30:GAP); /* 403-440: 30px more; 541-950: fixed 80px */
     for(var i=0;i<6;i++){ var d=peak()-glyphBottom(); if(Math.abs(d-g)<0.5) break; sec.style.minHeight=Math.round(sec.getBoundingClientRect().height+(g-d))+'px'; }
   }
   fit(); window.addEventListener('resize',fit); window.addEventListener('load',fit);
@@ -1682,7 +1684,7 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
 </script>
 <script>
 /* 541-950px (iPad and narrowed desktop windows): keep fixed gaps whatever the screen height
-   hero: circle card -> highest hill = 40px / story: last paragraph -> scene top = 60px
+   hero: circle card -> highest hill = 40px / story: last paragraph -> scene top = 80px
    (story scene has scroll parallax: measured at the moment the section's bottom reaches the screen bottom) */
 (function(){
   function on(){ return window.innerWidth>=541 && window.innerWidth<=950; }
@@ -1717,8 +1719,8 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
       var tb=lp.getBoundingClientRect().bottom-ty(lp,st)-sr.top, hi=-1e9;
       MOVE.forEach(function(m){ [].forEach.call(st.querySelectorAll(m[0]),function(e){ var r=e.getBoundingClientRect(); var above=sr.bottom-(r.top-ty(e,st)); hi=Math.max(hi,above-(m[1]+(m[2]-m[1])*p)); }); });
       if(hi===-1e9) return;
-      var d=(sr.height-hi)-tb; if(Math.abs(d-60)<0.5) break;
-      H=sr.height+(60-d);
+      var d=(sr.height-hi)-tb; if(Math.abs(d-80)<0.5) break;
+      H=sr.height+(80-d);
     }
   }
   function fit(){ heroFit(); storyFit(); }
