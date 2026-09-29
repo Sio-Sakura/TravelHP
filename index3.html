@@ -601,7 +601,7 @@ html,body{overflow-x:clip}
 @media (min-width:403px) and (max-width:440px){#heroSun{top:-20px}}
 @media (min-width:441px) and (max-width:540px){.why ul li{font-size:18.7px}.why li svg{width:19.8px;height:19.8px}}
 @media (min-width:441px) and (max-width:540px){.couples .grid{row-gap:calc(clamp(30px,6vw,90px) + 20px)}}
-@media (min-width:441px) and (max-width:540px){.why .authors .avatar{width:130px;height:130px;translate:8px 20px}}
+@media (min-width:441px) and (max-width:540px){.why .authors .avatar{width:calc(130px / 1.05);height:calc(130px / 1.05);translate:0 15px;right:0;left:auto}}
 @media (min-width:403px) and (max-width:440px){.why .authors .avatar{translate:-13px -70.7px}.why .authors{font-size:14px}.why .authors small{font-size:14px}}
 @media (min-width:441px) and (max-width:540px){.family{padding-bottom:calc(clamp(220px,28vw,360px) + 20px)}}
 @media (min-width:403px) and (max-width:440px){.family{padding-bottom:calc(clamp(220px,28vw,360px) + 20px)}}
@@ -1854,13 +1854,7 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
       av.style.left=(nr+7-au.getBoundingClientRect().left)+'px';
       return;
     }
-    if(window.innerWidth>=441 && window.innerWidth<=540){
-      /* keep the text-to-photo gap the same as at 441px (-9.6px incl. the 8px translate), then 45px further left */
-      var nr2=nearRight(); if(!nr2) return;
-      av.style.right='auto';
-      av.style.left=(nr2-9.6-8-45-au.getBoundingClientRect().left)+'px';
-      return;
-    }
+    if(window.innerWidth>=441 && window.innerWidth<=540){ av.style.left=''; av.style.right=''; return; }   /* 441-540: fixed in CSS (right edge on the content edge) */
     if(window.innerWidth<901){ av.style.left=''; av.style.right=''; return; }
     var tr=textRight(); if(!tr) return;
     var base=au.getBoundingClientRect().left;
