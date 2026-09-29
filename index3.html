@@ -1687,7 +1687,7 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
 </script>
 <script>
 /* 541px and up (iPad, laptops, narrowed desktop windows): keep fixed gaps whatever the screen height
-   hero: circle -> hill 40px (951-1140: 20, 1141+: 3) / story 100px (951-1280: 140, 1281+: 100) / family 100px (951+: 120) / Japan 100px (951+: 140)
+   hero: circle -> hill 40px (951-1140: 20, 1141+: 3) / story 100px (951-1140: 140, 1141-1280: 120, 1281+: 100) / family 100px (951+: 120) / Japan 100px (951+: 140)
    (story scene has scroll parallax: measured at the moment the section's bottom reaches the screen bottom) */
 (function(){
   function on(){ return window.innerWidth>=541; }
@@ -1722,7 +1722,7 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
       var tb=lp.getBoundingClientRect().bottom-ty(lp,st)-sr.top, hi=-1e9;
       MOVE.forEach(function(m){ [].forEach.call(st.querySelectorAll(m[0]),function(e){ var r=e.getBoundingClientRect(); var above=sr.bottom-(r.top-ty(e,st)); hi=Math.max(hi,above-(m[1]+(m[2]-m[1])*p)); }); });
       if(hi===-1e9) return;
-      var G=window.innerWidth>=1281?100:(window.innerWidth>=951?140:100), d=(sr.height-hi)-tb; if(Math.abs(d-G)<0.5) break;
+      var G=window.innerWidth>=1281?100:(window.innerWidth>=1141?120:(window.innerWidth>=951?140:100)), d=(sr.height-hi)-tb; if(Math.abs(d-G)<0.5) break;
       H=sr.height+(G-d);
     }
   }
