@@ -324,7 +324,7 @@ footer .trail{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.5
 @media (min-width:841px) and (max-width:1140px){.why .authors .avatar{right:-72px}}
 @media (min-width:951px) and (max-width:1140px){.why .authors .avatar{right:-45px}}
 @media (min-width:841px) and (max-width:950px){.why .authors .avatar{translate:17px 0}}
-@media (min-width:951px) and (max-width:1140px){.plains .birds{top:calc(10% - 40px)!important}.plains{padding-top:calc(clamp(100px,14vw,200px) + 20px)}}
+@media (min-width:951px) and (max-width:1140px){.plains .birds{top:calc(10% - 44px)!important}.plains{padding-top:calc(clamp(100px,14vw,200px) + 60px);min-height:calc(100vh + 180px)}}
 @media (min-width:1141px){.plains .birds{top:calc(10% - 40px)!important}}
 @media (min-width:1141px){.plains .baby{left:calc(27% + 40px)!important}}
 @media (min-width:951px) and (max-width:1140px){.plains .baby{left:calc(27% + 40px)!important}}
@@ -334,7 +334,7 @@ footer .trail{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.5
 @media (min-width:541px) and (max-width:840px){.couples .grid>div:nth-child(2){text-align:center}.couples .grid>div:nth-child(2) p:first-of-type{max-width:80%;margin-left:auto;margin-right:auto}}
 @media (min-width:1141px){.story .birds{top:calc(12% + 30px)!important}.story{padding-top:calc(clamp(120px,16vw,220px) + 70px)}}
 @media (min-width:841px) and (max-width:950px){.plains .birds{top:calc(10% - 30px)!important}.plains{padding-top:calc(clamp(100px,14vw,200px) + 60px)}}
-@media (min-width:951px) and (max-width:1140px){.story .birds{top:12%!important}.story{padding-top:calc(clamp(120px,16vw,220px) + 40px)}}
+@media (min-width:951px) and (max-width:1140px){.story .birds{top:calc(12% - 4.8px)!important}.story{padding-top:calc(clamp(120px,16vw,220px) + 80px);min-height:calc(120vh + 40px)}}
 @media (min-width:320px) and (max-width:1140px){.family .valley .grass-br{display:none}}
 @media (min-width:541px) and (max-width:840px){.family{padding-top:calc(clamp(80px,10vw,140px) + 20px);padding-bottom:calc(clamp(220px,28vw,360px) + 40px)}}
 @media (min-width:541px) and (max-width:840px){.story{padding-top:calc(clamp(120px,16vw,220px) + 120px)}.story .birds{top:calc(12% + 26.4px)!important}}
@@ -583,6 +583,7 @@ html,body{overflow-x:clip}
 @media (min-width:1141px){.plains{min-height:calc(100vh + 260px)}}
 @media (min-width:951px){.hero{min-height:calc(100vh + 40px);padding-bottom:40px}}
 @media (min-width:951px) and (max-width:1140px){.hero .photo-col{top:calc(30px / var(--hz,1))}}
+@media (min-width:951px) and (max-width:1140px){#whyClouds .cloud:nth-of-type(1){width:calc(min(250px,21vw) * 1.1)!important}#whyClouds .cloud:nth-of-type(2){width:calc(min(200px,17vw) * 1.1)!important}#whyClouds .cloud:nth-of-type(3){width:calc(min(150px,13vw) * 1.1)!important}}
 @media (min-width:841px) and (max-width:900px){.hero h1{font-size:6.15vw}.h1br{display:inline}}
 @media (min-width:841px) and (max-width:950px){.family{padding-bottom:calc(clamp(220px,28vw,360px) + 30px)}}
 @media (min-width:541px) and (max-width:840px){#heroSun{top:-20px;width:108px}}
@@ -1674,10 +1675,10 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
   function glyphBottom(){ var r=document.createRange(); r.selectNodeContents(big.firstChild); var rv=big.closest('.reveal'), dy=rv?(new DOMMatrixReadOnly(getComputedStyle(rv).transform==='none'?undefined:getComputedStyle(rv).transform)).m42:0; return r.getBoundingClientRect().bottom-dy; }
   function peak(){ var hr=hills.getBoundingClientRect(), t=1e9; [].forEach.call(hills.querySelectorAll('path,polygon,ellipse,circle,rect'),function(s){ if(s.closest('[fill="#f8f4ea"]')) return; var q=s.getBoundingClientRect(); if(q.width>30&&q.height>5&&q.top>=hr.top-1) t=Math.min(t,q.top); }); return t===1e9?hr.top:t; }
   function fit(){
-    var vw=window.innerWidth, tab=vw>=541&&vw<=950;
+    var vw=window.innerWidth, tab=vw>=541;
     if(vw>440&&!tab){ sec.style.minHeight=''; nx.style.marginBottom=''; return; }
     nx.style.marginBottom='0px';
-    var g=tab?100:(vw>=403?GAP+30:GAP); /* 403-440: 30px more; 541-950: fixed 100px */
+    var g=tab?(vw>=951?140:100):(vw>=403?GAP+30:GAP); /* 403-440: 30px more; 541-950: 100px; 951+: 140px */
     for(var i=0;i<6;i++){ var d=peak()-glyphBottom(); if(Math.abs(d-g)<0.5) break; sec.style.minHeight=Math.round(sec.getBoundingClientRect().height+(g-d))+'px'; }
   }
   fit(); window.addEventListener('resize',fit); window.addEventListener('load',fit);
@@ -1685,11 +1686,11 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
 })();
 </script>
 <script>
-/* 541-950px (iPad and narrowed desktop windows): keep fixed gaps whatever the screen height
-   hero: circle card -> highest hill = 40px / story: last paragraph -> scene top = 100px
+/* 541px and up (iPad, laptops, narrowed desktop windows): keep fixed gaps whatever the screen height
+   hero: circle -> hill 40px (951-1140: 20, 1141+: 3) / story 100px (951-1280: 140, 1281+: 100) / family 100px (951+: 120) / Japan 100px (951+: 140)
    (story scene has scroll parallax: measured at the moment the section's bottom reaches the screen bottom) */
 (function(){
-  function on(){ return window.innerWidth>=541 && window.innerWidth<=950; }
+  function on(){ return window.innerWidth>=541; }
   function ty(el,stop){ var t=0; for(var e=el;e&&e!==stop;e=e.parentElement){ var cs=getComputedStyle(e); if(cs.transform&&cs.transform!=='none') t+=new DOMMatrixReadOnly(cs.transform).m42; } return t; }
   /* hero */
   var hero=document.querySelector('.hero'), wrap=hero&&hero.querySelector('.wrap'), card=hero&&hero.querySelector('.featured'), ground=document.getElementById('heroGround');
@@ -1702,8 +1703,8 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
       var cb=card.getBoundingClientRect().bottom-ty(card,wrap)*z, top=1e9;
       [].forEach.call(ground.querySelectorAll('svg.layer path, svg.layer polygon, svg.layer ellipse'),function(p){ var q=p.getBoundingClientRect(); if(q.width>30&&q.height>5) top=Math.min(top,q.top); });
       if(top===1e9) return;
-      var d=top-cb; if(Math.abs(d-40)<0.5) break;
-      pb=Math.max(0,pb+(40-d)/z); wrap.style.paddingBottom=pb+'px';
+      var G=window.innerWidth>=1141?3:(window.innerWidth>=951?20:40), d=top-cb; if(Math.abs(d-G)<0.5) break;
+      pb=Math.max(0,pb+(G-d)/z); wrap.style.paddingBottom=pb+'px';
     }
   }
   /* story */
@@ -1721,8 +1722,8 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
       var tb=lp.getBoundingClientRect().bottom-ty(lp,st)-sr.top, hi=-1e9;
       MOVE.forEach(function(m){ [].forEach.call(st.querySelectorAll(m[0]),function(e){ var r=e.getBoundingClientRect(); var above=sr.bottom-(r.top-ty(e,st)); hi=Math.max(hi,above-(m[1]+(m[2]-m[1])*p)); }); });
       if(hi===-1e9) return;
-      var d=(sr.height-hi)-tb; if(Math.abs(d-100)<0.5) break;
-      H=sr.height+(100-d);
+      var G=window.innerWidth>=1281?100:(window.innerWidth>=951?140:100), d=(sr.height-hi)-tb; if(Math.abs(d-G)<0.5) break;
+      H=sr.height+(G-d);
     }
   }
   /* family: last paragraph -> top of the valley scene = 100px (torn bottom edge is moved along) */
@@ -1740,12 +1741,70 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
       var tb=lp.getBoundingClientRect().bottom-ty(lp,fam), top=1e9;
       [].forEach.call(valley.querySelectorAll('svg.layer path, svg.layer polygon, svg.layer ellipse'),function(p){ var q=p.getBoundingClientRect(); if(q.height>2&&q.width>2) top=Math.min(top,q.top); });
       if(top===1e9) break;
-      var d=top-tb; if(Math.abs(d-100)<0.5) break;
-      pb=Math.max(0,pb+(100-d)); fam.style.paddingBottom=pb+'px';
+      var G=window.innerWidth>=951?120:100, d=top-tb; if(Math.abs(d-G)<0.5) break;
+      pb=Math.max(0,pb+(G-d)); fam.style.paddingBottom=pb+'px';
     }
     famClip(fam.getBoundingClientRect().height-before);
   }
-  function fit(){ heroFit(); storyFit(); familyFit(); }
+  /* 951px+: the birds' top is a % of the section height, so pin them where the plain CSS layout puts them
+     (keeps the bird -> text distance tuned in CSS even though the fitters change the section heights) */
+  function pinBirds(sec,b){
+    if(!sec||!b) return;
+    b.style.removeProperty('top');
+    if(window.innerWidth<951) return;
+    var mh=sec.style.minHeight, pb=sec.style.paddingBottom; sec.style.minHeight=''; sec.style.paddingBottom='';
+    var t=b.getBoundingClientRect().top-ty(b,sec)-sec.getBoundingClientRect().top;
+    sec.style.minHeight=mh; sec.style.paddingBottom=pb;
+    b.style.setProperty('top',t.toFixed(1)+'px','important');
+  }
+  /* 951px+: hero photo grows toward the text (right edge stays on the padding), up to 1.025x,
+     keeping >=15px from the headline and >=10px from the lead */
+  var hcol=document.querySelector('.hero .photo-col'), hh1=document.querySelector('.hero h1'), hlead=document.querySelector('.hero .lead'), hBase=null;
+  function lineRights(el,top,bottom){ var m=0; if(!el) return m; var r=document.createRange(), wk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT), n;
+    while((n=wk.nextNode())){ r.selectNodeContents(n); [].forEach.call(r.getClientRects(),function(x){ if(x.width>0&&x.bottom>top&&x.top<bottom&&x.right>m) m=x.right; }); } return m; }
+  function photoGrow(){
+    if(!hcol||!wrap) return;
+    hcol.style.width=''; hcol.style.justifySelf='';
+    var vw=window.innerWidth; if(vw<951) return;
+    var z=parseFloat(getComputedStyle(wrap).zoom)||1, r0=hcol.getBoundingClientRect(), want=r0.width*1.025;
+    for(var i=0;i<6;i++){
+      hcol.style.maxWidth='none'; hcol.style.justifySelf='end'; hcol.style.width=(want/z)+'px';
+      var r=hcol.getBoundingClientRect(), lim=Math.max(lineRights(hh1,r.top,r.bottom)+15, lineRights(hlead,r.top,r.bottom)+10);
+      var room=r.right-lim; if(want<=room+0.5) break;
+      want=Math.max(r0.width,room);
+    }
+  }
+  /* 1141px+: bird drawing bottom -> text top = 30px (the text and everything under it moves) */
+  function birdGap(sec,b,t){
+    if(!sec||!b||!t) return;
+    if(window.innerWidth<1141) return;
+    var st0=sec.getBoundingClientRect().top, bb=-1e9;
+    [].forEach.call(b.querySelectorAll('path'),function(p){ bb=Math.max(bb,p.getBoundingClientRect().bottom); });
+    if(bb===-1e9) return;
+    var gap=(t.getBoundingClientRect().top-ty(t,sec))-(bb-ty(b,sec));
+    sec.style.paddingTop=((parseFloat(getComputedStyle(sec).paddingTop)||0)+30-gap)+'px';
+  }
+  /* plains: Japan -> highest hill (same rule as the phone fitter above), re-run after the text moved */
+  var pl=document.querySelector('.plains'), plBig=document.querySelector('.next .big'), plNext=document.querySelector('.plains .next'), plHills=document.getElementById('plainsHills');
+  function japanFit(){
+    if(!pl||!plBig||!plHills||!on()) return;
+    var g=window.innerWidth>=951?140:100; if(plNext) plNext.style.marginBottom='0px';
+    for(var i=0;i<6;i++){
+      var r=document.createRange(); r.selectNodeContents(plBig.firstChild);
+      var gb=r.getBoundingClientRect().bottom-ty(plBig,pl), hr=plHills.getBoundingClientRect(), t=1e9;
+      [].forEach.call(plHills.querySelectorAll('path,polygon,ellipse,circle,rect'),function(s){ if(s.closest('[fill="#f8f4ea"]')) return; var q=s.getBoundingClientRect(); if(q.width>30&&q.height>5&&q.top>=hr.top-1) t=Math.min(t,q.top); });
+      if(t===1e9) return;
+      var d=t-gb; if(Math.abs(d-g)<0.5) break;
+      pl.style.minHeight=Math.round(pl.getBoundingClientRect().height+(g-d))+'px';
+    }
+  }
+  function fit(){ photoGrow();
+    var plB=document.getElementById('plainsBirds'), stB=document.getElementById('storyBirds');
+    if(pl) pl.style.paddingTop=''; if(st) st.style.paddingTop='';
+    pinBirds(pl,plB); pinBirds(st,stB);
+    birdGap(pl,plB,pl&&pl.querySelector('blockquote')); birdGap(st,stB,st&&st.querySelector('h2'));
+    japanFit(); heroFit(); storyFit(); familyFit();
+    if(window.ScrollTrigger&&ScrollTrigger.refresh) ScrollTrigger.refresh(); }
   fit(); window.addEventListener('resize',fit); window.addEventListener('load',fit);
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
   setTimeout(fit,1600);
