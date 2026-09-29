@@ -35,6 +35,8 @@ h1{font-size:clamp(2.8rem,6.4vw,5.6rem)} h2{font-size:clamp(2rem,4.2vw,3.4rem)} 
 /* heading tags changed for SEO/accessibility without changing the look: circle title (was h3) and the Why travel? eyebrow (now h2) */
 .hero .featured .ftitle{font-family:var(--serif);font-weight:500;line-height:1.08;margin:0 0 .4em;font-size:clamp(1.4rem,2.4vw,1.9rem)}
 h2.eyebrow{font-family:inherit;line-height:inherit}
+.skip-link{position:absolute;left:-9999px;top:0;z-index:100;background:#fff;color:var(--ink);padding:10px 16px;border-radius:0 0 8px 0;font-weight:700}
+.skip-link:focus{left:0}   /* keyboard users: first Tab shows "Skip to content" */
 p{margin:0 0 1.1em} a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
 .eyebrow{font-size:.76rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-d);font-weight:700;margin-bottom:1.1em}
@@ -335,6 +337,10 @@ footer .copy a:hover{color:var(--accent);border-color:var(--accent)}
 footer .copy{margin-top:20px;padding-top:20px;border-top:1px solid rgba(58,49,41,.12);font-size:13px;color:var(--ink-mute);letter-spacing:.06em;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;position:relative;z-index:2}
 footer .trail{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55}
 @media (max-width:840px){footer .grid{gap:18px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal,.reveal.rv-fast{opacity:1!important;transform:none!important}}
+/* reduced motion: Why travel? clouds rest where the drift puts them on page load (spread out, not stacked at the left) */
+@media (prefers-reduced-motion:reduce){.plains .walker1{transform:translateX(34vw)}.plains .walker2{transform:translateX(68vw)}}   /* reduced motion: the two walking bison rest spread out (back one centre-left, front one right) */
+@media (prefers-reduced-motion:reduce){#whyClouds .cloud:nth-of-type(1){transform:translateX(45.2vw)}#whyClouds .cloud:nth-of-type(2){transform:translateX(4.5vw)}#whyClouds .cloud:nth-of-type(3){transform:translateX(76.6vw)}}
 @media (prefers-reduced-motion:reduce){.wolf,.animal *,.bird path,.smoke circle,.glow,.tree,.plant,.cloud,.leaf-fall svg,.firefly{animation:none!important}.reveal{opacity:1;transform:none}.print{opacity:1}}
 /* ===== responsive tweaks: 841-950 / 951-1140 (keep at end of stylesheet so they win the cascade) ===== */
 @media (min-width:841px) and (max-width:1140px){.why .authors .avatar{right:-72px}}
@@ -630,6 +636,7 @@ html,body{overflow-x:clip}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <div class="grain" aria-hidden="true"></div>
 <!-- shared filters / gradients / icons -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -690,6 +697,7 @@ html,body{overflow-x:clip}
     <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
+<main id="main">
 
 
 
@@ -1026,6 +1034,7 @@ html,body{overflow-x:clip}
 </section>
 
 <!-- ================= FOOTER ================= -->
+</main>
 <footer id="contact">
   <div class="trail" id="footTrail" aria-hidden="true"></div>
   <div class="wrap">
@@ -1579,9 +1588,11 @@ $('#burger').addEventListener('click',()=>nav.classList.toggle('open'));
 let walkTimer; const setWalking=on=>document.documentElement.style.setProperty('--walk',on?'running':'paused');
 window.addEventListener('scroll',()=>{ setWalking(true); clearTimeout(walkTimer); walkTimer=setTimeout(()=>setWalking(false),180); },{passive:true});
 /* cards: 0.6s, cards entering together come in left to right (0.12s apart); gallery: 0.6s, one row at a time */
+if(!reduce){
 ScrollTrigger.batch('.pillars .card.reveal',{start:'top 88%',once:true,onEnter:b=>gsap.to(b,{opacity:1,y:0,duration:.6,stagger:.12,ease:'power3.out'})});
 ScrollTrigger.batch('.ph.reveal',{start:'top 88%',once:true,onEnter:b=>gsap.to(b,{opacity:1,y:0,duration:.6,ease:'power3.out'})});
 gsap.utils.toArray('.reveal').filter(el=>!el.matches('.pillars .card, .ph')).forEach(el=>gsap.to(el,{opacity:1,y:0,duration:el.classList.contains('rv-fast')?.5:1.1,delay:el.classList.contains('rv-after')?.1:0,ease:'power3.out',scrollTrigger:{trigger:el.matches('.why .authors')?(document.querySelector('.why blockquote')||el):el,start:'top 88%',once:true}}));
+}   /* reduced motion: no fade-ups at all, everything is simply there */
 
 function stampBehind(tl,prints,rearX,travel,dir=1){ prints.forEach(p=>{ const x=+p.dataset.x; const t= dir>0 ? (x-rearX)/travel : (rearX-x)/travel; if(t<=0){ gsap.set(p,{opacity:1,scale:1}); return; } if(t>1) return; tl.to(p,{opacity:1,scale:1,duration:.02,ease:'back.out(2)'},t); }); }
 const rearOf=(el,c)=>el.getBoundingClientRect().left-c.getBoundingClientRect().left;
@@ -1593,7 +1604,7 @@ function walkInto(el,P,{dur=18,delay=0,repeatDelay=3,s0=1,s1=.2,fadeIn=.06,fadeO
   gsap.to(o,{t:1,duration:dur,ease:'none',repeat:-1,repeatDelay,delay,data:el,onUpdate(){ const [x,y]=bez(P[0],P[1],P[2],P[3],o.t); const sc=s0+(s1-s0)*o.t; const op= o.t<fadeIn? o.t/fadeIn : (o.t>1-fadeOut? Math.max(0,(1-o.t)/fadeOut):1); gsap.set(el,{x,y,scale:sc,opacity:op,transformOrigin:'0 0'}); }});
 }
 
-gsap.from('#heroDeer',{opacity:0,duration:1.4,ease:'power3.out',delay:.5});
+if(!reduce) gsap.from('#heroDeer',{opacity:0,duration:1.4,ease:'power3.out',delay:.5});
 
 if(!reduce){
   /* hero: doe walks the road into the woods; bear roams in from the right */
@@ -1668,7 +1679,26 @@ if(!reduce){
   gsap.to('#storyBirds',{x:vw()*1.1,y:-50,ease:'none',scrollTrigger:st});
   /* ---- FOOTER: prints appear along the trail ---- */
   gsap.set('#footTrail .print',{opacity:1,scale:1});   /* footer paw prints: static (no scroll animation), same as the blog pages */
-}else{ gsap.set('.print',{opacity:1}); }
+}else{
+  /* reduced motion: nothing moves — every scene is shown as a calm, complete still frame */
+  gsap.set('.print',{opacity:1,scale:1});
+  const still=(el,P,t,s0=1,s1=.2)=>{ if(!el) return; const [x,y]=bez(P[0],P[1],P[2],P[3],t); gsap.set(el,{x,y,scale:s0+(s1-s0)*t,opacity:1,transformOrigin:'0 0'}); };
+  (function(){ const g=$('#heroGround'); if(!g) return; const W=g.clientWidth,H=g.clientHeight;
+    still($('#walker'),[[W*.36,H*1.02],[W*.40,H*.90],[W*.52,H*.84],[W*.69,H*.68]],.35,1,.22);
+    still($('#walker2'),[[W*-.06,H*.90],[W*.16,H*.88],[W*.42,H*.82],[W*.60,H*.70]],.45,.9,.35); gsap.set($('#walker2'),{x:'+=20'}); })();   /* bear: 20px right so it is not behind the leaves */
+  (function(){ const v=$('#valley'); if(!v) return; const W=v.clientWidth,H=v.clientHeight; const P=[[W*.48,H*1.04],[W*.50,H*.86],[W*.58,H*.70],[W*.745,H*.47]];
+    still($('#fam0'),P,.55,1,.18); still($('#fam1'),P,.42,1,.18); still($('#fam2'),P,.3,1,.18); })();
+  /* couples: the two deer have already met, heart shown */
+  (function(){ const pair=$('#pair'), pl=$('.pl'), pr=$('.pr'); if(!pair||!pl||!pr) return; const plW=pl.getBoundingClientRect().width, prW=pr.getBoundingClientRect().width, PW=pair.clientWidth;
+    const lTravel=(PW/2-plW*.98)-rearOf(pl,pair); const rTravel=frontOf(pr,pair)-(PW/2+prW*.98);
+    gsap.set(pl,{x:lTravel}); gsap.set(pr,{x:-rTravel}); gsap.set('.couples .heart',{scale:1,opacity:1}); pl.classList.add('met'); pr.classList.add('met'); })();
+  /* gallery: the bear stands half-way along its path, prints only behind it */
+  (function(){ const bear=$('#bearTrail .bear'); if(!bear) return; const r=bear.getBoundingClientRect(); gsap.set(bear,{x:(document.documentElement.clientWidth-r.width)/2-r.left});
+    const bl=bear.getBoundingClientRect().left; document.querySelectorAll('#bearPrints .print').forEach(p=>{ if(p.getBoundingClientRect().left>bl) gsap.set(p,{opacity:0}); }); })();
+  /* plains birds: fully on screen instead of waiting off the left edge */
+  gsap.set('#plainsBirds',{x:vw()*.3});
+  gsap.set('#storyBirds',{x:20});   /* See the world birds: 20px right of their start so they sit clear of the moon */
+}
 
 let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window.innerWidth===lastW) return; clearTimeout(rt); rt=setTimeout(()=>location.reload(),400); });
 
@@ -1693,8 +1723,11 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
     });
   }
   let idx=0, busy=false;
+  const still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   setInterval(()=>{
-    if(busy || document.hidden) return; busy=true;
+    if(busy || document.hidden) return;
+    if(still){ idx=(idx+1)%srcs.length; base.src=srcs[idx]; return; }   /* reduced motion: plain switch, no tile effect */
+    busy=true;
     idx=(idx+1)%srcs.length; const next=srcs[idx];
     layout();
     tiles.forEach(t=>{
@@ -1753,6 +1786,7 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
    (story scene has scroll parallax: measured at the moment the section's bottom reaches the screen bottom) */
 (function(){
   function on(){ return window.innerWidth>=541; }
+  var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;   /* no parallax when motion is reduced */
   function ty(el,stop){ var t=0; for(var e=el;e&&e!==stop;e=e.parentElement){ var cs=getComputedStyle(e); if(cs.transform&&cs.transform!=='none') t+=new DOMMatrixReadOnly(cs.transform).m42; } return t; }
   /* hero */
   var hero=document.querySelector('.hero'), wrap=hero&&hero.querySelector('.wrap'), card=hero&&hero.querySelector('.featured'), ground=document.getElementById('heroGround');
@@ -1782,7 +1816,7 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
       st.style.minHeight=H+'px';
       var sr=st.getBoundingClientRect(), vh=window.innerHeight, p=Math.min(1,Math.max(0,sr.height/(sr.height+vh)));
       var tb=lp.getBoundingClientRect().bottom-ty(lp,st)-sr.top, hi=-1e9;
-      MOVE.forEach(function(m){ [].forEach.call(st.querySelectorAll(m[0]),function(e){ var r=e.getBoundingClientRect(); var above=sr.bottom-(r.top-ty(e,st)); hi=Math.max(hi,above-(m[1]+(m[2]-m[1])*p)); }); });
+      MOVE.forEach(function(m){ [].forEach.call(st.querySelectorAll(m[0]),function(e){ var r=e.getBoundingClientRect(); var above=sr.bottom-(r.top-ty(e,st)); hi=Math.max(hi,above-(RM?0:(m[1]+(m[2]-m[1])*p))); }); });
       if(hi===-1e9) return;
       var G=window.innerWidth>=1281?100:(window.innerWidth>=1141?120:(window.innerWidth>=951?140:100)), d=(sr.height-hi)-tb; if(Math.abs(d-G)<0.5) break;
       H=sr.height+(G-d);
