@@ -326,6 +326,7 @@ footer .trail{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.5
 @media (min-width:841px) and (max-width:950px){.why .authors .avatar{translate:17px 0}}
 @media (min-width:951px) and (max-width:1140px){.plains .birds{top:calc(10% - 44px)!important}.plains{padding-top:calc(clamp(100px,14vw,200px) + 60px);min-height:calc(100vh + 180px)}}
 @media (min-width:1141px){.plains .birds{top:calc(10% - 40px)!important}}
+@media (max-width:540px){.plains .birds{top:calc(10% - 22px)!important}}
 @media (min-width:1141px){.plains .baby{left:calc(27% + 40px)!important}}
 @media (min-width:951px) and (max-width:1140px){.plains .baby{left:calc(27% + 40px)!important}}
 @media (min-width:841px) and (max-width:950px){.plains .baby{left:calc(27% + 80px)!important}}
@@ -607,6 +608,7 @@ html,body{overflow-x:clip}
 @media (min-width:394px) and (max-width:402px){.family{padding-bottom:calc(clamp(220px,28vw,360px) + 20px)}}
 @media (min-width:360px) and (max-width:393px){.family{padding-bottom:calc(clamp(220px,28vw,360px) + 15px)}}
 @media (min-width:320px) and (max-width:359px){.family{padding-bottom:calc(clamp(220px,28vw,360px) + 10px)}}
+.anim-off,.anim-off *,.anim-off *::before,.anim-off *::after{animation-play-state:paused!important}
 </style>
 </head>
 <body>
@@ -850,6 +852,18 @@ html,body{overflow-x:clip}
   <symbol id="berries" viewBox="0 0 100 100"><path d="M50 96 C 48 70, 46 50, 40 30 M50 96 C 54 72, 60 52, 70 36" stroke="#8a6440" stroke-width="3" fill="none" stroke-linecap="round"/><g fill="#c2503c"><circle cx="38" cy="26" r="7"/><circle cx="28" cy="36" r="6"/><circle cx="46" cy="40" r="6"/><circle cx="72" cy="32" r="7"/><circle cx="80" cy="44" r="6"/><circle cx="64" cy="46" r="5"/></g><path d="M54 70 C 40 70, 30 60, 30 48 C 42 48, 54 58, 54 70Z" fill="#9fb39a"/></symbol>
 </svg>
 
+<script>
+/* phones/tablets: when only the height changes (address bar showing/hiding while scrolling),
+   skip every resize handler on the page — the layout does not need to be recalculated */
+(function(){
+  var coarse=window.matchMedia&&matchMedia('(pointer:coarse)').matches, lastW=window.innerWidth;
+  window.addEventListener('resize',function(e){
+    var w=window.innerWidth;
+    if(coarse && w===lastW){ e.stopImmediatePropagation(); return; }
+    lastW=w;
+  },true);
+})();
+</script>
 <script>
 /* hero: the 1280px composition is the master — other widths show the same
    layout scaled proportionally (same relative margins), capped by height */
@@ -1527,7 +1541,7 @@ const bez=(p0,p1,p2,p3,t)=>{ const u=1-t; return [u*u*u*p0[0]+3*u*u*t*p1[0]+3*u*
 /* walk a 0x0 anchor along a bezier: foreground -> distance (shrinks, fades at the end) */
 function walkInto(el,P,{dur=18,delay=0,repeatDelay=3,s0=1,s1=.2,fadeIn=.06,fadeOut=.14}={}){
   const o={t:0}; gsap.set(el,{x:P[0][0],y:P[0][1],scale:s0,opacity:0,transformOrigin:'0 0'});
-  gsap.to(o,{t:1,duration:dur,ease:'none',repeat:-1,repeatDelay,delay,onUpdate(){ const [x,y]=bez(P[0],P[1],P[2],P[3],o.t); const sc=s0+(s1-s0)*o.t; const op= o.t<fadeIn? o.t/fadeIn : (o.t>1-fadeOut? Math.max(0,(1-o.t)/fadeOut):1); gsap.set(el,{x,y,scale:sc,opacity:op,transformOrigin:'0 0'}); }});
+  gsap.to(o,{t:1,duration:dur,ease:'none',repeat:-1,repeatDelay,delay,data:el,onUpdate(){ const [x,y]=bez(P[0],P[1],P[2],P[3],o.t); const sc=s0+(s1-s0)*o.t; const op= o.t<fadeIn? o.t/fadeIn : (o.t>1-fadeOut? Math.max(0,(1-o.t)/fadeOut):1); gsap.set(el,{x,y,scale:sc,opacity:op,transformOrigin:'0 0'}); }});
 }
 
 gsap.from('#heroDeer',{opacity:0,duration:1.4,ease:'power3.out',delay:.5});
@@ -1902,6 +1916,28 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
 <script>
 /* 951-1140: expose the hero zoom so the photo shift stays exactly 30 screen px */
 (function(){var w=document.querySelector('.hero .wrap');if(!w)return;function u(){w.style.setProperty('--hz',parseFloat(getComputedStyle(w).zoom)||1);}u();addEventListener('load',u);addEventListener('resize',u);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(u);})();
+</script>
+<script>
+/* pause looping animations in sections that are off screen (resume where they left off when they come back) */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var secs=[].slice.call(document.querySelectorAll('section, footer'));
+  var loops=[];
+  try{ if(window.gsap) gsap.globalTimeline.getChildren(false,true,true).forEach(function(t){
+    if(!(t.repeat&&t.repeat()===-1)) return;
+    var els=t.targets?t.targets():[]; if(!els.length&&t.getChildren) t.getChildren(true,true,false).forEach(function(c){ if(c.targets) els=els.concat(c.targets()); });
+    var el=(t.vars&&t.vars.data instanceof Element)?t.vars.data:els.filter(function(x){ return x instanceof Element; })[0], sec=el&&el.closest('section, footer');
+    if(sec) loops.push({t:t,sec:sec});
+  }); }catch(e){}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      var s=en.target, on=en.isIntersecting;
+      s.classList.toggle('anim-off',!on);
+      loops.forEach(function(l){ if(l.sec===s){ on?l.t.resume():l.t.pause(); } });
+    });
+  },{rootMargin:'200px 0px'});
+  secs.forEach(function(s){ io.observe(s); });
+})();
 </script>
 </body>
 </html>
