@@ -53,6 +53,8 @@ footer .copy{color:#766858!important}
 footer .fh{color:#9f5122!important}
 footer ul a,footer .copy a{transition:color .25s}
 footer ul a:hover,footer .copy a:hover{color:#9f5122!important;border-color:#9f5122!important}
+footer .motion-toggle{background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;cursor:pointer;transition:color .25s}footer .motion-toggle:hover{color:#9f5122}
+html.motion-paused *,html.motion-paused *::before,html.motion-paused *::after{animation-play-state:paused!important}html.motion-paused .pl.met .head,html.motion-paused .pr.met .head{animation-play-state:paused!important}   /* footer "Pause animations" (WCAG 2.2.2) */
 .why .authors div small{color:#7d6f60}
 .btn .paw{width:17px;height:17px}.btn .paw path,.btn .paw ellipse{fill:currentColor}
 .btn.wiggle{animation:wiggle 3.2s ease-in-out infinite}.btn.wiggle:hover{animation:none}
@@ -634,6 +636,7 @@ html,body{overflow-x:clip}
 @media (min-width:320px) and (max-width:359px){.family{padding-bottom:calc(clamp(220px,28vw,360px) + 10px)}}
 .anim-off,.anim-off *,.anim-off *::before,.anim-off *::after{animation-play-state:paused!important}
 </style>
+<script>try{if(localStorage.getItem('bs-motion')==='paused')document.documentElement.classList.add('motion-paused')}catch(e){}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -682,7 +685,7 @@ html,body{overflow-x:clip}
 <nav class="nav" id="nav">
   <div class="wrap">
     <a class="logo" href="#home" aria-label="BrianShio home"><img class="logo-mark" src="logo.png" alt="">BrianShio</a>
-    <ul class="menu">
+    <ul class="menu" id="mainMenu">
       <li class="mclose"><button type="button" aria-label="Close menu" onclick="this.closest('.nav').classList.remove('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg></button></li>
       <li><a href="#home">Home</a></li>
       <li><a href="#blog">Blog</a><ul class="sub"><li><a href="#blog">Guides</a></li><li><a href="#blog">Reviews</a></li><li><a href="#blog">Tips</a></li></ul></li>
@@ -694,7 +697,7 @@ html,body{overflow-x:clip}
       <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
       <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
     </div>
-    <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="menu" aria-expanded="false" aria-controls="mainMenu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <main id="main">
@@ -717,7 +720,7 @@ html,body{overflow-x:clip}
       </div>
     </div>
     <div class="photo-col" id="heroPhoto">
-      <div class="photo" id="heroSlides"><img id="heroSlideBase" src="Pics/HD/04.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" draggable="false"><div class="tiles" aria-hidden="true"></div></div>
+      <div class="photo" id="heroSlides"><img id="heroSlideBase" src="Pics/HD/04.jpg" alt="Glass-walled living room at a cliffside Airbnb, Red Canyon Ranch, South Dakota" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" draggable="false"><div class="tiles" aria-hidden="true"></div></div>
       <a class="featured" href="#"><div class="date">Nov 7–11, ’24</div><div class="ftitle">Red Canyon Ranch,<br>South Dakota</div><p>Our honeymoon adventure under the Milky Way!</p><span class="read">Read →</span></a>
     </div>
   </div>
@@ -938,19 +941,19 @@ html,body{overflow-x:clip}
         <svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><g filter="url(#wc2)"><path d="M8 52 L24 22 L36 42 L44 32 L58 52Z" fill="#9db29a"/><path d="M24 22 L30 33 L18 33Z" fill="#fff"/><path d="M44 32 L48 39 L40 39Z" fill="#fff"/></g><circle cx="50" cy="16" r="6" fill="#f6c76b"/></svg>
         <h3>Guide</h3>
         <p>Learn about our experiences in the US and abroad, with detailed itineraries and sound advice to help make your next trip one for the scrapbook.</p>
-        <a class="link" href="#">Read More</a>
+        <a class="link" href="https://brianshio.com/category/guides/" aria-label="Read more about Guide">Read More</a>
       </article>
       <article class="card reveal" style="--c:#cfe1ea">
         <svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><g filter="url(#wc2)"><rect x="12" y="22" width="40" height="28" rx="5" fill="#a9c7d3"/><rect x="24" y="14" width="16" height="9" rx="2" fill="#6f8a9a"/><rect x="18" y="30" width="28" height="3" fill="#fff"/><rect x="18" y="37" width="20" height="3" fill="#fff"/></g></svg>
         <h3>Tips</h3>
         <p>What can you bring on the plane? How do people travel so much? Get answers to all the most common questions about travel in our tips section.</p>
-        <a class="link" href="#">Read More</a>
+        <a class="link" href="https://brianshio.com/category/tips/" aria-label="Read more about Tips">Read More</a>
       </article>
       <article class="card reveal" style="--c:var(--accent)">
         <svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><g filter="url(#wc2)"><path d="M32 8 L38 23 L54 25 L42 36 L45 52 L32 44 L19 52 L22 36 L10 25 L26 23Z" fill="#f2b56e"/><path d="M32 18 L36 27 L45 28 L38 34 L40 43 L32 39Z" fill="#d2793f"/></g></svg>
         <h3>Reviews</h3>
         <p>High-rated restaurants, city hotels, and historic, quaint inns. Read fair reviews of all the places we’ve stopped in for a rest or a refill.</p>
-        <a class="link" href="#">Read More</a>
+        <a class="link" href="https://brianshio.com/category/reviews/" aria-label="Read more about Reviews">Read More</a>
       </article>
     </div>
   </div>
@@ -996,7 +999,7 @@ html,body{overflow-x:clip}
   <div class="wrap">
     <div class="grid">
       <div class="photo tilt">
-        <img src="Pics/481005246_4031560460499930_8470037849195119642_n.jpg" alt="Brian and Shiori traveling together" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% calc(100% + 90px)" draggable="false">
+        <img src="Pics/481005246_4031560460499930_8470037849195119642_n.jpg" alt="Brian and Shiori standing in front of the &quot;I Believe in Nashville&quot; mural in Nashville, Tennessee" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% calc(100% + 90px)" draggable="false">
       </div>
       <div>
         <div class="eyebrow reveal rv-fast">Travel for couples</div>
@@ -1040,7 +1043,7 @@ html,body{overflow-x:clip}
   <div class="wrap">
     <div class="grid">
       <div><a class="logo" href="#home" aria-label="BrianShio home"><img class="logo-mark" src="logo.png" alt="">BrianShio</a><p style="margin-top:1em;max-width:340px;font-size:.95rem"><span class="ft-l1">Travel &amp; lifestyle for couples.</span> <span class="ft-l2">See the world with the one you love.</span></p></div>
-      <div><p class="fh">Useful links</p><ul><li><a href="#blog">Guides</a></li><li><a href="#blog">Reviews</a></li><li><a href="#blog">Tips</a></li><li><a href="#contact">Contact</a></li><li><a href="#">RSS</a></li></ul></div>
+      <div><p class="fh">Useful links</p><ul><li><a href="#blog">Guides</a></li><li><a href="#blog">Reviews</a></li><li><a href="#blog">Tips</a></li><li><a href="#contact">Contact</a></li><li><a href="#">RSS</a></li><li><button type="button" class="motion-toggle" id="motionToggle">Pause animations</button></li></ul></div>
       <div class="social-block"><div class="social" aria-label="social links">
       <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
       <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
@@ -1477,8 +1480,9 @@ $('#whyClouds').innerHTML = cloudSVG('left:0;top:8%;width:min(250px,21vw);animat
   const wide=window.innerWidth>540; let s='';
   const ZOOM={'489102313':1.25,'486606937_4056675971321712_7113032183215930727_n':1.2};   // show a tighter centre crop (still well below the file's native size — no upscaling)
   const POS={'08a':'50% 65%'};   // which part of the photo the frame shows (08a: shifted so the wolf's face sits higher)
+  const ALT={'13':'Brian standing with his back to the camera, watching bison in Yellowstone','01':'Steam rising from Grand Prismatic Spring, seen from above, Yellowstone','23':'Cozy living room decorated with string lights and antiques at a treehouse Airbnb in Maine','11b':'Emerald-green hot spring beside Yellowstone Lake at West Thumb, Yellowstone','t03':'Our group riding horses single file deep into the mountains of Yosemite','07':'Brian in the bedroom of a lodge at Parc Omega, Canada, with wolves visible through the glass','10':'A historic barn on Mormon Row in front of the Teton Range, Grand Teton National Park','489102313':'Brian crouching to feed a carrot to a fawn at Parc Omega, Canada','11a':'Shiori photographing the white travertine terraces of Canary Spring, Yellowstone','16':'Brian relaxing on the sofa in our Airbnb living room at Red Canyon Ranch, South Dakota','08a':'Two wolves seen from our glass-walled lodge at Parc Omega, Canada','486606937_4056675971321712_7113032183215930727_n':'Brian riding a snowmobile in Killington, Vermont','486053735_4053369024985740_7764730459933485282_n':'Brian and Shiori sitting by the Parc Omega sign, Canada','487802537_4062087154113927_4997776289297279978_n':'Two wild bison in the foreground and one in the distance on a Yellowstone meadow'};   // gallery alt text (place + what's in the photo)
   const tile=(p,style='')=>{ const im=[ZOOM[p]?`transform:scale(${ZOOM[p]})`:'',POS[p]?`object-position:${POS[p]}`:''].filter(Boolean).join(';');
-    return `<div class="ph reveal tilt" ${style?`style="${style}"`:''}><img src="Pics/Gallery/${p}.jpg" alt="" loading="lazy" draggable="false"${im?` style="${im}"`:''}></div>`; };
+    return `<div class="ph reveal tilt" ${style?`style="${style}"`:''}><img src="Pics/Gallery/${p}.jpg" alt="${ALT[p]||''}" loading="lazy" draggable="false"${im?` style="${im}"`:''}></div>`; };
   layout.forEach(([p,c,r,cs,rs])=>{ s+=tile(p, wide?`grid-column:${c} / span ${cs};grid-row:${r} / span ${rs}`:(p==='13'||p==='23'||p==='t03'||p==='07'||p==='489102313'||p==='11a'?'':'grid-column:span 2;grid-row:span 2')); });
   // bottom-right block (cols 4-8, rows 12-17): its own proportional grid so 08a can be ~1.1× while the three around it shrink
   s+=`<div class="gal-sub" ${wide?'style="grid-column:4 / span 5;grid-row:12 / span 6"':''}>
@@ -1585,6 +1589,7 @@ window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40)
   Object.keys(map).forEach(id=>{ const el=document.querySelector(map[id]); if(!el) return; ScrollTrigger.create({trigger:el,start:'top 55%',end:'bottom 55%',onEnter:()=>setActive(id),onEnterBack:()=>setActive(id)}); });
   setActive('home'); })();
 $('#burger').addEventListener('click',()=>nav.classList.toggle('open'));
+new MutationObserver(()=>$('#burger').setAttribute('aria-expanded',nav.classList.contains('open'))).observe(nav,{attributes:true,attributeFilter:['class']});   // tell screen readers whether the mobile menu is open (covers the burger and the close button)
 let walkTimer; const setWalking=on=>document.documentElement.style.setProperty('--walk',on?'running':'paused');
 window.addEventListener('scroll',()=>{ setWalking(true); clearTimeout(walkTimer); walkTimer=setTimeout(()=>setWalking(false),180); },{passive:true});
 /* cards: 0.6s, cards entering together come in left to right (0.12s apart); gallery: 0.6s, one row at a time */
@@ -1705,6 +1710,7 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
 /* hero mosaic slideshow (4s, sparkle-tile transition) */
 (function(){
   const srcs=['Pics/HD/04.jpg','Pics/HD/05.jpg','Pics/HD/06.jpg','Pics/HD/15.jpg'];
+  const alts=['Glass-walled living room at a cliffside Airbnb, Red Canyon Ranch, South Dakota','Kitchen and dining room of our Airbnb at Red Canyon Ranch, South Dakota','Our Airbnb perched on a cliff at Red Canyon Ranch, South Dakota, seen from a distance','Living room seen from the second floor of our Airbnb at Red Canyon Ranch, South Dakota'];
   const NAT_W=4032, NAT_H=3024;
   srcs.forEach(s=>{const i=new Image(); i.src=s;});
   const box=document.getElementById('heroSlides');
@@ -1725,8 +1731,8 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
   let idx=0, busy=false;
   const still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   setInterval(()=>{
-    if(busy || document.hidden) return;
-    if(still){ idx=(idx+1)%srcs.length; base.src=srcs[idx]; return; }   /* reduced motion: plain switch, no tile effect */
+    if(busy || document.hidden || document.documentElement.classList.contains('motion-paused')) return;
+    if(still){ idx=(idx+1)%srcs.length; base.src=srcs[idx]; base.alt=alts[idx]; return; }   /* reduced motion: plain switch, no tile effect */
     busy=true;
     idx=(idx+1)%srcs.length; const next=srcs[idx];
     layout();
@@ -1736,7 +1742,7 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
       t.classList.add('on');
     });
     setTimeout(()=>{
-      base.src=next;
+      base.src=next; base.alt=alts[idx];
       tiles.forEach(t=>{t.classList.remove('on'); t.style.animationDelay=''; t.style.backgroundImage='';});
       busy=false;
     },1700);
@@ -1995,25 +2001,30 @@ let rt,lastW=window.innerWidth; window.addEventListener('resize',()=>{ if(window
 (function(){var w=document.querySelector('.hero .wrap');if(!w)return;function u(){w.style.setProperty('--hz',parseFloat(getComputedStyle(w).zoom)||1);}u();addEventListener('load',u);addEventListener('resize',u);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(u);})();
 </script>
 <script>
-/* pause looping animations in sections that are off screen (resume where they left off when they come back) */
+/* pause looping animations in sections that are off screen (resume where they left off when they come back),
+   and the footer "Pause animations" toggle, which stops every looping animation + the hero slideshow (saved per browser) */
 (function(){
-  if(!('IntersectionObserver' in window)) return;
+  var root=document.documentElement, paused=function(){ return root.classList.contains('motion-paused'); };
   var secs=[].slice.call(document.querySelectorAll('section, footer'));
-  var loops=[];
+  var loops=[], vis=new Map();
   try{ if(window.gsap) gsap.globalTimeline.getChildren(false,true,true).forEach(function(t){
     if(!(t.repeat&&t.repeat()===-1)) return;
     var els=t.targets?t.targets():[]; if(!els.length&&t.getChildren) t.getChildren(true,true,false).forEach(function(c){ if(c.targets) els=els.concat(c.targets()); });
     var el=(t.vars&&t.vars.data instanceof Element)?t.vars.data:els.filter(function(x){ return x instanceof Element; })[0], sec=el&&el.closest('section, footer');
     if(sec) loops.push({t:t,sec:sec});
   }); }catch(e){}
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(en){
-      var s=en.target, on=en.isIntersecting;
-      s.classList.toggle('anim-off',!on);
-      loops.forEach(function(l){ if(l.sec===s){ on?l.t.resume():l.t.pause(); } });
-    });
-  },{rootMargin:'200px 0px'});
-  secs.forEach(function(s){ io.observe(s); });
+  var sync=function(){ loops.forEach(function(l){ (vis.get(l.sec)!==false&&!paused())?l.t.resume():l.t.pause(); }); };
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ vis.set(en.target,en.isIntersecting); en.target.classList.toggle('anim-off',!en.isIntersecting); });
+      sync();
+    },{rootMargin:'200px 0px'});
+    secs.forEach(function(s){ io.observe(s); });
+  }
+  var btn=document.getElementById('motionToggle'); if(!btn) return;
+  var label=function(){ btn.textContent=paused()?'Play animations':'Pause animations'; };
+  label(); sync();
+  btn.addEventListener('click',function(){ root.classList.toggle('motion-paused'); try{ localStorage.setItem('bs-motion',paused()?'paused':'on'); }catch(e){} label(); sync(); });
 })();
 </script>
 </body>
