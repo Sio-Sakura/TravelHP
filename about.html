@@ -848,6 +848,10 @@ footer ul a:hover,footer .copy a:hover{color:#9f5122!important;border-color:#9f5
 .ab-rabbit2 img{display:block;width:auto;filter:drop-shadow(0 10px 10px rgba(58,49,41,.15))}
 .ab-rbird img{display:block;width:auto;height:40px}   /* yellow bird on the rabbit's left; sized like the birds at the top of the page */
 .ab-rabbit img{display:block;width:auto;filter:drop-shadow(0 10px 10px rgba(58,49,41,.15))}   /* 03r facing left (as drawn), 04r on its right; placed by the same rules as the bear */
+/* WordPress: this page's CSS loads after the shared header CSS (header-bs.php). Two blog-heading rules there must not apply here:
+   the blog title is kept on one line and its second wolf is nudged sideways at some widths; here the art is placed by the script below. */
+.ab-head h1{white-space:normal}
+.ab-art img:last-child{translate:none}
 </style>
 
 </head>
@@ -1052,9 +1056,9 @@ footer ul a:hover,footer .copy a:hover{color:#9f5122!important;border-color:#9f5
         <div class="eyebrow">The globetrotter</div>
         <h2>Shio</h2>
         <div class="from"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>Gunma, Japan → Tokyo → USA</div>
-        <p>Shio was born in Gunma, Japan, famous for its hot springs, and lived in Tokyo for over 10 years. She has an impressive travel resume, which includes:</p>
+        <p>Shio was born in Gunma, Japan, a region famous for its hot springs. She graduated from high school in New Zealand and lived in Canada during her university years. She spent over 10 years living in Tokyo, and has most recently lived and worked in the US for over 10 years.</p>
+        <div class="ab-list-t">She has lived in 4 countries and visited</div>
         <ul class="ab-chips"><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Japan</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>United States</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>New Zealand</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Canada</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>United Kingdom</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Germany</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Austria</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Singapore</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Thailand</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Philippines</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>China</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>South Korea</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Taiwan</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Cambodia</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Malaysia</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Guam</li><li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg>Saipan</li></ul>
-        <p>Shio has most recently lived and worked in the US for over 10 years.</p>
         <div class="ab-stats">
           <div class="ab-stat" style="--c:var(--accent)"><b>17</b><span>countries</span></div>
           <div class="ab-stat" style="--c:#6f8a6b"><b>10+</b><span>years in Tokyo</span></div>
