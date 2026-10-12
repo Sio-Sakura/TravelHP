@@ -396,6 +396,14 @@ form.submitting .wpcf7-spinner{visibility:visible}
 }
 /* 541-840: 10px more between the form card and "Prefer email?" (2026-10-12 Shio) */
 @media (min-width:541px) and (max-width:840px){.ct-side{margin-top:10px}}
+/* ===== small labels and headings = Home (2026-10-12, checked on a 402px-wide iPhone) =====
+   section eyebrows: Home's section eyebrow (.885rem; 15px at 402px and under) — they were the base .76rem
+   card heading on phones: Home's h2 (2rem) — it was smaller than the h3s below it
+   "Browse all guides": Home's section-header link (17px, like "See the full gallery") */
+.ct-card .eyebrow,.ct-block .eyebrow,.ct-faq .eyebrow{font-size:.885rem}
+@media (max-width:402px){.ct-card .eyebrow,.ct-block .eyebrow,.ct-faq .eyebrow{font-size:15px}}
+@media (max-width:540px){.ct-card h2{font-size:2rem}}
+.ct-faq .link{font-size:17px}
 </style>
 </head>
 <body>
