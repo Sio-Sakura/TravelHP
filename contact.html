@@ -404,6 +404,9 @@ form.submitting .wpcf7-spinner{visibility:visible}
 @media (max-width:402px){.ct-card .eyebrow,.ct-block .eyebrow,.ct-faq .eyebrow{font-size:15px}}
 @media (max-width:540px){.ct-card h2{font-size:2rem}}
 .ct-faq .link{font-size:17px}
+/* mobile menu: same panel as Home / Blog list — half the screen wide on phones, items nudged right; submenu also opens for keyboard focus */
+.menu li:focus-within .sub{opacity:1;transform:none;pointer-events:auto}
+@media (max-width:540px){.nav.open .menu{width:50vw}.nav.open .menu > li{transform:translateX(20px)}.nav.open .menu > li.mclose{transform:none}}
 </style>
 </head>
 <body>
@@ -603,7 +606,7 @@ form.submitting .wpcf7-spinner{visibility:visible}
 <script>
 (function(){var n=document.getElementById('nav');if(!n)return;
 var on=function(){n.classList.toggle('scrolled',window.scrollY>40)};on();window.addEventListener('scroll',on,{passive:true});
-var b=document.getElementById('burger');if(b)b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false')});})();
+var b=document.getElementById('burger');if(b){b.addEventListener('click',function(){n.classList.toggle('open')});new MutationObserver(function(){b.setAttribute('aria-expanded',n.classList.contains('open'))}).observe(n,{attributes:true,attributeFilter:['class']});}})();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
