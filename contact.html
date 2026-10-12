@@ -97,8 +97,6 @@ footer .copy{margin-top:20px;padding-top:20px;border-top:1px solid rgba(58,49,41
 footer .trail{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55}
 @media (max-width:840px){footer .grid{gap:18px}}
 footer .fh{font-family:var(--sans);font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-d);margin:0 0 .6em;font-weight:500;line-height:1.08}
-footer .motion-toggle{background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;cursor:pointer;transition:color .25s}footer .motion-toggle:hover{color:#9f5122}
-html.motion-paused *,html.motion-paused *::before,html.motion-paused *::after{animation-play-state:paused!important}
 @media (min-width:541px) and (max-width:840px){footer .trail{transform:translateY(-10px)}}
 @media (min-width:320px) and (max-width:840px){footer .social{display:flex}}
 @media (min-width:320px) and (max-width:540px){footer .ft-l1,footer .ft-l2{display:block}footer .grid>div:first-child p{white-space:normal!important}}
@@ -108,10 +106,11 @@ html.motion-paused *,html.motion-paused *::before,html.motion-paused *::after{an
 @media (max-width:440px){footer .trail{transform:translateY(-20px)}}
 @media (min-width:441px) and (max-width:540px){footer .trail{transform:translateY(-20px)}}
 @media (max-width:402px){footer .grid>div:first-child p{font-size:18px!important}footer .fh{font-size:15px}footer ul{max-width:280px;gap:4px 32px}footer .social{gap:24px}footer .social a{width:41px;height:41px}footer .social svg{width:18px;height:18px}footer li{font-size:20px}footer .copy{font-size:14px}}
+@media (max-width:359px){footer .grid>div:first-child p{font-size:16px!important}}   /* Home line 574: tagline size on the smallest phones */
 @media (prefers-reduced-motion:reduce){.print{opacity:1}}
 
 /* page header (blog list / about pattern) */
-.reveal{opacity:1;transform:none}.print{opacity:1}
+.reveal{opacity:1;transform:none}.print{opacity:1;transform-box:fill-box;transform-origin:center}   /* same transform origin as the other pages, so the footer paw trail lands in the same place */
 .bl-head{padding:clamp(120px,15vw,170px) 0 clamp(6px,1.5vw,18px);position:relative;overflow:visible}
 .bl-head .eyebrow{font-size:.885rem}
 .bl-head h1{font-size:clamp(2.6rem,5.6vw,4.6rem)}
@@ -337,8 +336,10 @@ form.submitting .wpcf7-spinner{visibility:visible}
 /* ===== audit fixes 2026-10-11 (layout / spacing / a11y) ===== */
 /* 541-840: the heading wraps before the animals instead of running under them */
 @media (min-width:541px) and (max-width:840px){.bl-head h1{max-width:calc(62vw - 20px)}}
-/* phones: the animals' feet were touching the first heading line; lift them 12px */
-@media (max-width:540px){.bl-wolves{translate:0 -12px}}
+/* 540px and under: the animal group sits exactly where the blog list's wolves sit (same left edge, same feet line) — blog_design_preview.html lines 639, 640, 673 */
+@media(max-width:393px){.bl-wolves{margin-top:-30px}}
+@media(min-width:360px) and (max-width:393px){.bl-wolves{translate:8px 0}}
+@media(min-width:320px) and (max-width:359px){.bl-wolves{margin-top:-33px}}
 /* phones / tablets: the nav rule hides every .social; the "Follow along" icons must stay visible (same override as the footer) */
 @media (max-width:840px){.ct-side .social{display:flex}}
 /* section rhythm = About (trips section) / Blog list cards */
@@ -365,17 +366,37 @@ form.submitting .wpcf7-spinner{visibility:visible}
 @media (max-width:540px){
   .bl-wolves .leaf4{left:-12%;bottom:112%}
   .bl-wolves .leaf2{left:42%;bottom:120%}
-  .bl-wolves .leaf6{left:112%;bottom:92%}
-  .bl-wolves .leaf{left:106%;bottom:30%}
+  .bl-wolves .leaf6{left:112%;bottom:135%}
+  .bl-wolves .leaf{left:106%;bottom:60%}     /* above the heading's first line, which runs under the animals here */
   .bl-wolves .leaf5{left:-150%;bottom:135%}  /* left of the fox */
   .bl-wolves .leaf3{left:-195%;bottom:60%}   /* further left, lower */
 }
 /* 841-1380: the brown leaf keeps its place beside the chipmunk as the animals shrink (it was sliding onto the fox); identical to the fixed offset at 1381px+ */
 @media (min-width:841px) and (max-width:1380px){.bl-wolves .leaf4{left:-3%;translate:-50% 20px!important}}
+/* 374px and under: no room to the right of the chipmunks, so the two right-hand leaves go above them instead (they were cut off by the screen edge) */
+@media (max-width:374px){
+  .bl-wolves .leaf{left:6%;bottom:195%}
+  .bl-wolves .leaf6{left:76%;bottom:185%}
+}
 /* required fields */
 .field label .req,.ct-consent .req{color:#a8561f;font-weight:700;letter-spacing:0;margin-left:.2em}
+/* WordPress: this page's CSS loads after the shared header CSS (header-bs.php). Two blog-heading rules there must not apply here:
+   the blog title is kept on one line and its second wolf is nudged on small phones; this heading wraps, and the chipmunk stays put. */
+.bl-head h1{white-space:normal}
+@media(max-width:393px){.bl-wolves img:last-child{translate:none}}
+/* 841-900: lead text 10% narrower (520px -> 468px) so it keeps clear of the fox (2026-10-12 Shio) */
+@media (min-width:841px) and (max-width:900px){.bl-head .bl-sub{max-width:468px}}
+/* 541-840: the animals stand on the bottom line of the heading, beside it, as large as the space to its right allows.
+   .ct-hd wraps the eyebrow + h1 and is the positioning box only in this range (elsewhere the header is, as before). */
+@media (min-width:541px) and (max-width:840px){
+  .ct-hd{position:relative}
+  .bl-wolves{top:auto;bottom:0;left:calc(62vw - 10px);right:auto;margin:0}
+  .bl-wolves img{height:calc((21vw - 20px) * var(--art,1))}
+  .bl-wolves .chips{--base:4.7vw}
+}
+/* 541-840: 10px more between the form card and "Prefer email?" (2026-10-12 Shio) */
+@media (min-width:541px) and (max-width:840px){.ct-side{margin-top:10px}}
 </style>
-<script>try{if(localStorage.getItem('bs-motion')==='paused')document.documentElement.classList.add('motion-paused')}catch(e){}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -441,9 +462,11 @@ form.submitting .wpcf7-spinner{visibility:visible}
 
 <!-- ================= CONTACT : HEADER (same pattern as Blog list / About) ================= -->
 <header class="bl-head"><div class="wrap">
+  <div class="ct-hd">
     <div class="bl-wolves" aria-hidden="true"><img src="brianshio-home-child/assets/Animals/fox_01_crop.png" alt="" width="319" height="447" decoding="async"><span class="chips"><img class="leaf" src="brianshio-home-child/assets/Animals/leaf_15.png" alt="" width="577" height="243" decoding="async"><img class="leaf2" src="brianshio-home-child/assets/Animals/leaf_16.png" alt="" width="366" height="493" decoding="async"><img class="leaf3" src="brianshio-home-child/assets/Animals/leaf_13.png" alt="" width="487" height="335" decoding="async"><img class="leaf4" src="brianshio-home-child/assets/Animals/leaf_14.png" alt="" width="541" height="288" decoding="async"><img class="leaf5" src="brianshio-home-child/assets/Animals/leaf_12.png" alt="" width="375" height="432" decoding="async"><img class="leaf6" src="brianshio-home-child/assets/Animals/leaf_11.png" alt="" width="547" height="426" decoding="async"><img class="chip" src="brianshio-home-child/assets/Animals/chip_03_crop.png" alt="" width="332" height="443" decoding="async" style="--art:.42"><img class="chip" src="brianshio-home-child/assets/Animals/chip_02_crop.png" alt="" width="326" height="444" decoding="async" style="--art:.42"></span></div>
   <div class="eyebrow">Contact</div>
   <h1>Say hello, <span class="ital">we’d love to hear from you</span></h1>
+  </div>
   <p class="bl-sub">Questions about a trip, a cabin we stayed in, or an idea for working together — drop us a line below and we’ll write back from wherever the road has taken us.</p>
 </div></header>
 
@@ -557,7 +580,7 @@ form.submitting .wpcf7-spinner{visibility:visible}
   <div class="wrap">
     <div class="grid">
       <div><a class="logo" href="index3.html" aria-label="BrianShio home"><img class="logo-mark" src="brianshio-home-child/assets/logo.png" alt="">BrianShio</a><p style="margin-top:1em;max-width:340px;font-size:.95rem"><span class="ft-l1">Travel &amp; lifestyle for couples.</span> <span class="ft-l2">See the world with the one you love.</span></p></div>
-      <div><p class="fh">Useful links</p><ul><li><a href="https://brianshio.com/category/guides/">Guides</a></li><li><a href="https://brianshio.com/category/reviews/">Reviews</a></li><li><a href="https://brianshio.com/category/tips/">Tips</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">RSS</a></li><li><button type="button" class="motion-toggle" id="motionToggle">Pause animations</button></li></ul></div>
+      <div><p class="fh">Useful links</p><ul><li><a href="https://brianshio.com/category/guides/">Guides</a></li><li><a href="https://brianshio.com/category/reviews/">Reviews</a></li><li><a href="https://brianshio.com/category/tips/">Tips</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">RSS</a></li></ul></div>
       <div class="social-block"><div class="social" aria-label="social links">
       <a href="https://www.youtube.com/@BrianShio" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
       <a href="https://www.instagram.com/brian_shio/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
@@ -573,12 +596,6 @@ form.submitting .wpcf7-spinner{visibility:visible}
 (function(){var n=document.getElementById('nav');if(!n)return;
 var on=function(){n.classList.toggle('scrolled',window.scrollY>40)};on();window.addEventListener('scroll',on,{passive:true});
 var b=document.getElementById('burger');if(b)b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false')});})();
-</script>
-<script>
-/* footer "Pause animations" toggle (saved per browser) — same as Home */
-(function(){var root=document.documentElement,btn=document.getElementById('motionToggle');if(!btn)return;
-var paused=function(){return root.classList.contains('motion-paused')},label=function(){btn.textContent=paused()?'Play animations':'Pause animations'};label();
-btn.addEventListener('click',function(){root.classList.toggle('motion-paused');try{localStorage.setItem('bs-motion',paused()?'paused':'on')}catch(e){}label()});})();
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
