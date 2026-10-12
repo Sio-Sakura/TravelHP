@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — BrianShio</title>
+<meta name="description" content="Say hello, pitch a partnership or ask us anything about couples travel. Brian &amp; Shio usually reply within a few days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   BrianShio — Contact (wireframe)
+   tokens / type / buttons / nav / footer are copied verbatim
+   from index3.html + about.html + the blog list page
+   ========================================================= */
+:root{
+  --paper:#fbf7ef; --paper-2:#f4ecdd; --paper-3:#eadfca;
+  --ink:#3a3129; --ink-soft:#66594c; --ink-mute:#9a8c7c;
+  --accent:#d2793f; --accent-d:#b25f2b; --glow:#f6c76b; --sun:#e9b453;
+  --sage-1:#c3cfbc; --sage-2:#a9bba3; --sage-3:#9fb39a; --sage-4:#7e9779; --sage-5:#5f7a5c; --sage-6:#4e6a4f;
+  --sand:#e6d9c3; --sand-d:#d8c8ad; --meadow:#dfe3cf; --meadow-2:#ece5d2;
+  --deer:#b98a5a; --deer-d:#8a6440; --deer-l:#dcc09a;
+  --wood:#a3764f; --wood-d:#6e4c33; --cloud:#e6e1d5;
+  --blush:#f3cdb3; --lav:#dcd6e8;
+  --shadow:rgba(58,49,41,.14);
+  --serif:"Cormorant Garamond","Times New Roman",serif; --sans:"Nunito Sans",system-ui,-apple-system,sans-serif; --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.08;margin:0 0 .4em}
+h1{font-size:clamp(2.8rem,6.4vw,5.6rem)} h2{font-size:clamp(2rem,4.2vw,3.4rem)} h3{font-size:clamp(1.4rem,2.4vw,1.9rem)}
+p{margin:0 0 1.1em} a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.eyebrow{font-size:.76rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-d);font-weight:700;margin-bottom:1.1em}
+.btn{display:inline-flex;align-items:center;gap:.6em;font-size:.92rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:1.1em 2em;border-radius:999px;color:#fff;background:var(--accent);box-shadow:0 14px 30px -10px var(--accent-d);transition:transform .35s,background .35s}
+.btn:hover{background:var(--accent-d);transform:translateY(-3px) scale(1.03)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink);box-shadow:none}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.btn .paw{width:15px;height:15px}.btn .paw path,.btn .paw ellipse{fill:currentColor}
+.btn.wiggle{animation:wiggle 3.2s ease-in-out infinite}.btn.wiggle:hover{animation:none}
+@keyframes wiggle{0%,80%,100%{transform:rotate(0) translateY(0)}84%{transform:rotate(-2.5deg) translateY(-2px)}88%{transform:rotate(2.5deg) translateY(-2px)}92%{transform:rotate(-1.5deg) translateY(-1px)}96%{transform:rotate(1.5deg)}}
+.link{font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--accent);padding-bottom:.2em}.link:hover{color:var(--accent-d)}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.4;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .55 0 0 0 0 .5 0 0 0 0 .42 0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;padding:18px 0;transition:.4s}
+.nav.scrolled{background:rgba(246,241,230,.92);backdrop-filter:blur(8px);box-shadow:0 8px 30px var(--shadow);padding:10px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:1.85rem;font-weight:600}.logo svg{width:34px;height:34px}
+.logo-mark{width:38px;height:38px;object-fit:contain;flex:none}
+.menu{display:flex;align-items:center;gap:12px;list-style:none;margin:0 40px 0 auto;padding:0}.menu li{position:relative}
+.menu a{font-size:1.11rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:8px 0;display:inline-block}
+.menu > li > a{position:relative;padding-left:28px}
+.menu > li > a::before{content:"";position:absolute;left:0;top:calc(50% - 1px);width:21px;height:21px;transform:translate(0,-50%) rotate(-20deg) scale(.7);opacity:0;transition:opacity .35s ease,transform .35s ease,background-color .3s;
+  background-color:var(--ink);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><g fill='black'><path d='M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z'/><ellipse cx='9' cy='16' rx='3.4' ry='4.6' transform='rotate(-18 9 16)'/><ellipse cx='16' cy='9' rx='3.4' ry='4.8'/><ellipse cx='24' cy='9' rx='3.4' ry='4.8'/><ellipse cx='31' cy='16' rx='3.4' ry='4.6' transform='rotate(18 31 16)'/></g></svg>") center/contain no-repeat;
+  mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><g fill='black'><path d='M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z'/><ellipse cx='9' cy='16' rx='3.4' ry='4.6' transform='rotate(-18 9 16)'/><ellipse cx='16' cy='9' rx='3.4' ry='4.8'/><ellipse cx='24' cy='9' rx='3.4' ry='4.8'/><ellipse cx='31' cy='16' rx='3.4' ry='4.6' transform='rotate(18 31 16)'/></g></svg>") center/contain no-repeat}
+.menu > li > a:hover::before,.menu > li > a.active::before{opacity:1;transform:translate(0,-50%) rotate(-20deg) scale(1)}
+.menu > li > a:hover::before{background-color:var(--accent)}
+.menu > li > a.active{color:var(--accent-d)}
+.menu .sub{position:absolute;left:0;top:100%;background:var(--paper);border:1px solid var(--paper-3);box-shadow:0 12px 30px var(--shadow);padding:12px 24px 12px 14px;list-style:none;margin:0;min-width:0;width:max-content;opacity:0;transform:translateY(8px);pointer-events:none;transition:.3s}
+.menu li:hover .sub{opacity:1;transform:none;pointer-events:auto}.menu .sub a{font-weight:600;letter-spacing:.14em;padding:6px 0;transition:color .25s}
+.menu .sub a:hover{color:var(--accent)}
+.social{display:flex;gap:14px}.social a{width:34px;height:34px;border:1px solid var(--ink-mute);border-radius:50%;display:grid;place-items:center;transition:.3s}
+.social a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}.social svg{width:15px;height:15px;fill:currentColor}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:6px}.burger span{display:block;width:26px;height:2px;background:var(--ink);margin:6px 0}
+@media (max-width:840px){.menu,.social{display:none}.burger{display:block}
+  .nav.open .menu{display:flex;flex-direction:column;align-items:center;position:absolute;top:100%;left:auto;right:0;width:40vw;margin:0;background:var(--paper);padding:24px;gap:18px;box-shadow:0 20px 40px var(--shadow)}
+  .nav.open .menu > li{width:9.5em}
+  .nav.open .menu .sub{position:static;opacity:1;transform:none;pointer-events:auto;box-shadow:none;border:0;border-left:1px solid var(--ink-mute);margin-left:30px;padding:6px 0 0 14px}
+  .nav.open::before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:-1}
+  .nav.open.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;transition:none}}
+
+/* common (about.html) */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:100;background:#fff;color:var(--ink);padding:10px 16px;border-radius:0 0 8px 0;font-weight:700}
+.skip-link:focus{left:0}
+.mclose{display:none}.mclose button{background:none;border:0;cursor:pointer;padding:8px;color:var(--ink);line-height:0}.mclose svg{width:22px;height:22px;display:block}.mclose button:hover{color:var(--accent)}
+@media (max-width:840px){.nav.open .menu{padding-top:52px}.nav.open .menu > li.mclose{display:block;position:absolute;top:8px;right:8px;width:auto;transform:none}}
+
+/* footer */
+footer{padding:calc(clamp(60px,8vw,100px) - 20px) 0 20px;position:relative;overflow:hidden;background:var(--paper-2)}
+/* footer layout B: centered stack — logo, tagline, one line of links, socials, copyright */
+footer .grid{display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;position:relative;z-index:2}
+footer .grid>div:first-child{max-width:none;display:flex;flex-direction:column;align-items:center}
+footer .grid>div:first-child .logo{font-size:2.2rem;transform:translateX(-12px)}   /* offset the logo image width so the wordmark reads centered */
+footer .grid>div:first-child p{margin:.4em auto 0!important;font-size:15px!important;max-width:none!important;white-space:nowrap}
+footer h4{font-family:var(--sans);font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-d);margin-bottom:.6em}
+footer ul{list-style:none;margin:0;padding:0;display:flex;justify-content:center;gap:6px 26px;flex-wrap:wrap}
+footer .social{justify-content:center}
+footer .grid>div:nth-child(2){margin-top:-2px}   /* 20px below the tagline (the grid's own 22px gap is absorbed) */
+footer .social-block{margin-top:-2px}   /* 20px below the link row (the grid's own 22px gap is absorbed) */footer li{margin:0;font-weight:600;font-size:16px}
+footer .copy a{border-bottom:1px solid rgba(58,49,41,.28);padding-bottom:1px;transition:color .25s,border-color .25s}
+footer .copy a:hover{color:var(--accent);border-color:var(--accent)}
+footer .copy{margin-top:20px;padding-top:20px;border-top:1px solid rgba(58,49,41,.12);font-size:13px;color:var(--ink-mute);letter-spacing:.06em;display:flex;justify-content:center;gap:28px;flex-wrap:wrap;position:relative;z-index:2}
+footer .trail{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55}
+@media (max-width:840px){footer .grid{gap:18px}}
+footer .fh{font-family:var(--sans);font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent-d);margin:0 0 .6em;font-weight:500;line-height:1.08}
+footer .motion-toggle{background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;cursor:pointer;transition:color .25s}footer .motion-toggle:hover{color:#9f5122}
+html.motion-paused *,html.motion-paused *::before,html.motion-paused *::after{animation-play-state:paused!important}
+@media (min-width:541px) and (max-width:840px){footer .trail{transform:translateY(-10px)}}
+@media (min-width:320px) and (max-width:840px){footer .social{display:flex}}
+@media (min-width:320px) and (max-width:540px){footer .ft-l1,footer .ft-l2{display:block}footer .grid>div:first-child p{white-space:normal!important}}
+@media (max-width:540px){footer .copy{flex-direction:column;gap:5px;align-items:center}}
+@media (min-width:360px) and (max-width:393px){footer ul{gap:6px 16px}}
+@media (min-width:320px) and (max-width:359px){footer ul{gap:6px 8px}footer li{font-size:15px}}
+@media (max-width:440px){footer .trail{transform:translateY(-20px)}}
+@media (min-width:441px) and (max-width:540px){footer .trail{transform:translateY(-20px)}}
+@media (max-width:402px){footer .grid>div:first-child p{font-size:18px!important}footer .fh{font-size:15px}footer ul{max-width:280px;gap:4px 32px}footer .social{gap:24px}footer .social a{width:41px;height:41px}footer .social svg{width:18px;height:18px}footer li{font-size:20px}footer .copy{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.print{opacity:1}}
+
+/* page header (blog list / about pattern) */
+.reveal{opacity:1;transform:none}.print{opacity:1}
+.bl-head{padding:clamp(120px,15vw,170px) 0 clamp(6px,1.5vw,18px);position:relative;overflow:visible}
+.bl-head .eyebrow{font-size:.885rem}
+.bl-head h1{font-size:clamp(2.6rem,5.6vw,4.6rem)}
+.bl-head h1 .ital{font-style:italic;font-weight:400;color:var(--accent-d)}
+.bl-sub{max-width:520px;color:var(--ink-soft)}
+.bl-sun{position:absolute;right:clamp(20px,6vw,80px);top:100px;width:min(120px,12vw);opacity:.9;pointer-events:none}
+.bl-wolves{position:absolute;right:calc(clamp(24px,6vw,90px) + 100px);bottom:-70px;display:flex;align-items:flex-end;gap:16px;pointer-events:none;z-index:2}
+.bl-wolves img{height:calc(clamp(150px,21vw,290px) * var(--art,1));width:auto;filter:drop-shadow(0 14px 12px rgba(58,49,41,.18))}
+@media(min-width:841px) and (max-width:950px){.bl-head{padding-top:calc(clamp(120px,15vw,170px) - 20px)}.bl-sun{top:73px;right:calc(clamp(20px,6vw,80px) - 5px);width:calc(min(120px,12vw) / 1.2)}.bl-wolves{right:calc(clamp(24px,6vw,90px) + 25px);bottom:20px}.bl-wolves img{height:calc(clamp(150px,21vw,290px) * var(--art,1))}.bl-wolves img:first-child{translate:17px 0}}
+@media(min-width:951px){.bl-head{padding-top:calc(clamp(120px,15vw,170px) - 60px)}.bl-wolves{bottom:-50px}}
+@media(max-width:540px){.bl-wolves{margin-top:20px}}
+@media(min-width:403px) and (max-width:440px){.bl-wolves{margin-left:20px}}
+@media(max-width:402px){.bl-head{padding-top:100px}.bl-wolves{margin-top:-40px;z-index:3}.bl-sun{top:60px;z-index:0}}
+@media(max-width:840px){.bl-wolves{right:auto;left:min(62vw,470px);gap:6px;bottom:auto;top:calc(clamp(120px,15vw,170px) - 14px)}.bl-wolves img{height:calc(clamp(70px,13vw,127px) * var(--art,1))}}
+@media(min-width:394px) and (max-width:402px){.bl-sun{top:67px}.bl-wolves{margin-top:-32px}.bl-wolves img{height:calc(calc(clamp(70px,13vw,127px)*1.1) * var(--art,1))}.bl-wolves img:last-child{translate:-4px 0}}
+@media(min-width:403px) and (max-width:440px){.bl-head{padding-top:calc(clamp(120px,15vw,170px) - 20px)}.bl-sun{top:70px}.bl-wolves{top:calc(clamp(120px,15vw,170px) - 69px);left:calc(min(62vw,470px) - 18px)}.bl-wolves img:last-child{translate:-12px 0}}
+@media(min-width:441px) and (max-width:540px){.bl-head{padding-top:calc(clamp(120px,15vw,170px) - 20px)}.bl-sun{top:63px;width:calc(min(120px,12vw) / 1.2);right:calc(clamp(20px,6vw,80px) + 17px)}.bl-wolves{top:calc(clamp(120px,15vw,170px) - 71px);left:min(62vw,470px)}}
+@media(min-width:541px) and (max-width:840px){.bl-head{padding-top:calc(clamp(120px,15vw,170px) - 20px)}.bl-sun{top:70px;right:calc(clamp(20px,6vw,80px) - 7px);width:calc(min(120px,12vw) / 1.1)}.bl-wolves{top:calc(clamp(120px,15vw,170px) - 34px);left:calc(62vw + 20px)}.bl-wolves img{height:calc(calc(clamp(70px,13vw,127px)*1.2) * var(--art,1))}}
+.bl-pawline{display:flex;justify-content:center;gap:26px;margin:clamp(40px,6vw,64px) 0 clamp(28px,4vw,40px);opacity:.35}
+.bl-pawline svg{width:20px;height:20px;fill:var(--ink-soft)}
+.bl-pawline svg:nth-child(even){transform:rotate(18deg) translateY(-6px)}
+.bl-pawline svg:nth-child(odd){transform:rotate(-14deg)}
+.bl-pawline svg{width:29px;height:29px}
+
+/* same heading rhythm as the Blog list / About (copied from blog_design_preview.html lines 631, 639/641, 669-671) */
+@media(min-width:951px) and (max-width:1140px){.bl-head{padding-top:calc(clamp(120px,15vw,170px) - 32px)}.bl-sun{top:80px;width:calc(min(120px,12vw) / 1.1)}.bl-wolves img{height:calc(calc(clamp(150px,21vw,290px) / 1.1) * var(--art,1))}.bl-wolves{right:calc(clamp(24px,6vw,90px) + 65px);translate:0 -60px}.bl-wolves img:last-child{translate:-10px 0}}
+@media(max-width:402px){.bl-head{padding-top:110px}}
+@media(min-width:320px) and (max-width:359px){.bl-head .eyebrow{font-size:11.16px}.bl-head h1{font-size:calc((100vw - 44px) / 8.34)}}
+@media(min-width:360px) and (max-width:393px){.bl-head h1{font-size:min(41.6px,calc((100vw - 44px) / 8.34))}.bl-head .eyebrow{font-size:13.16px}}
+.bl-head h1{margin-top:-5px}.bl-head .bl-sub{margin-top:-10px}
+/* contact: the heading wraps before the wolves (longer title than the blog list) */
+.bl-head h1{max-width:9.4em}
+@media (min-width:541px) and (max-width:840px){.bl-head h1{max-width:10em}}
+@media (max-width:540px){.bl-head h1{max-width:none}}
+
+
+
+
+/* the two chipmunks in one box so leaves can sit above their heads: yellow leaf 20px above, centred over the pair;
+   red leaf (upside down) 20px to its right and 30px above it; green leaf (upside down) 30px left of the red one and 20px above it */
+.bl-wolves .chips{display:flex;align-items:flex-end;gap:inherit;position:relative;--base:clamp(40px,5.45vw,76.4px);--lw:calc(var(--base) / 1.452);--dx:20px;--dy:30px;--dx2:30px;--dy2:30px;--rw:calc(var(--base) * .48);--gw:calc(var(--base) * .528);--bw:calc(var(--base) * .645);--dx3:40px;--dy3:40px;--kw:calc(var(--base) * .561);--dx5:52px;--dy5:44px;--ow:calc(var(--base) * .464);--dx4:20px;--dy4:60px}   /* --base: the leaf scale; the yellow leaf is 1.2x smaller than that */
+.bl-wolves .leaf,.bl-wolves .leaf2,.bl-wolves .leaf3,.bl-wolves .leaf4,.bl-wolves .leaf5,.bl-wolves .leaf6{position:absolute;height:auto!important;filter:drop-shadow(0 8px 8px rgba(58,49,41,.12))}
+.bl-wolves .leaf{left:calc(50% + var(--lw) / 2 + var(--dx) + var(--rw) + var(--dx4));bottom:calc(100% + 20px + var(--lw) * .421 + var(--dy) - var(--dy4) - var(--ow) * 1.152);translate:0 20px!important;width:var(--lw);transform:scaleX(-1) rotate(30deg)}   /* yellow (mirrored, tilted 30° counter-clockwise on screen): swapped into the orange leaf's place (right of the chipmunks) */
+.bl-wolves .leaf2{left:calc(50% + var(--lw) / 2 + var(--dx));bottom:calc(100% + 20px + var(--lw) * .421 + var(--dy));width:var(--rw);rotate:240deg;transform:scaleX(-1);translate:-50px 30px!important}   /* red: tilted 30° clockwise, 40px left, 20px down */
+.bl-wolves .leaf3{left:calc(50% + var(--lw) / 2 + var(--dx) - var(--dx2) - var(--gw));bottom:calc(100% + 20px + var(--lw) * .421 + var(--dy) + var(--rw) * 1.347 + var(--dy2));width:var(--gw);rotate:160deg;translate:0 -5px!important}
+.bl-wolves .leaf4{left:50%;bottom:calc(100% + 20px);translate:calc(-50% - 105px) 20px!important;width:var(--bw)}   /* brown: swapped into the lower-left place */   /* brown leaf: 40px left of the yellow one, 20px above it, 1.2x smaller than the leaf scale */
+.bl-wolves .leaf5{left:calc(50% - var(--lw) / 2 - var(--dx3) - var(--bw));bottom:calc(100% + 20px + var(--lw) * .421 + var(--dy3));width:var(--ow);rotate:120deg;translate:40px -20px!important}   /* orange: swapped into the upper-left place */   /* orange: swapped into the yellow leaf's place (above / left of the chipmunks) */   /* orange leaf: 20px right of the red one, 40px below it, 1.4x smaller than the leaf scale */
+.bl-wolves .leaf6{left:calc(50% + var(--lw) / 2 + var(--dx) - 50px + var(--rw) + var(--dx5));bottom:calc(100% + 20px + var(--lw) * .421 + var(--dy) - 30px + var(--rw) * 1.347 + var(--dy5));width:var(--kw);rotate:180deg;translate:0 30px!important}   /* olive leaf (11): upside down + mirrored, 1.3x smaller, 40px right / 40px above the red leaf */
+@media (max-width:840px){.bl-wolves .leaf4{translate:calc(-50% - 53px) 10px!important}.bl-wolves .leaf2{translate:-20px 10px!important}.bl-wolves .chips{gap:6px;--base:clamp(25.5px,4vw,40px);--dx:10px;--dy:15px;--dx2:15px;--dy2:15px;--dx3:20px;--dy3:20px;--dx4:10px;--dy4:30px;--dx5:20px;--dy5:20px}.bl-wolves .leaf{bottom:calc(100% + 12px + var(--lw) * .421 + var(--dy) - var(--dy4) - var(--ow) * 1.152)}.bl-wolves .leaf2{bottom:calc(100% + 12px + var(--lw) * .421 + var(--dy))}.bl-wolves .leaf3{bottom:calc(100% + 12px + var(--lw) * .421 + var(--dy) + var(--rw) * 1.347 + var(--dy2))}.bl-wolves .leaf4{bottom:calc(100% + 12px)}.bl-wolves .leaf5{bottom:calc(100% + 12px + var(--lw) * .421 + var(--dy3))}.bl-wolves .leaf6{bottom:calc(100% + 12px + var(--lw) * .421 + var(--dy) - 15px + var(--rw) * 1.347 + var(--dy5))}}
+
+/* WCAG colours used on Home / Blog list / About (2026-10-02) */
+.btn{background:#c0561b}.btn:hover{background:#b8521a}
+.btn .paw{width:17px;height:17px}
+.eyebrow{color:#a8561f}
+.menu > li > a.active,.menu .sub a:hover{color:#a8561f!important}
+footer h4,footer .fh{color:#9f5122!important}
+footer .copy{color:#766858!important}
+footer ul a,footer .copy a{transition:color .25s}
+footer ul a:hover,footer .copy a:hover{color:#9f5122!important;border-color:#9f5122!important}
+
+/* =========================================================
+   CONTACT — new parts, built only from the tokens above
+   ========================================================= */
+.ct{padding:clamp(28px,4vw,56px) 0 0}
+.ct .grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.85fr);gap:clamp(28px,4vw,60px);align-items:start}
+@media (max-width:900px){.ct .grid{grid-template-columns:1fr}}
+
+/* form card = .bl-post / .bl-feat card language */
+.ct-card{background:#fff;border-radius:18px;box-shadow:0 30px 60px -26px rgba(58,49,41,.32);padding:clamp(26px,3.6vw,48px);border-top:6px solid var(--accent)}
+.ct-card h2{font-size:clamp(1.7rem,3vw,2.5rem);margin:.1em 0 .3em}
+.ct-card h2 .ital{font-style:italic;font-weight:400;color:var(--accent-d)}
+.ct-card .lead{color:var(--ink-soft);font-size:15.5px;margin-bottom:1.6em}
+
+.ct-form{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.ct-form .full{grid-column:1 / -1}
+@media (max-width:540px){.ct-form{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--ink-soft)}
+.field label .opt{font-weight:600;letter-spacing:.06em;text-transform:none;color:var(--ink-mute)}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-weight:400;font-size:16px;line-height:1.5;color:var(--ink);background:var(--paper);border:1px solid var(--paper-3);border-radius:14px;padding:14px 18px;transition:border-color .25s,box-shadow .25s,background .25s;appearance:none;-webkit-appearance:none}
+.field input::placeholder,.field textarea::placeholder{color:var(--ink-mute);font-weight:300}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:var(--ink-mute)}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;background:#fff;border-color:var(--accent);box-shadow:0 0 0 4px rgba(210,121,63,.16)}
+.field textarea{min-height:170px;resize:vertical}
+.field.sel{position:relative}
+.field.sel::after{content:"";position:absolute;right:20px;bottom:21px;width:9px;height:9px;border-right:2px solid var(--ink-soft);border-bottom:2px solid var(--ink-soft);transform:rotate(45deg);pointer-events:none}
+.field .hint{font-size:13px;color:var(--ink-mute);margin:0}
+
+/* ---- Contact Form 7 default stylesheet (what WordPress loads; copied here so the overrides below are proven) ---- */
+.wpcf7 .screen-reader-response{position:absolute;overflow:hidden;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);height:1px;width:1px;margin:-1px;padding:0;border:0;word-wrap:normal!important}
+.wpcf7 form .wpcf7-response-output{margin:2em .5em 1em;padding:.2em 1em;border:2px solid #00a32a}
+.wpcf7 form.init .wpcf7-response-output,.wpcf7 form.resetting .wpcf7-response-output,.wpcf7 form.submitting .wpcf7-response-output{display:none}
+.wpcf7 form.sent .wpcf7-response-output{border-color:#00a32a}
+.wpcf7 form.failed .wpcf7-response-output,.wpcf7 form.aborted .wpcf7-response-output{border-color:#d63638}
+.wpcf7 form.spam .wpcf7-response-output{border-color:#f56e28}
+.wpcf7 form.invalid .wpcf7-response-output,.wpcf7 form.unaccepted .wpcf7-response-output,.wpcf7 form.payment-required .wpcf7-response-output{border-color:#dba617}
+.wpcf7-form-control-wrap{position:relative}
+.wpcf7-not-valid-tip{color:#dc3232;font-size:1em;font-weight:normal;display:block}
+.wpcf7-list-item{display:inline-block;margin:0 0 0 1em}
+.wpcf7-list-item-label::before,.wpcf7-list-item-label::after{content:" "}
+.wpcf7-spinner{visibility:hidden;display:inline-block;background-color:#23282d;opacity:.75;width:24px;height:24px;border:none;border-radius:100%;padding:0;margin:0 24px;position:relative}
+form.submitting .wpcf7-spinner{visibility:visible}
+.wpcf7 .wpcf7-submit:disabled{cursor:not-allowed}
+.wpcf7 input[type="url"],.wpcf7 input[type="email"],.wpcf7 input[type="tel"]{direction:ltr}
+
+/* ---- the same look on the CF7 markup ---- */
+.ct-form .wpcf7-form-control-wrap{display:block;width:100%}
+.ct-form .wpcf7-form-control-wrap > input,.ct-form .wpcf7-form-control-wrap > select,.ct-form .wpcf7-form-control-wrap > textarea{display:block}   /* same as the flex items in the wireframe: no inline baseline gap under the textarea */
+.ct-form br{display:none}.ct-form .field > p:not(.hint){display:contents}   /* safety net if CF7's autop is left on (it should be turned off: see contact_cf7_template.txt) */
+.field textarea{height:170px}   /* CF7 adds rows="10"; keep the wireframe height */
+
+/* topic pills = .bl-cat (CF7 radio: .wpcf7-list-item > label > input + .wpcf7-list-item-label) */
+.ct-topics{display:flex;flex-wrap:wrap;gap:10px}
+.ct-topics .wpcf7-form-control-wrap,.ct-topics .wpcf7-radio{display:contents}
+.ct-topics .wpcf7-list-item{display:block;margin:0;position:relative}
+.ct-topics .wpcf7-list-item label{position:relative;display:block;cursor:pointer}
+.ct-topics .wpcf7-list-item input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.ct-topics .wpcf7-list-item-label{display:inline-flex;align-items:center;gap:.55em;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:.65em 1.25em;border-radius:999px;border:1px solid var(--ink-mute);transition:.3s;cursor:pointer}
+.ct-topics .wpcf7-list-item-label::before,.ct-topics .wpcf7-list-item-label::after{content:none}
+.ct-topics .wpcf7-list-item.first .wpcf7-list-item-label::before{content:"";display:block;width:13px;height:13px;flex:none;background-color:currentColor;-webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><g fill='black'><path d='M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z'/><ellipse cx='9' cy='16' rx='3.4' ry='4.6' transform='rotate(-18 9 16)'/><ellipse cx='16' cy='9' rx='3.4' ry='4.8'/><ellipse cx='24' cy='9' rx='3.4' ry='4.8'/><ellipse cx='31' cy='16' rx='3.4' ry='4.6' transform='rotate(18 31 16)'/></g></svg>") center/contain no-repeat;mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><g fill='black'><path d='M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z'/><ellipse cx='9' cy='16' rx='3.4' ry='4.6' transform='rotate(-18 9 16)'/><ellipse cx='16' cy='9' rx='3.4' ry='4.8'/><ellipse cx='24' cy='9' rx='3.4' ry='4.8'/><ellipse cx='31' cy='16' rx='3.4' ry='4.6' transform='rotate(18 31 16)'/></g></svg>") center/contain no-repeat}
+.ct-topics .wpcf7-list-item:hover .wpcf7-list-item-label{transform:translateY(-2px)}
+.ct-topics input:checked + .wpcf7-list-item-label{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ct-topics input:focus-visible + .wpcf7-list-item-label{box-shadow:0 0 0 4px rgba(210,121,63,.25)}
+
+/* consent (CF7 acceptance: .wpcf7-acceptance > .wpcf7-list-item > label > input + .wpcf7-list-item-label) */
+.ct-consent{font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+.ct-consent .wpcf7-form-control-wrap,.ct-consent .wpcf7-acceptance,.ct-consent .wpcf7-list-item{display:block;margin:0}
+.ct-consent label{display:flex;align-items:flex-start;gap:12px;cursor:pointer}
+.ct-consent .wpcf7-list-item-label::before,.ct-consent .wpcf7-list-item-label::after{content:none}
+.ct-consent input{flex:none;width:20px;height:20px;margin:2px 0 0;accent-color:#c0561b}
+.ct-consent a{border-bottom:1px solid rgba(58,49,41,.28);transition:color .25s,border-color .25s}
+.ct-consent a:hover{color:var(--accent-d);border-color:var(--accent-d)}
+
+/* submit (CF7 renders <input type="submit">: no SVG inside, so the paw is a background image) */
+.ct-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:6px}
+.ct-actions .btn{border:0;cursor:pointer;font-family:var(--sans);appearance:none;-webkit-appearance:none}
+.ct-actions .wpcf7-submit{padding-left:calc(2em + 17px + .6em)}
+.ct-actions .wpcf7-submit,.ct-actions .wpcf7-submit:hover{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><g fill='white'><path d='M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z'/><ellipse cx='9' cy='16' rx='3.4' ry='4.6' transform='rotate(-18 9 16)'/><ellipse cx='16' cy='9' rx='3.4' ry='4.8'/><ellipse cx='24' cy='9' rx='3.4' ry='4.8'/><ellipse cx='31' cy='16' rx='3.4' ry='4.6' transform='rotate(18 31 16)'/></g></svg>");background-repeat:no-repeat;background-position:2em 50%;background-size:17px 17px}
+.ct-actions .wpcf7-spinner{display:none}
+.wpcf7-form.submitting .ct-actions .btn{opacity:.7;pointer-events:none}
+.ct-actions .note{font-size:14px;color:var(--ink-mute);margin:0}
+
+/* messages after submit (CF7 defaults -> site colours; invisible until the form is sent) */
+.ct-card .wpcf7-not-valid{border-color:#b25f2b}
+.ct-card .wpcf7-not-valid-tip{font-size:13px;color:#b25f2b;margin-top:6px;font-weight:600}
+.ct-card .wpcf7 form .wpcf7-response-output{margin:20px 0 0;padding:14px 18px;border-radius:14px;border:1px solid var(--ink-mute);font-size:14.5px;color:var(--ink-soft);background:var(--paper)}
+.ct-card .wpcf7 form.sent .wpcf7-response-output{border-color:var(--sage-5);color:var(--sage-6)}
+.ct-card .wpcf7 form.invalid .wpcf7-response-output,.ct-card .wpcf7 form.unaccepted .wpcf7-response-output,.ct-card .wpcf7 form.failed .wpcf7-response-output,.ct-card .wpcf7 form.aborted .wpcf7-response-output,.ct-card .wpcf7 form.spam .wpcf7-response-output{border-color:#b25f2b;color:#b25f2b}
+
+/* side column */
+.ct-side{display:flex;flex-direction:column;gap:clamp(22px,3vw,34px);padding-top:clamp(4px,1vw,14px)}
+.ct-block h3{font-size:clamp(1.4rem,2.4vw,1.9rem);margin:0 0 .35em}
+.ct-block p{font-size:15.5px;color:var(--ink-soft);margin:0 0 .8em}
+.ct-block .mail{font-family:var(--serif);font-size:clamp(1.4rem,2.2vw,1.75rem);font-weight:500;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:.08em;display:inline-block;transition:color .25s}
+.ct-block .mail:hover{color:var(--accent-d)}
+.ct-block .eyebrow{margin-bottom:.6em}
+.ct-list{list-style:none;margin:0;padding:0;display:grid;gap:.55em}
+.ct-list li{display:flex;align-items:flex-start;gap:.6em;font-size:15.5px;font-weight:600}
+.ct-list li svg{width:18px;height:18px;flex:none;margin-top:3px;fill:var(--accent)}
+.ct-list li small{display:block;font-weight:300;color:var(--ink-soft);font-size:14.5px}
+.ct-side .social{gap:14px}
+.ct-side .social a{width:44px;height:44px}.ct-side .social svg{width:18px;height:18px}
+.ct-side .btn.ghost{align-self:flex-start;margin-top:20px}   /* 20px below the last list item (2026-10-11 Shio) */
+
+/* FAQ strip */
+.ct-faq{padding:clamp(48px,7vw,96px) 0 0}
+.ct-faq header{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(18px,3vw,30px)}
+.ct-faq h2{font-size:clamp(2rem,4.2vw,3.4rem);margin:0}
+.ct-faq h2 .ital{font-style:italic;font-weight:400;color:var(--accent-d)}
+.ct-faq .qs{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,30px)}
+@media (max-width:960px){.ct-faq .qs{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.ct-faq .qs{grid-template-columns:1fr}}
+.q{background:#fff;border-radius:16px;box-shadow:0 22px 44px -22px var(--shadow);padding:24px 26px 26px;border-top:6px solid var(--c,var(--accent));transition:transform .35s,box-shadow .35s}
+.q:hover{transform:translateY(-6px);box-shadow:0 34px 60px -22px rgba(58,49,41,.3)}
+.q h3{font-size:1.32rem;line-height:1.2;margin:0 0 .5em}
+.q p{font-size:14.5px;color:var(--ink-soft);margin:0}
+@media (min-width:951px){.q h3{font-size:23px}.q p{font-size:15.5px}}
+
+
+/* phone type sizes, aligned with Home / Blog list / About */
+@media (max-width:402px){
+  .bl-sub{font-size:22px;line-height:1.7}
+  .ct-card .lead,.ct-block p,.q p{font-size:21px}
+  .field label{font-size:14px}.field input,.field select,.field textarea{font-size:19px}
+  .ct-topics .wpcf7-list-item-label{font-size:13.4px}.ct-consent{font-size:18px}.ct-actions .note,.field .hint{font-size:16px}
+  .ct-list li{font-size:20px}.ct-list li small{font-size:18px}
+  .q h3{font-size:25px;font-weight:600}
+}
+/* 40px between the lead text and the form card at every width (2026-10-11 Shio) */
+.bl-head{padding-bottom:0}.ct{padding-top:0!important}.bl-head .bl-sub{margin-bottom:40px}
+/* PC / tablet landscape: the animals' feet sit on the bottom line of the lead text (the lead's 40px margin collapses through the header, so the header box ends at the lead's bottom) */
+@media (min-width:841px){.bl-wolves{bottom:0!important;translate:0 0!important;margin-bottom:0!important}}
+/* =========================================================
+   CONTACT text sizes = Home (index3) at every width (2026-10-11 Shio: nothing smaller than Home)
+   Home measured: body p 17px/1.7 ink · card p 15 (PC) / 17 (541-840) / 16 (403-540) / 20 (<=402)
+   card h3 clamp (PC) / 24.4 (541-840) / 25 (403-540) / 32 (<=402) · list li 17 / 18.7 (441-840) / 19.5-20 (<=402)
+   small label 12 -> 15 (<=402) · footer p 15 -> 18 (<=402) · body p 20 (<=402)
+   ========================================================= */
+.ct-card .lead,.ct-block p,.ct-list li small,.ct-consent{font-size:17px;line-height:1.7;color:var(--ink)}
+.ct-list li{font-size:17px;line-height:1.7;color:var(--ink)}
+.ct-list li svg{margin-top:5px}
+.q p{font-size:15px;line-height:1.7;color:var(--ink)}
+.field label{font-size:12px;letter-spacing:.2em;color:var(--ink-soft)}
+.field input,.field select,.field textarea{font-size:17px;line-height:1.5}
+.field .hint,.ct-actions .note{font-size:15px;line-height:1.7;color:var(--ink-mute)}
+.ct-topics .wpcf7-list-item-label{font-size:.92rem;letter-spacing:.2em;padding:.7em 1.4em}
+.ct-card .wpcf7-not-valid-tip{font-size:15px}
+.ct-card .wpcf7 form .wpcf7-response-output{font-size:17px}
+@media (min-width:541px) and (max-width:840px){.ct-block h3,.q h3{font-size:24.4px}.q p{font-size:17px}.ct-list li{font-size:18.7px}}
+@media (min-width:403px) and (max-width:540px){.ct-block h3,.q h3{font-size:25px}.q p{font-size:16px}.ct-list li{font-size:18.7px}}
+@media (max-width:402px){
+  .ct-card .lead,.ct-block p,.ct-list li small,.ct-consent,.q p,.field input,.field select,.field textarea,.ct-card .wpcf7 form .wpcf7-response-output{font-size:20px;line-height:1.7}
+  .ct-list li{font-size:20px}.ct-block h3,.q h3{font-size:32px;font-weight:500}
+  .field label{font-size:15px}.field .hint,.ct-actions .note,.ct-card .wpcf7-not-valid-tip{font-size:18px}
+  .ct-topics .wpcf7-list-item-label{font-size:.92rem}
+}
+/* paw line: same spacing as the About page (button -> paws -> footer) at every width */
+.ct-faq{padding-bottom:0}
+.bl-pawline{margin:69.5px 0 calc(clamp(20px,6.5vw,90px) + 3.1px)}
+@media(max-width:540px){.bl-pawline{margin-bottom:calc(clamp(20px,6.5vw,90px) + 23.1px)}}
+@media(max-width:402px){.bl-pawline{margin-bottom:calc(clamp(20px,6.5vw,90px) + 43.1px)}}
+
+/* ===== audit fixes 2026-10-11 (layout / spacing / a11y) ===== */
+/* 541-840: the heading wraps before the animals instead of running under them */
+@media (min-width:541px) and (max-width:840px){.bl-head h1{max-width:calc(62vw - 20px)}}
+/* phones: the animals' feet were touching the first heading line; lift them 12px */
+@media (max-width:540px){.bl-wolves{translate:0 -12px}}
+/* phones / tablets: the nav rule hides every .social; the "Follow along" icons must stay visible (same override as the footer) */
+@media (max-width:840px){.ct-side .social{display:flex}}
+/* section rhythm = About (trips section) / Blog list cards */
+.ct-faq{padding-top:calc(clamp(60px,8vw,110px) - 2px)}
+.ct-faq header{margin-bottom:2.2rem}
+.q{padding:22px 24px 24px}
+/* small text: About's WCAG label colour (#7d6f60, 4.6:1 on white) instead of ink-mute (3.3:1) */
+.field .hint,.ct-actions .note,.field label .opt{color:#7d6f60}
+.field input::placeholder,.field textarea::placeholder{color:#7d6f60;opacity:1}
+/* reduced motion: no wiggling button, no nav transition */
+@media (prefers-reduced-motion:reduce){.btn.wiggle{animation:none!important}.btn,.nav,.menu .sub,.social a,.q,.ct-topics .wpcf7-list-item-label{transition:none!important}}
+
+/* ===== phones / tablets: all six leaves stay visible — spread sideways around the animals and kept below the menu button.
+   Positions are % of the two-chipmunk box (left = % of its width, bottom = % of its height), so they scale with the animals. ===== */
+@media (max-width:840px){
+  .bl-wolves .leaf,.bl-wolves .leaf2,.bl-wolves .leaf3,.bl-wolves .leaf4,.bl-wolves .leaf5,.bl-wolves .leaf6{translate:none!important}
+  .bl-wolves .leaf4{left:-8%;bottom:112%}    /* brown: just above the first chipmunk */
+  .bl-wolves .leaf5{left:18%;bottom:185%}    /* yellow-orange: up, left */
+  .bl-wolves .leaf3{left:48%;bottom:225%}    /* green: highest, still under the fox's ear line */
+  .bl-wolves .leaf2{left:60%;bottom:140%}    /* red */
+  .bl-wolves .leaf6{left:98%;bottom:190%}    /* olive: up, right */
+  .bl-wolves .leaf{left:108%;bottom:55%}     /* yellow: right of the chipmunks */
+}
+@media (max-width:540px){
+  .bl-wolves .leaf4{left:-12%;bottom:112%}
+  .bl-wolves .leaf2{left:42%;bottom:120%}
+  .bl-wolves .leaf6{left:112%;bottom:92%}
+  .bl-wolves .leaf{left:106%;bottom:30%}
+  .bl-wolves .leaf5{left:-150%;bottom:135%}  /* left of the fox */
+  .bl-wolves .leaf3{left:-195%;bottom:60%}   /* further left, lower */
+}
+/* 841-1380: the brown leaf keeps its place beside the chipmunk as the animals shrink (it was sliding onto the fox); identical to the fixed offset at 1381px+ */
+@media (min-width:841px) and (max-width:1380px){.bl-wolves .leaf4{left:-3%;translate:-50% 20px!important}}
+/* required fields */
+.field label .req,.ct-consent .req{color:#a8561f;font-weight:700;letter-spacing:0;margin-left:.2em}
+</style>
+<script>try{if(localStorage.getItem('bs-motion')==='paused')document.documentElement.classList.add('motion-paused')}catch(e){}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="wc" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".035" numOctaves="3" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="7" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="wc2" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="2" seed="9" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="wcsoft" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="3" seed="5" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="18" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation=".6"/></filter>
+    <filter id="wcTex" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="t"/>
+      <feColorMatrix in="t" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 -.15" result="ta"/>
+      <feComposite in="SourceGraphic" in2="ta" operator="in" result="tex"/>
+      <feBlend in="tex" in2="SourceGraphic" mode="multiply" result="m"/>
+      <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="2" seed="8" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .7 0" result="ba"/>
+      <feComposite in="m" in2="ba" operator="arithmetic" k1="0" k2="1" k3="-.18" k4="0"/>
+    </filter>
+    <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfd6e3"/><stop offset="1" stop-color="#e9ebef"/></linearGradient>
+    <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#aab4c4"/><stop offset="1" stop-color="#d6dbe2"/></linearGradient>
+    <linearGradient id="m3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7f8ea0"/><stop offset="1" stop-color="#b9c2cc"/></linearGradient>
+    <linearGradient id="phWarm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9b98a"/><stop offset=".5" stop-color="#c9855a"/><stop offset="1" stop-color="#7a4b30"/></linearGradient>
+    <linearGradient id="phCool" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d7e6ee"/><stop offset="1" stop-color="#7f9aa8"/></linearGradient>
+    <linearGradient id="phPine" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c9d6c2"/><stop offset="1" stop-color="#5a7457"/></linearGradient>
+    <linearGradient id="phDusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c9a6"/><stop offset="1" stop-color="#8d6f88"/></linearGradient>
+    <radialGradient id="moonG" cx=".4" cy=".4" r=".7"><stop offset="0" stop-color="#fffdf5"/><stop offset=".7" stop-color="#f6ecd2"/><stop offset="1" stop-color="#ecd9b3"/></radialGradient>
+    <radialGradient id="sunG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffd9a3"/><stop offset=".6" stop-color="#f7b877"/><stop offset="1" stop-color="#f3a25f" stop-opacity="0"/></radialGradient>
+    <symbol id="logoMark" viewBox="0 0 100 100">
+      <rect x="20" y="20" width="60" height="60" transform="rotate(45 50 50)" fill="none" stroke="currentColor" stroke-width="7"/>
+      <g transform="rotate(45 50 50)" fill="none" stroke="currentColor" stroke-width="7">
+        <path d="M30 56 V30 H62 V47 H46 V38"/>
+      </g>
+      <path d="M63 38 C 55 54, 42 63, 26 65 C 44 71, 59 61, 65 44 Z" fill="currentColor"/>
+      <path d="M66 46 C 64 60, 58 72, 48 81 C 60 76, 68 65, 70 51 Z" fill="currentColor"/>
+      <path d="M71 53 C 72 63, 69 72, 63 79 C 71 74, 76 65, 76 55 Z" fill="currentColor"/>
+      <path d="M69 41 L80 52 L69 60 Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="pawIconOrange" viewBox="0 0 40 40"><g style="fill:var(--accent)"><path d="M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="16" rx="3.4" ry="4.6" transform="rotate(-18 9 16)"/><ellipse cx="16" cy="9" rx="3.4" ry="4.8"/><ellipse cx="24" cy="9" rx="3.4" ry="4.8"/><ellipse cx="31" cy="16" rx="3.4" ry="4.6" transform="rotate(18 31 16)"/></g></symbol>
+    <symbol id="pawIcon" viewBox="0 0 40 40"><g fill="#3a3129"><path d="M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="16" rx="3.4" ry="4.6" transform="rotate(-18 9 16)"/><ellipse cx="16" cy="9" rx="3.4" ry="4.8"/><ellipse cx="24" cy="9" rx="3.4" ry="4.8"/><ellipse cx="31" cy="16" rx="3.4" ry="4.6" transform="rotate(18 31 16)"/></g></symbol>
+  </defs>
+</svg>
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="index3.html" aria-label="BrianShio home"><img class="logo-mark" src="brianshio-home-child/assets/logo.png" alt="">BrianShio</a>
+    <ul class="menu" id="mainMenu">
+      <li class="mclose"><button type="button" aria-label="Close menu" onclick="this.closest('.nav').classList.remove('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg></button></li>
+      <li><a href="index3.html">Home</a></li>
+      <li><a href="https://brianshio.com/blog/">Blog</a><ul class="sub"><li><a href="https://brianshio.com/category/guides/">Guides</a></li><li><a href="https://brianshio.com/category/reviews/">Reviews</a></li><li><a href="https://brianshio.com/category/tips/">Tips</a></li></ul></li>
+      <li><a href="about.html">About</a></li>
+      <li><a class="active" href="contact.html" aria-current="page">Contact</a></li>
+    </ul>
+    <div class="social" aria-label="social links">
+      <a href="https://www.youtube.com/@BrianShio" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+      <a href="https://www.instagram.com/brian_shio/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+      <a href="https://www.facebook.com/share/18RKMzKQvh/" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
+    </div>
+    <button class="burger" id="burger" aria-label="menu" aria-expanded="false" aria-controls="mainMenu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+
+<main id="main">
+
+<!-- ================= CONTACT : HEADER (same pattern as Blog list / About) ================= -->
+<header class="bl-head"><div class="wrap">
+    <div class="bl-wolves" aria-hidden="true"><img src="brianshio-home-child/assets/Animals/fox_01_crop.png" alt="" width="319" height="447" decoding="async"><span class="chips"><img class="leaf" src="brianshio-home-child/assets/Animals/leaf_15.png" alt="" width="577" height="243" decoding="async"><img class="leaf2" src="brianshio-home-child/assets/Animals/leaf_16.png" alt="" width="366" height="493" decoding="async"><img class="leaf3" src="brianshio-home-child/assets/Animals/leaf_13.png" alt="" width="487" height="335" decoding="async"><img class="leaf4" src="brianshio-home-child/assets/Animals/leaf_14.png" alt="" width="541" height="288" decoding="async"><img class="leaf5" src="brianshio-home-child/assets/Animals/leaf_12.png" alt="" width="375" height="432" decoding="async"><img class="leaf6" src="brianshio-home-child/assets/Animals/leaf_11.png" alt="" width="547" height="426" decoding="async"><img class="chip" src="brianshio-home-child/assets/Animals/chip_03_crop.png" alt="" width="332" height="443" decoding="async" style="--art:.42"><img class="chip" src="brianshio-home-child/assets/Animals/chip_02_crop.png" alt="" width="326" height="444" decoding="async" style="--art:.42"></span></div>
+  <div class="eyebrow">Contact</div>
+  <h1>Say hello, <span class="ital">we’d love to hear from you</span></h1>
+  <p class="bl-sub">Questions about a trip, a cabin we stayed in, or an idea for working together — drop us a line below and we’ll write back from wherever the road has taken us.</p>
+</div></header>
+
+<!-- ================= CONTACT : FORM + SIDE ================= -->
+<section class="ct"><div class="wrap">
+  <div class="grid">
+
+    <div class="ct-card">
+      <div class="eyebrow">Send a message</div>
+      <h2 id="ct-form-title">Write to Brian <span class="ital">&amp;</span> Shio</h2>
+      <p class="lead">Every message lands in our inbox — no agency, no bots. Tell us a little about yourself and what’s on your mind.</p>
+
+      <!-- Contact Form 7 の出力と同じ構造（WordPress側では [contact-form-7 id="…"] に差し替える。貼り付け用テンプレート: contact_cf7_template.txt） -->
+      <div class="wpcf7 no-js" id="wpcf7-f123-p45-o1" lang="en-US" dir="ltr" data-wpcf7-id="123">
+      <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+      <form action="#wpcf7-f123-p45-o1" method="post" class="wpcf7-form init" aria-labelledby="ct-form-title" novalidate="novalidate" data-status="init">
+        <div style="display: none;">
+          <input type="hidden" name="_wpcf7" value="123"><input type="hidden" name="_wpcf7_version" value="6.1"><input type="hidden" name="_wpcf7_locale" value="en_US"><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f123-p45-o1"><input type="hidden" name="_wpcf7_container_post" value="45"><input type="hidden" name="_wpcf7_posted_data_hash" value="">
+        </div>
+        <div class="ct-form">
+        <div class="field full">
+          <label id="ct-topic-label">What’s this about?</label>
+          <div class="ct-topics" role="radiogroup" aria-labelledby="ct-topic-label"><span class="wpcf7-form-control-wrap" data-name="topic"><span class="wpcf7-form-control wpcf7-radio"><span class="wpcf7-list-item first"><label><input type="radio" name="topic" value="Just saying hi" checked="checked"><span class="wpcf7-list-item-label">Just saying hi</span></label></span><span class="wpcf7-list-item"><label><input type="radio" name="topic" value="Trip question"><span class="wpcf7-list-item-label">Trip question</span></label></span><span class="wpcf7-list-item"><label><input type="radio" name="topic" value="Partnership"><span class="wpcf7-list-item-label">Partnership</span></label></span><span class="wpcf7-list-item last"><label><input type="radio" name="topic" value="Press"><span class="wpcf7-list-item-label">Press</span></label></span></span></span></div>
+        </div>
+
+        <div class="field">
+          <label for="ct-name">Your name <span class="req" aria-hidden="true">*</span></label>
+          <span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" id="ct-name" autocomplete="name" aria-required="true" aria-invalid="false" placeholder="Jane Appleseed" value="" type="text" name="your-name"></span>
+        </div>
+        <div class="field">
+          <label for="ct-email">Email <span class="req" aria-hidden="true">*</span></label>
+          <span class="wpcf7-form-control-wrap" data-name="your-email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" id="ct-email" autocomplete="email" aria-required="true" aria-invalid="false" placeholder="you@example.com" value="" type="email" name="your-email"></span>
+        </div>
+
+        <div class="field sel full">
+          <label for="ct-where">Where are you writing from? <span class="opt">(optional)</span></label>
+          <span class="wpcf7-form-control-wrap" data-name="where"><select class="wpcf7-form-control wpcf7-select" id="ct-where" aria-invalid="false" name="where"><option value="">Choose a region</option><option value="United States">United States</option><option value="Canada">Canada</option><option value="Japan">Japan</option><option value="Europe">Europe</option><option value="Somewhere else">Somewhere else</option></select></span>
+        </div>
+
+        <div class="field full">
+          <label for="ct-msg">Message <span class="req" aria-hidden="true">*</span></label>
+          <span class="wpcf7-form-control-wrap" data-name="message"><textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" id="ct-msg" aria-required="true" aria-invalid="false" placeholder="Hi Brian &amp; Shio — we’re planning a fall road trip through Vermont and…" name="message" aria-describedby="ct-msg-hint"></textarea></span>
+          <p class="hint" id="ct-msg-hint">A few sentences is plenty. Links are welcome.</p>
+        </div>
+
+        <div class="ct-consent full"><span class="wpcf7-form-control-wrap" data-name="consent"><span class="wpcf7-form-control wpcf7-acceptance"><span class="wpcf7-list-item"><label><input type="checkbox" name="consent" value="1" aria-invalid="false" aria-required="true"><span class="wpcf7-list-item-label">I’m happy for BrianShio to keep this message so they can reply. We never share your details — see our <a href="#">privacy note</a>. <span class="req" aria-hidden="true">*</span></span></label></span></span></span></div>
+
+        <div class="ct-actions full">
+          <input class="wpcf7-form-control wpcf7-submit has-spinner btn wiggle" type="submit" value="Send message"><span class="wpcf7-spinner"></span>
+          <p class="note">We usually reply within 2–3 days.</p>
+        </div>
+        </div>
+        <p class="wpcf7-response-output" aria-hidden="true"></p>
+      </form>
+      </div>
+    </div>
+
+    <aside class="ct-side">
+      <div class="ct-block">
+        <div class="eyebrow">Prefer email?</div>
+        <h3>Write to us directly</h3>
+        <p>Same inbox, same two people. Good for longer notes or attachments.</p>
+        <a class="mail" href="mailto:hello@brianshio.com">hello@brianshio.com</a>
+      </div>
+
+      <div class="ct-block">
+        <div class="eyebrow">Work with us</div>
+        <h3>Partnerships <span style="font-style:italic;font-weight:400;color:var(--accent-d)">&amp;</span> press</h3>
+        <ul class="ct-list">
+          <li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg><div>Hotels, cabins &amp; getaways<small>Honest stays, honest reviews — we only feature places we’d go back to.</small></div></li>
+          <li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg><div>Tourism boards &amp; destinations<small>Itineraries, guides and video for couples.</small></div></li>
+          <li><svg viewBox="0 0 40 40"><use href="#pawIconOrange"/></svg><div>Media &amp; interviews<small>Happy to talk about travel as a couple, cabins and life between two countries.</small></div></li>
+        </ul>
+        <a class="btn ghost" href="#">Request our media kit</a>
+      </div>
+
+      <div class="ct-block">
+        <div class="eyebrow">Follow along</div>
+        <p>The fastest way to see where we are this week.</p>
+        <div class="social" aria-label="social links">
+          <a href="https://www.youtube.com/@BrianShio" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+          <a href="https://www.instagram.com/brian_shio/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+          <a href="https://www.facebook.com/share/18RKMzKQvh/" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div></section>
+
+<!-- ================= CONTACT : BEFORE YOU WRITE (FAQ, card language from the Blog list) ================= -->
+<section class="ct-faq"><div class="wrap">
+  <header>
+    <div><div class="eyebrow">Before you write</div><h2>Quick answers <span class="ital">to the usual questions</span></h2></div>
+    <a class="link" href="https://brianshio.com/category/guides/">Browse all guides</a>
+  </header>
+  <div class="qs">
+    <article class="q"><h3>Can you plan our trip for us?</h3><p>We don’t offer custom planning, but our guides are built to be copied. Start with the destination guide, then the tips section.</p></article>
+    <article class="q"><h3>Do you accept free stays or products?</h3><p>Sometimes — always disclosed, never in exchange for a positive review. We only feature places we’d return to on our own dime.</p></article>
+    <article class="q"><h3>How long until you reply?</h3><p>Usually 2–3 days. When we’re off-grid in the mountains it can take a little longer — we’ll always get back to you.</p></article>
+  </div>
+</div></section>
+
+<div class="wrap">
+  <div class="bl-pawline" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="16" rx="3.4" ry="4.6"/><ellipse cx="16" cy="9" rx="3.4" ry="4.8"/><ellipse cx="24" cy="9" rx="3.4" ry="4.8"/><ellipse cx="31" cy="16" rx="3.4" ry="4.6"/></svg><svg viewBox="0 0 40 40"><path d="M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="16" rx="3.4" ry="4.6"/><ellipse cx="16" cy="9" rx="3.4" ry="4.8"/><ellipse cx="24" cy="9" rx="3.4" ry="4.8"/><ellipse cx="31" cy="16" rx="3.4" ry="4.6"/></svg><svg viewBox="0 0 40 40"><path d="M20 36c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="16" rx="3.4" ry="4.6"/><ellipse cx="16" cy="9" rx="3.4" ry="4.8"/><ellipse cx="24" cy="9" rx="3.4" ry="4.8"/><ellipse cx="31" cy="16" rx="3.4" ry="4.6"/></svg></div>
+</div>
+</main>
+
+<footer id="contact">
+  <div class="trail" id="footTrail" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="grid">
+      <div><a class="logo" href="index3.html" aria-label="BrianShio home"><img class="logo-mark" src="brianshio-home-child/assets/logo.png" alt="">BrianShio</a><p style="margin-top:1em;max-width:340px;font-size:.95rem"><span class="ft-l1">Travel &amp; lifestyle for couples.</span> <span class="ft-l2">See the world with the one you love.</span></p></div>
+      <div><p class="fh">Useful links</p><ul><li><a href="https://brianshio.com/category/guides/">Guides</a></li><li><a href="https://brianshio.com/category/reviews/">Reviews</a></li><li><a href="https://brianshio.com/category/tips/">Tips</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">RSS</a></li><li><button type="button" class="motion-toggle" id="motionToggle">Pause animations</button></li></ul></div>
+      <div class="social-block"><div class="social" aria-label="social links">
+      <a href="https://www.youtube.com/@BrianShio" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+      <a href="https://www.instagram.com/brian_shio/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 4 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg></a>
+      <a href="https://www.facebook.com/share/18RKMzKQvh/" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
+    </div></div>
+      
+    </div>
+    <div class="copy"><span>© 2026 BrianShio</span><span>Website by <a href="https://designbyshio.com" target="_blank" rel="noopener">Design by Shio</a></span></div>
+  </div>
+</footer>
+
+<script>
+(function(){var n=document.getElementById('nav');if(!n)return;
+var on=function(){n.classList.toggle('scrolled',window.scrollY>40)};on();window.addEventListener('scroll',on,{passive:true});
+var b=document.getElementById('burger');if(b)b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false')});})();
+</script>
+<script>
+/* footer "Pause animations" toggle (saved per browser) — same as Home */
+(function(){var root=document.documentElement,btn=document.getElementById('motionToggle');if(!btn)return;
+var paused=function(){return root.classList.contains('motion-paused')},label=function(){btn.textContent=paused()?'Play animations':'Pause animations'};label();
+btn.addEventListener('click',function(){root.classList.toggle('motion-paused');try{localStorage.setItem('bs-motion',paused()?'paused':'on')}catch(e){}label()});})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+// footer torn-paper top edge — same as the home page (page paper spills onto the footer)
+(function(){ const ft=document.querySelector('footer'); if(!ft) return; const W=ft.clientWidth; let r=29; const rnd=()=>{ r=(r*9301+49297)%233280; return r/233280; };
+  const pts=['0,0']; const n=Math.round(W/6);
+  for(let i=0;i<=n;i++){ const t=i/n, x=(t*W).toFixed(1); const wave=Math.sin(t*Math.PI*9)*2.2+Math.sin(t*Math.PI*41)*1.2; const y=14+wave+(rnd()*2.4-1.2); pts.push(`${x},${y.toFixed(1)}`); }
+  pts.push(`${W},0`);
+  ft.insertAdjacentHTML('afterbegin',`<svg aria-hidden="true" style="position:absolute;left:0;top:-6px;width:100%;height:24px;z-index:3;pointer-events:none" viewBox="0 0 ${W} 24" preserveAspectRatio="none"><polygon points="${pts.join(' ')}" fill="#fbf7ef"/></svg>`); })();
+</script>
+<script>
+/* footer: same wolf paw-print trail as the home page (drawn once, shown static) */
+(function(){
+function pawPrint(x,y,size,rot,color,opacity=.5){ const s=size/40;
+  return `<g class="print" data-x="${x}" transform="translate(${x} ${y}) rotate(${rot}) scale(${s})" fill="${color}" opacity="${opacity}" filter="url(#wc2)"><path d="M20 38c-6 0-11-4-11-9 0-4 4-7 11-7s11 3 11 7c0 5-5 9-11 9z"/><ellipse cx="9" cy="17" rx="3.2" ry="4.4" transform="rotate(-18 9 17)"/><ellipse cx="16" cy="9" rx="3.2" ry="4.6"/><ellipse cx="24" cy="9" rx="3.2" ry="4.6"/><ellipse cx="31" cy="17" rx="3.2" ry="4.4" transform="rotate(18 31 17)"/></g>`; }
+function trailSVG(w,h,n,opts={}){ const {color='#9a8c7c',size=22,y0=h*.55,amp=h*.12,xStart=0,xEnd=w,opacity=.5,dir=1}=opts; let out='';
+  for(let i=0;i<n;i++){ const t=i/(n-1), x=xStart+(xEnd-xStart)*t, y=y0+Math.sin(t*Math.PI*2)*amp+(i%2?size*.6:-size*.6), rot=90*dir+Math.cos(t*Math.PI*2)*10+(i%2?6:-6); out+=pawPrint(x,y,size,rot,color,opacity); } return out; }
+  var ft=document.getElementById('footTrail'); if(!ft) return; var W=ft.clientWidth,H=ft.clientHeight,n=Math.max(8,Math.round(W/85));
+  ft.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none" style="width:100%;height:100%;overflow:visible">'+trailSVG(W,H,n,{color:'#d2b48c',size:18,y0:H*.5,amp:H*.2,xStart:-20,xEnd:W+20,opacity:.5})+'</svg>';
+  if(window.gsap){ gsap.set(ft.querySelectorAll('.print'),{opacity:1,scale:1}); }
+})();
+</script>
+<!-- DEV ONLY: viewport size badge (delete this block before uploading) -->
+<div id="vwBadge" aria-hidden="true" style="position:fixed;left:10px;bottom:10px;z-index:9999;font:700 12px/1.3 ui-monospace,Menlo,monospace;color:#fff;background:rgba(58,49,41,.88);padding:6px 10px;border-radius:8px;pointer-events:none"></div>
+<script>(function(){var b=document.getElementById('vwBadge');if(!b)return;var bp=[[359,'320-359'],[393,'360-393'],[402,'394-402'],[440,'403-440'],[540,'441-540'],[840,'541-840'],[950,'841-950'],[1140,'951-1140'],[1380,'1141-1380'],[1e9,'1381+']];function u(){var w=window.innerWidth,h=window.innerHeight,r='';for(var i=0;i<bp.length;i++){if(w<=bp[i][0]){r=bp[i][1];break}}b.textContent=w+' × '+h+'  ['+r+']'}u();window.addEventListener('resize',u)})();</script>
+<!-- /DEV ONLY -->
+</body>
+</html>
